@@ -3,195 +3,546 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ecosistema Causal Personal</title>
+    <title>Mapa Causal Interactivo Personalizado</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
     <style>
+        /* --- Sistema de Diseño y Paleta de Colores (Basado en Manual de Identidad y UI/UX) --- */
         :root {
-            --nodo-critico: #FF4444;
-            --nodo-optimizado: #00CC44;
-            --boton-cta: #2196F3;
-            --background: #f5f5f5;
+            [cite_start]/* Paleta de Marca Principal [cite: 60] */
+            --color-verde-regenerativo: #4A7C59;
+            --color-negro-profundo: #1A1A1A;
+            --color-gris-neutro: #F2F2F2;
+
+            [cite_start]/* Paleta UI/UX para Componentes [cite: 14] */
+            --color-nodo-critico: #FF4444;
+            --color-nodo-optimizado: #00CC44;
+            --color-boton-cta: #2196F3;
+            
+            [cite_start]/* Tipografía [cite: 62, 63, 64] */
+            --font-principal: 'Montserrat', sans-serif;
+            --font-titulos: 'Montserrat', sans-serif;
+            --line-height-base: 1.5;
         }
-        
-        * {
-            box-sizing: border-box;
-            font-family: 'Segoe UI', sans-serif;
-        }
-        
+
+        /* --- Estilos Globales y Responsive --- */
         body {
+            font-family: var(--font-principal);
+            background-color: var(--color-gris-neutro);
+            color: var(--color-negro-profundo);
             margin: 0;
             padding: 20px;
-            background: var(--background);
-        }
-        
-        .container {
-            max-width: 800px;
-            margin: 0 auto;
-            background: white;
-            padding: 20px;
-            border-radius: 10px;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-        }
-        
-        .pregunta {
-            display: none;
-            padding: 20px;
-        }
-        
-        .pregunta.active {
-            display: block;
-        }
-        
-        .opcion {
-            display: block;
-            width: 100%;
-            padding: 15px;
-            margin: 10px 0;
-            border: 2px solid #ddd;
-            border-radius: 5px;
-            cursor: pointer;
-            transition: all 0.3s;
-        }
-        
-        .opcion:hover {
-            border-color: var(--boton-cta);
-        }
-        
-        #mapa-causal {
-            margin: 20px 0;
-            padding: 20px;
-            border: 2px dashed #ccc;
-            min-height: 300px;
-        }
-        
-        .nodo {
-            display: inline-block;
-            padding: 10px 20px;
-            margin: 5px;
-            border-radius: 20px;
-            cursor: pointer;
-            transition: transform 0.3s;
-        }
-        
-        .nodo.critico {
-            background: var(--nodo-critico);
-            color: white;
-        }
-        
-        .nodo.optimizado {
-            background: var(--nodo-optimizado);
-            color: white;
-        }
-        
-        .boton-cta {
-            display: block;
-            width: 100%;
-            padding: 15px;
-            background: var(--boton-cta);
-            color: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            line-height: var(--line-height-base);
             text-align: center;
-            text-decoration: none;
-            border-radius: 5px;
-            margin: 20px 0;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 600px;
+            background-color: #FFFFFF;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+        }
+
+        h1, h2 {
+            font-family: var(--font-titulos);
+            font-weight: 700;
+            color: var(--color-verde-regenerativo);
+        }
+
+        p {
+            margin-bottom: 20px;
+            color: #333;
         }
         
+        /* --- Botones --- */
+        .btn {
+            display: inline-block;
+            padding: 12px 25px;
+            border-radius: 8px;
+            border: none;
+            font-family: var(--font-principal);
+            font-weight: 700;
+            font-size: 16px;
+            cursor: pointer;
+            text-decoration: none;
+            color: white;
+            transition: transform 0.2s ease, background-color 0.2s ease;
+            margin: 10px 5px;
+        }
+        .btn:hover {
+            transform: scale(1.05);
+        }
+
+        .btn-primary {
+            background-color: var(--color-boton-cta); [cite_start]/* [cite: 14] */
+        }
+        .btn-secondary {
+            background-color: var(--color-verde-regenerativo);
+        }
+        .btn-premium {
+             background: linear-gradient(to right, #F4A261, #E76F51); [cite_start]/* [cite: 178] */
+        }
+
+        /* --- Estructura de las Pantallas (Intro, Quiz, Resultados) --- */
+        .screen { display: none; }
+        .screen.active { display: block; }
+        
+        /* --- Pantalla del Cuestionario --- */
+        #quiz-screen {
+            text-align: left;
+        }
+
+        #progress-bar-container {
+            width: 100%;
+            background-color: #e0e0e0;
+            border-radius: 5px;
+            margin-bottom: 20px;
+        }
+        #progress-bar {
+            width: 0%;
+            height: 10px;
+            background-color: var(--color-verde-regenerativo);
+            border-radius: 5px;
+            transition: width 0.3s ease-in-out;
+        }
+        #progress-text {
+            text-align: center;
+            margin-top: 5px;
+            font-size: 14px;
+            color: #555;
+        }
+        
+        .question-title {
+            font-size: 1.2rem;
+            font-weight: 700;
+            margin-bottom: 25px;
+        }
+
+        .options-container button {
+            display: block;
+            width: 100%;
+            background-color: #f9f9f9;
+            color: var(--color-negro-profundo);
+            border: 1px solid #ddd;
+            padding: 15px;
+            margin-bottom: 10px;
+            border-radius: 8px;
+            text-align: left;
+            cursor: pointer;
+            transition: background-color 0.2s, border-color 0.2s;
+        }
+
+        .options-container button:hover {
+            background-color: #e9f5e9;
+            border-color: var(--color-verde-regenerativo);
+        }
+
+        /* --- Pantalla de Resultados --- */
+        #results-screen h2 {
+            margin-bottom: 15px;
+        }
+        .results-summary {
+            background-color: #f8f9fa;
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            border: 1px solid #e0e0e0;
+        }
+        .results-summary p {
+            margin-bottom: 10px;
+        }
+        .results-summary strong {
+            color: var(--color-nodo-critico);
+        }
+        
+        .premium-cta {
+            background-color: #fff9e6;
+            border: 1px solid #ffe58f;
+            padding: 20px;
+            border-radius: 8px;
+            margin-top: 25px;
+        }
+        .premium-cta h3 {
+            color: #d48806;
+            margin-top: 0;
+        }
+
+        /* --- Diseño Responsive --- */
         @media (max-width: 600px) {
-            .container {
+            body {
                 padding: 10px;
+            }
+            .container {
+                padding: 20px;
             }
         }
     </style>
 </head>
 <body>
+
     <div class="container">
-        <!-- Calculadora -->
-        <div id="calculadora">
-            <div class="pregunta active" data-id="CP1">
-                <h3>¿Sentís que 'nunca es suficiente'? (Validado en Argentina)</h3>
-                <button class="opcion" onclick="responder(1)">Nunca</button>
-                <button class="opcion" onclick="responder(2)">Raramente</button>
-                <button class="opcion" onclick="responder(3)">A veces</button>
-                <button class="opcion" onclick="responder(4)">Frecuentemente</button>
-                <button class="opcion" onclick="responder(5)">Constantemente</button>
-            </div>
-            
-            <div class="pregunta" data-id="CP2">
-                <h3>¿Te echás la culpa vos mismo? (Estudio: 58% millennials)</h3>
-                <button class="opcion" onclick="responder(1)">Sí, siempre</button>
-                <button class="opcion" onclick="responder(2)">A menudo</button>
-                <button class="opcion" onclick="responder(3)">Ocasionalmente</button>
-                <button class="opcion" onclick="responder(4)">Raramente</button>
-                <button class="opcion" onclick="responder(5)">Nunca</button>
-            </div>
-            
-            <div id="progreso">Pregunta 1/2</div>
+
+        <div id="start-screen" class="screen active">
+            <h1>Mapa Causal Personalizado</h1>
+            [cite_start]<p>"Cultiva tu claridad, transforma tu entorno." [cite: 75, 150]</p>
+            [cite_start]<p>Este diagnóstico está diseñado para jóvenes profesionales (25-40 años) en Latinoamérica [cite: 1] para identificar bucles tóxicos en tu vida. Te tomará unos 5 minutos.</p>
+            <button id="start-btn" class="btn btn-primary">Comenzar Diagnóstico</button>
         </div>
 
-        <!-- Mapa Causal -->
-        <div id="mapa-causal">
-            <div class="nodo critico" onclick="toggleNodo(this)">Crecimiento Perpetuo</div>
-            <div class="nodo critico" onclick="toggleNodo(this)">Imaginario Neoliberal</div>
-            <div class="nodo optimizado" onclick="toggleNodo(this)">Equilibrio</div>
+        <div id="quiz-screen" class="screen">
+            <div id="progress-bar-container">
+                <div id="progress-bar"></div>
+            </div>
+            <div id="progress-text"></div>
+            
+            <h2 id="question-title" class="question-title"></h2>
+            <div id="options-container" class="options-container"></div>
         </div>
 
-        <!-- WhatsApp CTA -->
-        <a href="https://wa.me/123456789?text=START" class="boton-cta">
-            ¡Unirme al grupo de bienestar! 📱
-        </a>
+        <div id="results-screen" class="screen">
+            <h2>Tu Diagnóstico Sistémico</h2>
+            <div class="results-summary">
+                <p>Tu análisis está completo. Basado en tus respuestas, hemos identificado los siguientes patrones.</p>
+                [cite_start]<p>Tu "Índice de Hambre Sistémica" [cite: 10, 12] es <strong id="hambre-sistemica-level"></strong>, indicando un desequilibrio entre tus deseos individuales y las necesidades de los sistemas de los que formas parte.</p>
+            </div>
+            
+            <canvas id="results-chart" width="400" height="400"></canvas>
+            
+            <p>Puedes descargar un reporte simplificado en PDF con tus resultados.</p>
+            <button id="pdf-btn" class="btn btn-secondary">Descargar Reporte PDF</button>
 
-        <!-- Reporte PDF (oculto) -->
-        <div id="reporte" style="display:none">
-            <h2>Tu Bucle Tóxico</h2>
-            <p id="reporte-texto"></p>
+            <div class="premium-cta">
+                <h3>Desbloquea tu Potencial con el Mapa Interactivo</h3>
+                <p>La versión gratuita te da el diagnóstico. [cite_start]La versión Premium te da las herramientas de transformación. [cite: 34]</p>
+                <ul>
+                    [cite_start]<li><strong>Mapa Causal Interactivo:</strong> Manipula los nodos y observa cómo cambia tu energía vital en tiempo real. [cite: 15, 35]</li>
+                    [cite_start]<li><strong>Protocolos de Microintervenciones:</strong> Acciones diarias de 5 minutos para construir bucles virtuosos. [cite: 21, 22]</li>
+                    [cite_start]<li><strong>Herramientas avanzadas:</strong> Como el Mapeo de Interdependencias y la Auditoría Energética. [cite: 19, 20]</li>
+                </ul>
+                <a href="https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=YOUR_PAYPAL_BUTTON_ID" target="_blank" class="btn btn-premium">Actualizar a Premium por $19.99 USD</a>
+                [cite_start]<p><small>Precio especial de lanzamiento en Argentina: $15 USD. [cite: 17]</small></p>
+            </div>
+            
+            <div class="whatsapp-cta">
+                 <h3>Únete a la Comunidad</h3>
+                 <p>Conecta con otros navegantes sistémicos en nuestro grupo de WhatsApp para compartir experiencias y apoyo.</p>
+                 [cite_start]<a href="https://wa.me/1123456789?text=Hola!%20Quiero%20unirme%20al%20grupo%20'Bienestar%20Argentina'" target="_blank" class="btn btn-secondary">Unirme al grupo de bienestar [cite: 17]</a>
+            </div>
+
         </div>
     </div>
 
-    <script>
-        let respuestas = {};
-        let indicePregunta = 0;
-        const preguntas = document.querySelectorAll('.pregunta');
-        
-        function responder(valor) {
-            const preguntaActual = preguntas[indicePregunta];
-            const id = preguntaActual.dataset.id;
-            respuestas[id] = valor;
-            
-            indicePregunta++;
-            if(indicePregunta < preguntas.length) {
-                actualizarProgreso();
-                mostrarSiguientePregunta();
-            } else {
-                generarReporte();
+<script>
+// For jsPDF to work correctly
+window.jsPDF = window.jspdf.jsPDF;
+
+// ===== BASE DE DATOS DE PREGUNTAS (Adaptadas para Argentina) =====
+// Basado en el framework de investigación, priorizando las traducciones validadas.
+const questions = [
+    {
+        node: "crecimiento_perpetuo",
+        [cite_start]text: "¿Sentís que 'nunca es suficiente' en tu trabajo o proyectos personales? [cite: 2]",
+        type: "likert",
+        options: ["Nunca", "Raramente", "A veces", "Frecuentemente", "Constantemente"],
+        [cite_start]scores: [1, 2, 3, 4, 5] // [cite: 4]
+    },
+    {
+        node: "imaginario_neoliberal",
+        [cite_start]text: "Cuando enfrentás una dificultad profesional, ¿cuál es tu primera reacción? (¿Te echás la culpa vos mismo?) [cite: 5, 7]",
+        type: "multiple_choice",
+        options: [
+            "Me culpo a mí mismo y mi falta de capacidad.",
+            "Pido ayuda a mi red de contactos.",
+            "Analizo cómo el sistema o la organización influyeron.",
+            "Busco un equilibrio entre mi responsabilidad y los factores externos."
+        ],
+        [cite_start]scores: [5, 2, 1, 3] // Puntuación más alta para la auto-culpa [cite: 5]
+    },
+    {
+        node: "equilibrio_trabajo_vida",
+        text: "Al final del día, ¿con qué frecuencia sentís que tu energía está completamente drenada por el trabajo?",
+        type: "likert",
+        options: ["Nunca", "Raramente", "A veces", "Frecuentemente", "Casi todos los días"],
+        scores: [1, 2, 3, 4, 5]
+    },
+    {
+        node: "proposito_colectivo",
+        text: "¿Qué te motiva más en tu carrera?",
+        type: "multiple_choice",
+        options: [
+            [cite_start]"El éxito personal y los ingresos.", // [cite: 11]
+            "El crecimiento y aprendizaje continuo.",
+            [cite_start]"Tener un impacto positivo en mi comunidad o equipo.", // [cite: 11]
+            "Lograr un equilibrio que me de paz mental."
+        ],
+        scores: [5, 4, 1, 2] // Puntuación más alta para el deseo individualista
+    },
+    {
+        node: "interdependencia",
+        text: "“Para lograr mis metas, dependo principalmente de mi propio esfuerzo, sin necesitar a otros”. ¿Qué tan de acuerdo estás?",
+        type: "likert",
+        options: ["Totalmente en desacuerdo", "En desacuerdo", "Neutral", "De acuerdo", "Totalmente de acuerdo"],
+        [cite_start]scores: [1, 2, 3, 4, 5] // [cite: 11]
+    },
+    {
+        node: "antinutrientes_sistemicos",
+        text: "¿Con qué frecuencia realizas multitarea (multitasking) durante tu jornada laboral?",
+        type: "likert",
+        options: ["Casi nunca", "Pocas veces", "A veces", "Con bastante frecuencia", "Constantemente"],
+        [cite_start]scores: [1, 2, 3, 4, 5] // Multitarea como antinutriente [cite: 33, 36]
+    },
+    {
+        node: "dialogo_interno",
+        text: "Cuando cometes un error, tu diálogo interno tiende a ser...",
+        type: "multiple_choice",
+        options: [
+            "Crítico y duro.",
+            "Lo ignoro y sigo adelante.",
+            "Analítico para aprender de él.",
+            "Compasivo y comprensivo." [cite_start]// [cite: 26]
+        ],
+        scores: [5, 4, 2, 1]
+    },
+    {
+        node: "crecimiento_perpetuo",
+        text: "La idea de tomarme un descanso largo sin 'producir' nada me genera...",
+        type: "multiple_choice",
+        options: [
+            "Ansiedad y culpa.",
+            "Un poco de incomodidad.",
+            "Indiferencia.",
+            "Alivio y alegría."
+        ],
+        scores: [5, 4, 2, 1]
+    },
+    {
+        node: "imaginario_neoliberal",
+        text: "“El éxito es una medida directa del mérito y el esfuerzo individual”. ¿Qué tan de acuerdo estás?",
+        type: "likert",
+        options: ["Totalmente en desacuerdo", "En desacuerdo", "Neutral", "De acuerdo", "Totalmente de acuerdo"],
+        [cite_start]scores: [1, 2, 3, 4, 5] // Creencia en meritocracia [cite: 5]
+    },
+    {
+        node: "interdependencia",
+        text: "Para resolver un problema complejo, prefiero...",
+        type: "multiple_choice",
+        options: [
+            "Trabajar solo para mantener el control.",
+            "Consultar a un experto y seguir sus directrices.",
+            [cite_start]"Colaborar y co-crear una solución en equipo.", // [cite: 32]
+            "Buscar una solución rápida ya existente."
+        ],
+        scores: [5, 3, 1, 4]
+    }
+];
+
+// ===== LÓGICA DEL CUESTIONARIO =====
+const startScreen = document.getElementById('start-screen');
+const quizScreen = document.getElementById('quiz-screen');
+const resultsScreen = document.getElementById('results-screen');
+const startBtn = document.getElementById('start-btn');
+const questionTitle = document.getElementById('question-title');
+const optionsContainer = document.getElementById('options-container');
+const progressBar = document.getElementById('progress-bar');
+const progressText = document.getElementById('progress-text');
+const pdfBtn = document.getElementById('pdf-btn');
+
+let currentQuestionIndex = 0;
+let scores = {};
+
+// Inicializar scores
+const nodes = [...new Set(questions.map(q => q.node))];
+nodes.forEach(node => {
+    scores[node] = { totalScore: 0, count: 0 };
+});
+
+startBtn.addEventListener('click', startQuiz);
+pdfBtn.addEventListener('click', generatePDF);
+
+function startQuiz() {
+    currentQuestionIndex = 0;
+    nodes.forEach(node => {
+        scores[node] = { totalScore: 0, count: 0 };
+    });
+    startScreen.classList.remove('active');
+    quizScreen.classList.add('active');
+    showQuestion();
+}
+
+function showQuestion() {
+    const question = questions[currentQuestionIndex];
+    questionTitle.textContent = question.text;
+    optionsContainer.innerHTML = '';
+
+    question.options.forEach((option, index) => {
+        const button = document.createElement('button');
+        button.textContent = option;
+        button.onclick = () => selectAnswer(question.node, question.scores[index]);
+        optionsContainer.appendChild(button);
+    });
+    
+    [cite_start]// Layout progresivo (1 pregunta por pantalla) [cite: 14]
+    updateProgress();
+}
+
+function updateProgress() {
+    const progress = ((currentQuestionIndex) / questions.length) * 100;
+    progressBar.style.width = `${progress}%`;
+    progressText.textContent = `Pregunta ${currentQuestionIndex + 1} de ${questions.length}`;
+}
+
+function selectAnswer(node, score) {
+    scores[node].totalScore += score;
+    scores[node].count += 1;
+    currentQuestionIndex++;
+
+    if (currentQuestionIndex < questions.length) {
+        showQuestion();
+    } else {
+        showResults();
+    }
+}
+
+function showResults() {
+    quizScreen.classList.remove('active');
+    resultsScreen.classList.add('active');
+
+    // Calcular promedios
+    let finalScores = {};
+    let totalScoreSum = 0;
+    let totalQuestionCount = 0;
+    nodes.forEach(node => {
+        finalScores[node] = (scores[node].totalScore / (scores[node].count * 5)) * 100; // Normalizar a 100
+        totalScoreSum += scores[node].totalScore;
+        totalQuestionCount += scores[node].count;
+    });
+
+    [cite_start]// Calcular Índice de Hambre Sistémica [cite: 12]
+    const averageScore = (totalScoreSum / (totalQuestionCount * 5)) * 10;
+    let hambreLevel = "Moderado (Equilibrio inestable)";
+    if (averageScore <= 3) hambreLevel = "Bajo (Dominio de deseos individuales)";
+    if (averageScore >= 8) hambreLevel = "Alto (Prioridad a necesidades sistémicas)";
+    document.getElementById('hambre-sistemica-level').textContent = hambreLevel;
+    
+    // Renderizar Gráfico (Chart.js)
+    const ctx = document.getElementById('results-chart').getContext('2d');
+    new Chart(ctx, {
+        type: 'radar',
+        data: {
+            labels: Object.keys(finalScores).map(l => l.replace(/_/g, ' ').replace(/\b\w/g, c => c.toUpperCase())),
+            datasets: [{
+                label: 'Nivel de Criticidad del Nodo (%)',
+                data: Object.values(finalScores),
+                fill: true,
+                [cite_start]backgroundColor: 'rgba(255, 68, 68, 0.2)', // [cite: 14]
+                [cite_start]borderColor: 'rgb(255, 68, 68)', // [cite: 14]
+                pointBackgroundColor: 'rgb(255, 68, 68)',
+                pointBorderColor: '#fff',
+                pointHoverBackgroundColor: '#fff',
+                pointHoverBorderColor: 'rgb(255, 68, 68)'
+            }]
+        },
+        options: {
+            responsive: true,
+            maintainAspectRatio: true,
+            scales: {
+                r: {
+                    angleLines: {
+                        display: false
+                    },
+                    suggestedMin: 0,
+                    suggestedMax: 100
+                }
+            },
+            plugins: {
+                legend: {
+                    position: 'top',
+                },
+                title: {
+                    display: true,
+                    text: 'Visualización de Nodos Críticos'
+                }
             }
         }
+    });
+}
+
+function generatePDF() {
+    const doc = new jsPDF();
+    const finalScores = getFinalScores();
+
+    // Título y branding
+    doc.setFont('helvetica', 'bold');
+    doc.setFontSize(18);
+    doc.setTextColor(40, 107, 83); // Verde Regenerativo aproximado
+    doc.text("Reporte de Diagnóstico Sistémico", 105, 20, null, null, 'center');
+    
+    doc.setFontSize(12);
+    doc.setFont('helvetica', 'normal');
+    doc.setTextColor(26, 26, 26); // Negro Profundo
+    doc.text(`"Tu patrón de crecimiento perpetuo está en nivel crítico"`, 105, 30, null, null, 'center'); [cite_start]// [cite: 34]
+    
+    // Resultados
+    doc.setFontSize(14);
+    doc.setFont('helvetica', 'bold');
+    doc.text("Resumen de Nodos Críticos:", 14, 50);
+    
+    let yPos = 60;
+    Object.entries(finalScores).forEach(([node, score]) => {
+        const nodeName = node.replace(/_/g, ' ').replace(/\b\w/g, c => c.toUpperCase());
+        const scoreText = `${nodeName}: ${score.toFixed(1)}% de criticidad`;
         
-        function mostrarSiguientePregunta() {
-            preguntas.forEach(pregunta => pregunta.classList.remove('active'));
-            preguntas[indicePregunta].classList.add('active');
-        }
+        doc.setFontSize(12);
+        doc.setFont('helvetica', 'normal');
+        doc.setTextColor(0, 0, 0);
+        doc.text(scoreText, 14, yPos);
         
-        function actualizarProgreso() {
-            document.getElementById('progreso').textContent = 
-                `Pregunta ${indicePregunta + 1}/${preguntas.length}`;
-        }
+        // Barra de criticidad visual
+        doc.setFillColor(224, 224, 224);
+        doc.rect(14, yPos + 2, 100, 5, 'F');
+        [cite_start]doc.setFillColor(255, 68, 68); // Rojo Crítico [cite: 14]
+        doc.rect(14, yPos + 2, score, 5, 'F');
         
-        function generarReporte() {
-            const total = Object.values(respuestas).reduce((a, b) => a + b, 0);
-            const nivel = total > 7 ? 'Crítico' : 'Moderado';
-            
-            document.getElementById('reporte-texto').innerHTML = `
-                <p>Puntuación total: ${total}/10</p>
-                <p>Nivel de toxicidad: ${nivel}</p>
-                <p>Recomendación: Integra 15 min de naturaleza en tu rutina</p>
-            `;
-            
-            // Mostrar reporte
-            document.getElementById('reporte').style.display = 'block';
-        }
-        
-        function toggleNodo(nodo) {
-            nodo.classList.toggle('optimizado');
-            nodo.classList.toggle('critico');
-        }
-    </script>
+        yPos += 20;
+    });
+
+    // CTA a Premium en el PDF
+    doc.setFillColor(242, 242, 242); [cite_start]// Gris Neutro [cite: 60]
+    doc.rect(14, yPos + 10, 182, 40, 'F');
+    doc.setFontSize(12);
+    doc.setFont('helvetica', 'bold');
+    doc.setTextColor(40, 107, 83);
+    doc.text("¿Y ahora qué? Transforma estos datos en acción.", 105, yPos + 20, null, null, 'center');
+    doc.setFontSize(10);
+    doc.setFont('helvetica', 'normal');
+    doc.setTextColor(0, 0, 0);
+    doc.text("Actualiza a Premium para obtener tu Mapa Causal Interactivo y protocolos de acción.", 105, yPos + 30, null, null, 'center');
+    doc.text("Visita nuestro sitio para desbloquear tus herramientas.", 105, yPos + 35, null, null, 'center');
+    
+    doc.save("Reporte_Bienestar_Sistemico.pdf");
+}
+
+function getFinalScores() {
+    let finalScores = {};
+    nodes.forEach(node => {
+        finalScores[node] = (scores[node].totalScore / (scores[node].count * 5)) * 100;
+    });
+    return finalScores;
+}
+
+</script>
+
 </body>
 </html>
