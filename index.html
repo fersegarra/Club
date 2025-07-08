@@ -3,582 +3,192 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mapa Causal Interactivo Personalizado</title>
-    
+    <title>Generador de Infografía Personal</title>
+    <script src="https://cdn.tailwindcss.com"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
-    
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
     <style>
-        /* --- Sistema de Diseño (Basado en Manual de Identidad v1) --- */
-        :root {
-            /* Paleta de Marca Principal */
-            --color-verde-regenerativo: #4A7C59;
-            --color-azul-claridad: #3B5998;
-            --color-gris-neutro: #F2F2F2;
-            --color-negro-profundo: #1A1A1A;
-
-            /* Paleta UI/UX para Componentes */
-            --color-nodo-critico: #D9534F; /* Rojo para criticidad */
-            --color-nodo-optimizado: #5CB85C; /* Verde para optimización */
-            --color-boton-cta: var(--color-azul-claridad);
-            
-            /* Tipografía */
-            --font-principal: 'Montserrat', sans-serif;
-            --line-height-base: 1.6;
-        }
-
-        /* --- Estilos Globales y Responsive --- */
         body {
-            font-family: var(--font-principal);
-            background-color: var(--color-gris-neutro);
-            color: var(--color-negro-profundo);
-            margin: 0;
-            padding: 20px;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            min-height: 100vh;
-            line-height: var(--line-height-base);
-            text-align: center;
+            font-family: 'Inter', sans-serif;
         }
-
-        .container {
-            width: 100%;
-            max-width: 650px;
-            background-color: #FFFFFF;
-            padding: 30px;
-            border-radius: 12px;
-            box-shadow: 0 6px 25px rgba(0,0,0,0.08);
+        /* Animación para la aparición de elementos */
+        .fade-in {
+            animation: fadeIn 0.5s ease-in-out;
         }
-
-        h1, h2, h3 {
-            font-weight: 700;
-            color: var(--color-verde-regenerativo);
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
         }
-
-        p {
-            margin-bottom: 20px;
-            color: #333;
-            font-size: 1.1rem;
-        }
-        
-        /* --- Botones --- */
-        .btn {
-            display: inline-block;
-            padding: 14px 28px;
-            border-radius: 8px;
-            border: none;
-            font-weight: 700;
-            font-size: 16px;
-            cursor: pointer;
-            text-decoration: none;
-            color: white;
-            transition: transform 0.2s ease, box-shadow 0.2s ease;
-            margin: 10px 5px;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-        }
-        .btn:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 4px 10px rgba(0,0,0,0.15);
-        }
-
-        .btn-primary {
-            background-color: var(--color-boton-cta);
-        }
-        .btn-secondary {
-            background-color: var(--color-verde-regenerativo);
-        }
-        .btn-premium {
-             background: linear-gradient(45deg, #4A7C59, #3B5998);
-        }
-        .btn-whatsapp {
-            background-color: #25D366;
-        }
-        .btn-paypal {
-            background-color: #00457C;
-        }
-
-        /* --- Estructura de las Pantallas --- */
-        .screen { display: none; }
-        .screen.active { display: block; }
-        
-        /* --- Pantalla del Cuestionario --- */
-        #quiz-screen {
-            text-align: left;
-        }
-
-        #progress-container {
-            margin-bottom: 25px;
-        }
-        #progress-bar-container {
-            width: 100%;
-            background-color: #e0e0e0;
-            border-radius: 5px;
-        }
-        #progress-bar {
-            width: 0%;
-            height: 12px;
-            background-color: var(--color-verde-regenerativo);
-            border-radius: 5px;
-            transition: width 0.4s ease-in-out;
-        }
-        #progress-text {
-            text-align: center;
-            margin-top: 8px;
-            font-size: 14px;
-            font-weight: 700;
-            color: #555;
-        }
-        
-        .question-title {
-            font-size: 1.4rem;
-            margin-bottom: 25px;
-            color: var(--color-negro-profundo);
-        }
-
-        .options-container button {
-            display: block;
-            width: 100%;
-            background-color: #f9f9f9;
-            color: var(--color-negro-profundo);
-            border: 2px solid #ddd;
-            padding: 15px;
-            margin-bottom: 10px;
-            border-radius: 8px;
-            text-align: left;
-            cursor: pointer;
-            transition: background-color 0.2s, border-color 0.2s, transform 0.2s;
-            font-size: 1rem;
-        }
-
-        .options-container button:hover {
-            background-color: #e9f5e9;
-            border-color: var(--color-verde-regenerativo);
-            transform: translateX(5px);
-        }
-
-        /* --- Pantalla de Resultados y Mapa Causal --- */
-        .results-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 20px;
-            margin-bottom: 25px;
-        }
-
-        .results-summary, .mapa-causal {
-            background-color: #f8f9fa;
-            padding: 20px;
-            border-radius: 8px;
-            border: 1px solid #e0e0e0;
-        }
-        .results-summary strong {
-            color: var(--color-nodo-critico);
-        }
-        #perfil-sistemico {
-            color: var(--color-azul-claridad);
-            font-weight: bold;
-        }
-        
-        .mapa-causal h3 {
-            margin-top: 0;
-        }
-        .energia-vital {
-            font-size: 1.5rem;
-            font-weight: 700;
-            color: var(--color-nodo-optimizado);
-        }
-        .nodo {
-            padding: 10px;
-            margin: 10px 0;
-            border-radius: 5px;
-            color: white;
-            cursor: pointer;
-            transition: opacity 0.3s;
-        }
-        .nodo.critico { background-color: var(--color-nodo-critico); }
-        .nodo.optimizado { background-color: var(--color-nodo-optimizado); opacity: 0.5; }
-
-        /* --- Secciones de CTA --- */
-        .cta-section {
-            background-color: #fff9e6;
-            border: 1px solid #ffe58f;
-            padding: 25px;
-            border-radius: 8px;
-            margin-top: 30px;
-        }
-        .cta-section h3 {
-            color: #d48806;
-            margin-top: 0;
-        }
-        .cta-section ul {
-            text-align: left;
-            list-style-position: inside;
-        }
-
-        /* --- Diseño Responsive --- */
-        @media (max-width: 600px) {
-            body {
-                padding: 10px;
-            }
-            .container {
-                padding: 20px;
-            }
-            .results-grid {
-                grid-template-columns: 1fr;
-            }
+        /* Estilo para las barras de la infografía */
+        .progress-bar {
+            transition: width 0.8s ease-in-out;
         }
     </style>
 </head>
-<body>
+<body class="bg-slate-100 flex items-center justify-center min-h-screen p-4">
 
-    <div class="container">
-
-        <div id="start-screen" class="screen active">
-            <h1>Mapa Causal Personalizado</h1>
-            <p>"Cultiva tu claridad, transforma tu entorno."</p>
-            <p>Realiza este diagnóstico de 10 preguntas para identificar los bucles tóxicos en tu vida y recibir un mapa de acción personalizado. Te tomará unos 5 minutos.</p>
-            <button id="start-btn" class="btn btn-primary">Comenzar Diagnóstico Gratuito</button>
-        </div>
-
-        <div id="quiz-screen" class="screen">
-            <div id="progress-container">
-                <div id="progress-text"></div>
-                <div id="progress-bar-container">
-                    <div id="progress-bar"></div>
-                </div>
-            </div>
+    <main class="bg-white rounded-2xl shadow-xl w-full max-w-2xl overflow-hidden">
+        
+        <!-- Contenedor del Cuestionario -->
+        <div id="quiz-container" class="p-8 md:p-12 fade-in">
+            <h1 class="text-2xl md:text-3xl font-bold text-slate-800 mb-2">Descubre tu Perfil de Bienestar</h1>
+            <p class="text-slate-600 mb-8">Responde estas preguntas para generar una infografía sobre tus hábitos.</p>
             
-            <h2 id="question-title" class="question-title"></h2>
-            <div id="options-container" class="options-container"></div>
-        </div>
-
-        <div id="results-screen" class="screen">
-            <h2>Tu Diagnóstico Sistémico</h2>
-            
-            <div class="results-grid">
-                <div class="results-summary">
-                    <h3>Tu Perfil</h3>
-                    <p>Tu perfil sistémico es: <strong id="perfil-sistemico"></strong>.</p>
-                    <p>Tu "Índice de Hambre Sistémica" es <strong id="hambre-sistemica-level"></strong>, lo que indica el balance entre tus deseos individuales y las necesidades de tu entorno.</p>
-                    <p>A continuación, tu reporte simplificado. Para un análisis profundo y herramientas interactivas, considera la versión Premium.</p>
-                    <button id="pdf-btn" class="btn btn-secondary">Descargar Reporte PDF</button>
+            <form id="quiz-form" class="space-y-8">
+                <!-- Pregunta 1 -->
+                <div>
+                    <label class="block text-lg font-semibold text-slate-700 mb-3">1. ¿Cuántas horas sueles dormir por noche?</label>
+                    <div class="space-y-2">
+                        <label class="flex items-center p-3 border rounded-lg hover:bg-slate-50 cursor-pointer">
+                            <input type="radio" name="sleep" value="20" class="h-4 w-4 text-blue-600 border-gray-300 focus:ring-blue-500">
+                            <span class="ml-3 text-slate-700">Menos de 6 horas</span>
+                        </label>
+                        <label class="flex items-center p-3 border rounded-lg hover:bg-slate-50 cursor-pointer">
+                            <input type="radio" name="sleep" value="70" class="h-4 w-4 text-blue-600 border-gray-300 focus:ring-blue-500">
+                            <span class="ml-3 text-slate-700">Entre 6 y 7 horas</span>
+                        </label>
+                        <label class="flex items-center p-3 border rounded-lg hover:bg-slate-50 cursor-pointer">
+                            <input type="radio" name="sleep" value="100" class="h-4 w-4 text-blue-600 border-gray-300 focus:ring-blue-500">
+                            <span class="ml-3 text-slate-700">7 horas o más</span>
+                        </label>
+                    </div>
                 </div>
 
-                <div class="mapa-causal">
-                    <h3>Mapa Causal (Demo)</h3>
-                    <p>Tu energía vital actual: <span id="energia-vital" class="energia-vital">50%</span></p>
-                    <p>Interactúa con tus nodos críticos para ver cómo cambia tu energía. En la versión Premium, estas acciones desbloquean protocolos de cambio.</p>
-                    <div id="mapa-nodos">
-                        </div>
+                <!-- Pregunta 2 -->
+                <div>
+                    <label class="block text-lg font-semibold text-slate-700 mb-3">2. ¿Con qué frecuencia haces ejercicio?</label>
+                    <div class="space-y-2">
+                        <label class="flex items-center p-3 border rounded-lg hover:bg-slate-50 cursor-pointer">
+                            <input type="radio" name="exercise" value="20" class="h-4 w-4 text-blue-600 border-gray-300 focus:ring-blue-500">
+                            <span class="ml-3 text-slate-700">Casi nunca</span>
+                        </label>
+                        <label class="flex items-center p-3 border rounded-lg hover:bg-slate-50 cursor-pointer">
+                            <input type="radio" name="exercise" value="60" class="h-4 w-4 text-blue-600 border-gray-300 focus:ring-blue-500">
+                            <span class="ml-3 text-slate-700">1-2 veces por semana</span>
+                        </label>
+                        <label class="flex items-center p-3 border rounded-lg hover:bg-slate-50 cursor-pointer">
+                            <input type="radio" name="exercise" value="100" class="h-4 w-4 text-blue-600 border-gray-300 focus:ring-blue-500">
+                            <span class="ml-3 text-slate-700">3 o más veces por semana</span>
+                        </label>
+                    </div>
                 </div>
+
+                <!-- Pregunta 3 -->
+                <div>
+                    <label class="block text-lg font-semibold text-slate-700 mb-3">3. ¿Cómo describirías tu alimentación?</label>
+                    <div class="space-y-2">
+                        <label class="flex items-center p-3 border rounded-lg hover:bg-slate-50 cursor-pointer">
+                            <input type="radio" name="food" value="30" class="h-4 w-4 text-blue-600 border-gray-300 focus:ring-blue-500">
+                            <span class="ml-3 text-slate-700">Mucha comida procesada</span>
+                        </label>
+                        <label class="flex items-center p-3 border rounded-lg hover:bg-slate-50 cursor-pointer">
+                            <input type="radio" name="food" value="70" class="h-4 w-4 text-blue-600 border-gray-300 focus:ring-blue-500">
+                            <span class="ml-3 text-slate-700">Balanceada, con algunos caprichos</span>
+                        </label>
+                        <label class="flex items-center p-3 border rounded-lg hover:bg-slate-50 cursor-pointer">
+                            <input type="radio" name="food" value="100" class="h-4 w-4 text-blue-600 border-gray-300 focus:ring-blue-500">
+                            <span class="ml-3 text-slate-700">Muy saludable y natural</span>
+                        </label>
+                    </div>
+                </div>
+
+                <button id="submit-btn" type="button" class="w-full bg-blue-600 text-white font-bold py-3 px-4 rounded-lg hover:bg-blue-700 focus:outline-none focus:ring-4 focus:ring-blue-300 transition-all duration-300 text-lg">
+                    ¡Generar mi Infografía!
+                </button>
+            </form>
+        </div>
+
+        <!-- Contenedor de Resultados (Infografía) -->
+        <div id="results-container" class="p-8 md:p-12 hidden">
+            <h2 class="text-2xl md:text-3xl font-bold text-slate-800 mb-2">Tu Infografía de Bienestar</h2>
+            <p class="text-slate-600 mb-8">Estos son los resultados basados en tus respuestas.</p>
+            
+            <div id="infographic" class="space-y-6">
+                <!-- Las barras se insertarán aquí con JS -->
             </div>
             
-            <canvas id="results-chart" width="400" height="250"></canvas>
-
-            <div class="cta-section">
-                <h3>Únete a la Comunidad y Apoya el Proyecto</h3>
-                <p>Conecta con otros navegantes sistémicos en nuestro canal y, si encuentras valor en esta herramienta, considera hacer una donación para apoyar su desarrollo continuo.</p>
-                <a href="https://whatsapp.com/channel/YOUR_CHANNEL_ID" target="_blank" class="btn btn-whatsapp">Unirme al Canal de WhatsApp</a>
-                <a href="https://www.paypal.com/donate/?hosted_button_id=YOUR_DONATION_BUTTON_ID" target="_blank" class="btn btn-paypal">Donar con PayPal</a>
-                <p><small>Alias para transferencias: @TuAlias</small></p>
-            </div>
-
+            <button id="reset-btn" type="button" class="mt-10 w-full bg-slate-600 text-white font-bold py-3 px-4 rounded-lg hover:bg-slate-700 focus:outline-none focus:ring-4 focus:ring-slate-300 transition-all duration-300 text-lg">
+                Volver a empezar
+            </button>
         </div>
-    </div>
 
-<script>
-// For jsPDF to work correctly
-window.jsPDF = window.jspdf.jsPDF;
+    </main>
 
-// ===== BASE DE DATOS DE PREGUNTAS (Validado y verificado) =====
-const questions = [
-    {
-        id: "CP1",
-        node: "crecimiento_perpetuo",
-        text: "¿Con qué frecuencia sientes que 'no estás haciendo suficiente', incluso después de lograr objetivos importantes?",
-        options: ["Nunca", "Raramente", "A veces", "Frecuentemente", "Constantemente"],
-        scores: [1, 2, 3, 4, 5]
-    },
-    {
-        id: "CP2",
-        node: "crecimiento_perpetuo",
-        text: "Cuando logras una meta, ¿cuánto tardas en sentir la necesidad de fijar una nueva más ambiciosa?",
-        options: ["Me permito celebrar sin presión", "Semanas", "Días", "Horas", "Inmediatamente"],
-        scores: [1, 2, 3, 4, 5]
-    },
-    {
-        id: "IN1",
-        node: "imaginario_neoliberal",
-        text: "Frente a una dificultad profesional, tu primera reacción es...",
-        options: ["Analizar el sistema y el contexto", "Buscar apoyo en mi red", "Buscar qué puedo mejorar en mí", "Culparme por no haber trabajado más duro"],
-        scores: [1, 2, 4, 5]
-    },
-    {
-        id: "IN2",
-        node: "imaginario_neoliberal",
-        text: "¿Qué tan de acuerdo estás con la frase: 'Mi éxito depende exclusivamente de mi propio esfuerzo'?",
-        options: ["Totalmente en desacuerdo", "En desacuerdo", "Neutral", "De acuerdo", "Totalmente de acuerdo"],
-        scores: [1, 2, 3, 4, 5]
-    },
-    {
-        id: "FEI1",
-        node: "falta_experiencia_interdependencia",
-        text: "Para resolver un problema complejo, prefieres...",
-        options: ["Co-crear una solución en equipo", "Consultar a un experto", "Buscar una solución rápida ya existente", "Trabajar solo/a para mantener el control"],
-        scores: [1, 2, 3, 5]
-    },
-    {
-        id: "FEI2",
-        node: "falta_experiencia_interdependencia",
-        text: "Cuando pides ayuda, te sientes...",
-        options: ["Empoderado/a y conectado/a", "Normal, es parte del proceso", "Un poco incómodo/a", "Vulnerable o incompetente"],
-        scores: [1, 2, 4, 5]
-    },
-    {
-        id: "AS1",
-        node: "antinutrientes_sistemicos",
-        text: "En un día normal, ¿con qué frecuencia revisas notificaciones (email, redes) mientras realizas otra tarea?",
-        options: ["Casi nunca", "Pocas veces", "A veces", "Con bastante frecuencia", "Constantemente"],
-        scores: [1, 2, 3, 4, 5]
-    },
-    {
-        id: "AS2",
-        node: "antinutrientes_sistemicos",
-        text: "La idea de pasar un día entero sin conexión digital te genera...",
-        options: ["Alivio y alegría", "Indiferencia", "Un poco de incomodidad", "Ansiedad y culpa (FOMO)"],
-        scores: [1, 2, 4, 5]
-    },
-    {
-        id: "DNC1",
-        node: "dicotomia_naturaleza_cultura",
-        text: "¿Cuánto tiempo pasas en contacto directo con la naturaleza (parques, campo) a la semana?",
-        options: ["Más de 3 horas", "Entre 1 y 3 horas", "Menos de 1 hora", "Casi nada", "No es una prioridad para mí"],
-        scores: [1, 2, 3, 4, 5]
-    },
-    {
-        id: "FE1",
-        node: "fragmentacion_epistemica",
-        text: "Cuando aprendes algo nuevo en un área (ej. un podcast), ¿con qué frecuencia lo conectas con otras áreas de tu vida (trabajo, relaciones)?",
-        options: ["Siempre, busco la integración", "Frecuentemente", "A veces", "Raramente", "Nunca, mantengo las cosas separadas"],
-        scores: [1, 2, 3, 4, 5]
-    }
-];
+    <script>
+        // --- DOM Elements ---
+        const quizContainer = document.getElementById('quiz-container');
+        const resultsContainer = document.getElementById('results-container');
+        const submitBtn = document.getElementById('submit-btn');
+        const resetBtn = document.getElementById('reset-btn');
+        const form = document.getElementById('quiz-form');
+        const infographicDiv = document.getElementById('infographic');
 
-// ===== LÓGICA DEL CUESTIONARIO Y RESULTADOS =====
-const startScreen = document.getElementById('start-screen');
-const quizScreen = document.getElementById('quiz-screen');
-const resultsScreen = document.getElementById('results-screen');
-const startBtn = document.getElementById('start-btn');
-const questionTitle = document.getElementById('question-title');
-const optionsContainer = document.getElementById('options-container');
-const progressBar = document.getElementById('progress-bar');
-const progressText = document.getElementById('progress-text');
-const pdfBtn = document.getElementById('pdf-btn');
-const mapaNodosContainer = document.getElementById('mapa-nodos');
-const energiaVitalSpan = document.getElementById('energia-vital');
+        // --- Logic ---
+        submitBtn.addEventListener('click', () => {
+            // Check if all questions are answered
+            const sleepValue = form.elements['sleep'].value;
+            const exerciseValue = form.elements['exercise'].value;
+            const foodValue = form.elements['food'].value;
 
-
-let currentQuestionIndex = 0;
-let userScores = {}; // Almacena {node: [scores]}
-let energiaVital = 50;
-
-startBtn.addEventListener('click', startQuiz);
-pdfBtn.addEventListener('click', generatePDF);
-
-function startQuiz() {
-    currentQuestionIndex = 0;
-    userScores = {};
-    energiaVital = 50;
-    startScreen.classList.remove('active');
-    quizScreen.classList.add('active');
-    showQuestion();
-}
-
-function showQuestion() {
-    if (currentQuestionIndex >= questions.length) {
-        showResults();
-        return;
-    }
-    
-    const question = questions[currentQuestionIndex];
-    questionTitle.textContent = question.text;
-    optionsContainer.innerHTML = '';
-
-    question.options.forEach((option, index) => {
-        const button = document.createElement('button');
-        button.textContent = option;
-        button.onclick = () => selectAnswer(question.node, question.scores[index]);
-        optionsContainer.appendChild(button);
-    });
-    
-    updateProgress();
-}
-
-function updateProgress() {
-    const progress = ((currentQuestionIndex) / questions.length) * 100;
-    progressBar.style.width = `${progress}%`;
-    progressText.textContent = `Pregunta ${currentQuestionIndex + 1} de ${questions.length}`;
-}
-
-function selectAnswer(node, score) {
-    if (!userScores[node]) {
-        userScores[node] = [];
-    }
-    userScores[node].push(score);
-    currentQuestionIndex++;
-    showQuestion();
-}
-
-function calculateResults() {
-    // 1. Calcular promedios de nodos
-    let nodeAverages = {};
-    for (const node in userScores) {
-        const scores = userScores[node];
-        const sum = scores.reduce((a, b) => a + b, 0);
-        const avg = (sum / (scores.length * 5)) * 100; // Normalizado a 100
-        nodeAverages[node] = avg;
-    }
-
-    // 2. Calcular Índice de Hambre Sistémica (IHS)
-    const ihsQuestions = ['CP1', 'IN2', 'FEI1', 'AS1', 'DNC1'];
-    const ihsScores = [];
-    questions.forEach((q, index) => {
-        if (ihsQuestions.includes(q.id)) {
-            const score = userScores[q.node].shift(); // Asume el orden
-            ihsScores.push(score);
-        }
-    });
-    const totalIHScore = ihsScores.reduce((a, b) => a + b, 0);
-    const ihsLevelScore = (totalIHScore / (ihsScores.length * 5)) * 10;
-    
-    let hambreLevel = "Moderado (Equilibrio inestable)";
-    if (ihsLevelScore <= 4) hambreLevel = "Bajo (Prioridad a necesidades sistémicas)";
-    if (ihsLevelScore > 7) hambreLevel = "Alto (Dominio de deseos individuales)";
-    
-    // 3. Determinar Perfil Sistémico
-    const totalScore = Object.values(nodeAverages).reduce((a, b) => a + b, 0) / Object.keys(nodeAverages).length;
-    let perfil = "Individualista Resistente";
-    if (totalScore < 35) perfil = "Navegador Sistémico";
-    else if (totalScore < 50) perfil = "Sistémico Emergente";
-    else if (totalScore < 65) perfil = "Individualista Curioso";
-
-    return { nodeAverages, hambreLevel, perfil };
-}
-
-function showResults() {
-    quizScreen.classList.remove('active');
-    resultsScreen.classList.add('active');
-
-    const { nodeAverages, hambreLevel, perfil } = calculateResults();
-
-    document.getElementById('hambre-sistemica-level').textContent = hambreLevel;
-    document.getElementById('perfil-sistemico').textContent = perfil;
-
-    // Renderizar Gráfico (Chart.js)
-    const ctx = document.getElementById('results-chart').getContext('2d');
-    new Chart(ctx, {
-        type: 'radar',
-        data: {
-            labels: Object.keys(nodeAverages).map(l => l.replace(/_/g, ' ').replace(/\b\w/g, c => c.toUpperCase())),
-            datasets: [{
-                label: 'Nivel de Criticidad del Nodo (%)',
-                data: Object.values(nodeAverages),
-                fill: true,
-                backgroundColor: 'rgba(217, 83, 79, 0.2)',
-                borderColor: 'rgb(217, 83, 79)',
-                pointBackgroundColor: 'rgb(217, 83, 79)',
-                pointBorderColor: '#fff',
-                pointHoverBackgroundColor: '#fff',
-                pointHoverBorderColor: 'rgb(217, 83, 79)'
-            }]
-        },
-        options: {
-            responsive: true,
-            maintainAspectRatio: false,
-            scales: { r: { suggestedMin: 0, suggestedMax: 100 } }
-        }
-    });
-
-    // Renderizar Mapa Causal Demo
-    mapaNodosContainer.innerHTML = '';
-    const top3Nodos = Object.entries(nodeAverages).sort(([,a],[,b]) => b-a).slice(0,3);
-    
-    top3Nodos.forEach(([nodeName, score]) => {
-        const nodoDiv = document.createElement('div');
-        nodoDiv.textContent = nodeName.replace(/_/g, ' ').replace(/\b\w/g, c => c.toUpperCase());
-        nodoDiv.classList.add('nodo', 'critico');
-        nodoDiv.onclick = () => {
-            if (nodoDiv.classList.contains('critico')) {
-                energiaVital = Math.min(100, energiaVital + 10);
-                energiaVitalSpan.textContent = `${energiaVital}%`;
-                nodoDiv.classList.remove('critico');
-                nodoDiv.classList.add('optimizado');
+            if (!sleepValue || !exerciseValue || !foodValue) {
+                // In a real app, you'd show a more elegant message.
+                // For this demo, we'll just log to console and stop.
+                // A simple alert is avoided as per instructions.
+                submitBtn.textContent = 'Por favor, responde todas las preguntas';
+                submitBtn.classList.add('bg-red-500');
+                setTimeout(() => {
+                    submitBtn.textContent = '¡Generar mi Infografía!';
+                    submitBtn.classList.remove('bg-red-500');
+                }, 2000);
+                return;
             }
-        };
-        mapaNodosContainer.appendChild(nodoDiv);
-    });
-}
 
-function generatePDF() {
-    const doc = new jsPDF();
-    const { nodeAverages, hambreLevel, perfil } = calculateResults();
-    const top2Nodos = Object.entries(nodeAverages).sort(([,a],[,b]) => b-a).slice(0,2);
+            // Data for the infographic
+            const resultsData = [
+                { label: '😴 Descanso', value: parseInt(sleepValue), color: 'bg-sky-500' },
+                { label: '🏃‍♂️ Actividad Física', value: parseInt(exerciseValue), color: 'bg-emerald-500' },
+                { label: '🍎 Alimentación', value: parseInt(foodValue), color: 'bg-amber-500' }
+            ];
 
-    // Título
-    doc.setFont('helvetica', 'bold');
-    doc.setFontSize(18);
-    doc.setTextColor(74, 124, 89); // Verde Regenerativo
-    doc.text("Reporte de Diagnóstico Sistémico", 105, 20, { align: 'center' });
-    
-    doc.setFontSize(12);
-    doc.setFont('helvetica', 'normal');
-    doc.setTextColor(26, 26, 26);
-    doc.text(`"Cada práctica cuenta: pequeños pasos, grandes cambios."`, 105, 30, { align: 'center' });
-    
-    // Resumen
-    doc.setFontSize(14);
-    doc.setFont('helvetica', 'bold');
-    doc.text("Tu Resumen Personal:", 14, 50);
-    doc.setFontSize(12);
-    doc.setFont('helvetica', 'normal');
-    doc.text(`- Perfil Sistémico: ${perfil}`, 14, 60);
-    doc.text(`- Índice de Hambre Sistémica: ${hambreLevel}`, 14, 68);
+            // Generate infographic HTML
+            infographicDiv.innerHTML = ''; // Clear previous results
+            resultsData.forEach(item => {
+                const barElement = document.createElement('div');
+                barElement.classList.add('fade-in');
+                barElement.innerHTML = `
+                    <div class="flex justify-between items-center mb-1">
+                        <span class="font-semibold text-slate-700">${item.label}</span>
+                        <span class="text-sm font-bold text-slate-600">${item.value}%</span>
+                    </div>
+                    <div class="w-full bg-slate-200 rounded-full h-4">
+                        <div class="h-4 rounded-full progress-bar ${item.color}" style="width: 0%;"></div>
+                    </div>
+                `;
+                infographicDiv.appendChild(barElement);
+                
+                // Animate the bar width after a short delay
+                setTimeout(() => {
+                    barElement.querySelector('.progress-bar').style.width = `${item.value}%`;
+                }, 100);
+            });
 
-    // Nodos Críticos
-    doc.setFontSize(14);
-    doc.setFont('helvetica', 'bold');
-    doc.text("Tus Nodos Más Críticos:", 14, 85);
-    doc.setFontSize(12);
-    doc.setFont('helvetica', 'normal');
-    let yPos = 95;
-    top2Nodos.forEach(([node, score]) => {
-        const nodeName = node.replace(/_/g, ' ').replace(/\b\w/g, c => c.toUpperCase());
-        doc.text(`- ${nodeName} (${score.toFixed(0)}% de criticidad)`, 14, yPos);
-        yPos += 8;
-    });
+            // Switch views
+            quizContainer.classList.add('hidden');
+            resultsContainer.classList.remove('hidden');
+            resultsContainer.classList.add('fade-in');
+        });
 
-    // Recomendación
-    doc.setFontSize(14);
-    doc.setFont('helvetica', 'bold');
-    doc.text("Recomendación General:", 14, yPos + 10);
-    doc.setFontSize(10);
-    doc.setFont('helvetica', 'normal');
-    const recomendacion = `Basado en tu perfil de '${perfil}', te sugerimos enfocarte en pequeñas acciones para tomar conciencia de tus patrones. Una micro-intervención como dedicar 5 minutos a mapear las influencias externas en un desafío actual puede ser un gran primer paso.`;
-    doc.text(doc.splitTextToSize(recomendacion, 180), 14, yPos + 18);
-    
-    // Gráfico (como imagen)
-    const chartCanvas = document.getElementById('results-chart');
-    const chartImage = chartCanvas.toDataURL('image/png', 1.0);
-    doc.addImage(chartImage, 'PNG', 20, yPos + 50, 170, 95);
-    
-    doc.save("Reporte_Sistemico.pdf");
-}
+        resetBtn.addEventListener('click', () => {
+            // Reset form
+            form.reset();
+            
+            // Switch views back
+            resultsContainer.classList.add('hidden');
+            quizContainer.classList.remove('hidden');
+            quizContainer.classList.add('fade-in');
+        });
 
-</script>
-
+    </script>
 </body>
 </html>
