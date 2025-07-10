@@ -1,161 +1,223 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Acompaño a tu Mejor Versión: Viaje de Regeneración Sistémica (Preventa)</title>
-    <style>
-        body {
-            font-family: 'Arial', sans-serif;
-            line-height: 1.6;
-            margin: 0;
-            padding: 0;
-            background-color: #f4f4f4;
-            color: #333;
-        }
-        .container {
-            width: 80%;
-            margin: auto;
-            overflow: hidden;
-            padding: 20px 0;
-        }
-        header {
-            background: #333;
-            color: #fff;
-            padding-top: 30px;
-            min-height: 70px;
-            border-bottom: #77aaff 3px solid;
-            text-align: center;
-        }
-        header h1 {
-            margin: 0;
-            padding-bottom: 10px;
-        }
-        header h2 {
-            margin-top: 0;
-            font-size: 1.2em;
-            font-weight: normal;
-        }
-        .main-content {
-            padding: 20px;
-            background: #fff;
-            margin-top: 20px;
-            border-radius: 8px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-        }
-        .cta-buttons {
-            text-align: center;
-            margin: 30px 0;
-        }
-        .cta-buttons a {
-            display: inline-block;
-            background: #77aaff;
-            color: #fff;
-            padding: 15px 30px;
-            text-decoration: none;
-            border-radius: 5px;
-            margin: 10px;
-            font-size: 1.1em;
-            transition: background 0.3s ease;
-        }
-        .cta-buttons a:hover {
-            background: #5588dd;
-        }
-        .section-title {
-            color: #77aaff;
-            border-bottom: 2px solid #eee;
-            padding-bottom: 10px;
-            margin-bottom: 20px;
-        }
-        .footer {
-            text-align: center;
-            padding: 20px;
-            margin-top: 20px;
-            color: #777;
-            font-size: 0.9em;
-        }
-        .footer a {
-            color: #777;
-            text-decoration: none;
-        }
-        .footer a:hover {
-            text-decoration: underline;
-        }
-    </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Club de Bienestar LATAM - Únete a la Comunidad</title>
+<style>
+    /* --- MEJORAS GENERALES --- */
+    body {
+        font-family: 'Helvetica Neue', Arial, sans-serif; /* Fuente más moderna */
+        line-height: 1.7;
+        margin: 0;
+        padding: 0;
+        background: #f7f8fa; /* Fondo ligeramente más cálido */
+        color: #333;
+    }
+    .container {
+        width: 90%;
+        max-width: 650px; /* Un poco más de ancho para mejor lectura */
+        margin: auto;
+        padding: 20px;
+        box-sizing: border-box;
+    }
+
+    /* --- HERO SECTION (LO PRIMERO QUE SE VE) --- */
+    .hero {
+        background: #3498db; /* Un azul más vibrante y amigable */
+        color: #fff;
+        padding: 50px 20px;
+        text-align: center;
+        border-bottom-left-radius: 20px;
+        border-bottom-right-radius: 20px;
+    }
+    .hero h1 {
+        margin: 0;
+        font-size: 2em; /* Título más grande e impactante */
+        font-weight: 700;
+        text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
+    }
+    .hero p {
+        margin: 15px 0 0;
+        font-size: 1.1em;
+        font-weight: 300;
+        max-width: 500px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    /* --- BOTÓN DE ACCIÓN PRINCIPAL (CTA) --- */
+    .cta-main {
+        text-align: center;
+        margin: 30px 0;
+    }
+    .cta-button {
+        display: inline-block;
+        background: #2ecc71; /* Verde WhatsApp, reconocible y llama a la acción */
+        color: #fff;
+        padding: 18px 35px;
+        text-decoration: none;
+        border-radius: 50px; /* Botón más amigable, tipo píldora */
+        font-size: 1.2em;
+        font-weight: bold;
+        transition: transform 0.2s ease, background-color 0.2s ease;
+        box-shadow: 0 4px 15px rgba(46, 204, 113, 0.4);
+    }
+    .cta-button:hover {
+        background: #27ae60; /* Tono más oscuro al pasar el mouse */
+        transform: scale(1.05); /* Efecto sutil para interactividad */
+    }
+    .cta-subtext {
+        font-size: 0.9em;
+        color: #555;
+        margin-top: 8px;
+    }
+
+    /* --- CONTENIDO PRINCIPAL Y SECCIONES --- */
+    .content-section {
+        background: #fff;
+        border-radius: 12px;
+        padding: 25px 30px;
+        margin-top: 30px;
+        box-shadow: 0 4px 20px rgba(0,0,0,0.07);
+    }
+    .section-title {
+        color: #3498db;
+        font-size: 1.4em;
+        font-weight: 600;
+        border-bottom: 2px solid #f0f0f0;
+        padding-bottom: 10px;
+        margin-bottom: 20px;
+    }
+    ul {
+        list-style: none; /* Quitamos los puntos por defecto */
+        padding-left: 0;
+    }
+    ul li {
+        padding-left: 30px;
+        position: relative;
+        margin-bottom: 10px;
+    }
+    ul li::before {
+        content: '✓'; /* Usamos un checkmark para más impacto visual */
+        color: #2ecc71;
+        font-weight: bold;
+        position: absolute;
+        left: 0;
+        top: 0;
+    }
+    
+    /* --- NUEVA SECCIÓN: SOBRE MÍ --- */
+    .about-me {
+        display: flex;
+        align-items: center;
+        gap: 20px;
+    }
+    .about-me img {
+        width: 100px;
+        height: 100px;
+        border-radius: 50%;
+        object-fit: cover;
+    }
+
+    /* --- SECCIÓN DE PRECIOS SECUNDARIA --- */
+    .price-section {
+        text-align: center;
+        background-color: #eaf5ff; /* Fondo sutil para diferenciar */
+    }
+    .price-section .cta-buttons a {
+        background: #8e44ad; /* Color distinto para acción secundaria */
+        padding: 12px 20px;
+        text-decoration: none;
+        border-radius: 5px;
+        color: white;
+        display: inline-block;
+        margin: 5px;
+        transition: background-color 0.2s;
+    }
+    .price-section .cta-buttons a:hover {
+        background: #732d91;
+    }
+    .price-notice {
+        font-style: italic;
+        color: #555;
+        margin-top: 15px;
+    }
+
+    /* --- FOOTER --- */
+    .footer {
+        text-align: center;
+        padding: 20px;
+        font-size: 0.9em;
+        color: #777;
+        margin-top: 30px;
+    }
+</style>
 </head>
 <body>
-    <header>
-        <div class="container">
-            <h1>Acompaño a tu Mejor Versión: Viaje de Regeneración Sistémica</h1>
-            <h2>Descubre la raíz de tu resistencia, navega tus paradojas y co-crea una vida de bienestar auténtico.</h2>
-            <h2>**Inicio: 11 de Octubre de 2025**</h2>
-        </div>
-    </header>
 
-    <div class="container main-content">
-        <section>
-            <h3 class="section-title">El Problema: La Resistencia no es un Defecto, es una Señal.</h3>
-            <p>¿Cansado/a de sentirte abrumado/a, desconectado/a y atrapado/a en patrones que no te sirven? En un mundo que te exige ser siempre más, es fácil perder el rumbo y sentir que tu energía se drena sin un propósito claro. La resistencia que sientes no es un defecto; es una señal de que tu sistema está pidiendo una nueva forma de navegar.</p>
-            <p>Las soluciones rápidas y superficiales te dejan con más preguntas que respuestas. Es hora de ir a la raíz, de entender cómo tus acciones, creencias y el entorno se entrelazan para crear tu realidad. Es hora de dejar de luchar contra la corriente y aprender a navegarla.</p>
-        </section>
+<header class="hero">
+    <div class="container">
+        <h1>Dejá de sentirte estancado y creá calma y claridad en tu vida</h1>
+        <p>Te acompaño a salir de los círculos viciosos con micro-retos, herramientas simples y el poder de una comunidad.</p>
+    </div>
+</header>
 
-        <section>
-            <h3 class="section-title">La Solución: Tu Propuesta de Valor Única</h3>
-            <p>Te presento <strong>Acompaño a tu Mejor Versión</strong>, un viaje de regeneración sistémica diseñado para catalizar tu bienestar individual y colectivo. No es un curso más, no es una solución mágica. Es un <strong>acompañamiento profundo y personalizado</strong> para que:</p>
-            <ul>
-                <li><strong>Reconozcas tu Hambre Sistémica:</strong> Identifica la brecha entre tus necesidades reales y los deseos superficiales que te agotan.</li>
-                <li><strong>Mapees tu Resistencia:</strong> Visualiza las interconexiones de tus patrones de resistencia y los bucles que los alimentan.</li>
-                <li><strong>Actives tu Brújula de Acción:</strong> Recibe micro-intervenciones diarias para metabolizar tus paradojas y transformar la resistencia en combustible.</li>
-                <li><strong>Cultives tu Jardín Vivo:</strong> Integra prácticas regenerativas en tu día a día para un bienestar sostenible.</li>
-                <li><strong>Metabolices tus Sombras:</strong> Convierte los 'fracasos' en sabiduría y aprendizaje.</li>
-                <li><strong>Navegues en Comunidad:</strong> Conéctate con otros Navegantes en un espacio seguro de apoyo y co-creación.</li>
-            </ul>
-        </section>
-
-        <section>
-            <h3 class="section-title">¿Por qué la Preventa? Sé un Pionero/a de la Regeneración.</h3>
-            <p>Este es un proyecto vivo, co-creado contigo y para ti. Al unirte a la preventa, no solo aseguras tu lugar en este viaje transformador, sino que te conviertes en un <strong>pionero/a</strong> y <strong>co-creador/a</strong> de un ecosistema regenerativo. Tu apoyo en esta fase inicial nos permite:</p>
-            <ul>
-                <li><strong>Financiar el desarrollo</strong> de las herramientas interactivas (Calculadora de Prioridades, Mapa de Bienestar, Brújula de Acción).</li>
-                <li><strong>Integrar tu feedback</strong> en tiempo real para que el programa sea aún más relevante para tus necesidades.</li>
-                <li><strong>Construir una comunidad</strong> sólida desde el inicio.</li>
-            </ul>
-        </section>
-
-        <section>
-            <h3 class="section-title">Oferta Especial de Preventa</h3>
-            <p><strong>Asegura tu lugar hoy con un precio exclusivo de preventa:</strong></p>
-            <div class="cta-buttons">
-                <a href="[ENLACE_PAGO_USD]" target="_blank">Comprar Preventa ($50 USD)</a>
-                <a href="[ENLACE_PAGO_ARS]" target="_blank">Comprar Preventa ($5000 ARS)</a>
-            </div>
-            <p style="text-align: center; font-style: italic;">Este precio es por tiempo limitado y aumentará una vez que el programa esté completamente desarrollado. ¡No pierdas la oportunidad de ser parte de esta primera cohorte!</p>
-        </section>
-
-        <section>
-            <h3 class="section-title">Quién Soy: Tu Compañero de Viaje</h3>
-            <p>Soy [Tu Nombre], especialista en Ingeniería de Impacto y Desarrollo Sistémico. Mi misión es acompañarte a co-crear sistemas vivos que integren bienestar personal, comunitario y ecosistémico. Este marco es el resultado de años de investigación y experiencia, diseñado para catalizar el desarrollo social y sostenible en Latam.</p>
-        </section>
-
-        <section>
-            <h3 class="section-title">Únete a la Comunidad: Navegantes de Complejidad</h3>
-            <p>¿Tienes preguntas? ¿Quieres saber más? Únete a nuestra comunidad gratuita en WhatsApp/Telegram y conéctate con otros Navegantes. ¡Te esperamos!</p>
-            <div class="cta-buttons">
-                <a href="[ENLACE_COMUNIDAD]" target="_blank">Unirme a la Comunidad</a>
-            </div>
-        </section>
+<div class="container">
+    <div class="cta-main">
+        <a href="[ENLACE_WHATSAPP]" target="_blank" class="cta-button">Quiero unirme GRATIS a la Comunidad</a>
+        <p class="cta-subtext">Acceso inmediato a recursos y apoyo mutuo. ¡Sin costo!</p>
     </div>
 
-    <footer class="footer">
-        <p>
-            <a href="#">Enlaces a Redes Sociales</a> |
-            <a href="#">Política de Privacidad</a> |
-            <a href="#">Términos y Condiciones</a>
-        </p>
-    </footer>
+    <section class="content-section">
+        <h2 class="section-title">¿Quién te va a acompañar?</h2>
+        <div class="about-me">
+            <img src="https://via.placeholder.com/100" alt="Tu foto de perfil">
+            <div>
+                <p><strong>¡Hola! Soy [Tu Nombre].</strong></p>
+                <p>Durante años me sentí [comparte tu historia brevemente, ej: "abrumado y sin rumbo"]. Descubrí que los pequeños cambios sostenidos son la clave del bienestar real. Ahora, mi misión es darte las herramientas y el apoyo que a mí me hubiera gustado tener para que construyas una vida con más calma y propósito.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="content-section">
+        <h2 class="section-title">¿Qué recibirás en la Comunidad Gratuita?</h2>
+        <p>Al unirte al grupo de WhatsApp, tendrás acceso inmediato a:</p>
+        <ul>
+            <li><strong>Micro-Retos Semanales:</strong> Pequeñas acciones para generar grandes cambios sin agobiarte.</li>
+            <li><strong>Herramientas Prácticas:</strong> Tips y recursos para aplicar en tu día a día y reducir el estrés.</li>
+            <li><strong>Apoyo Grupal:</strong> Un espacio seguro para compartir tus avances, dudas y sentirte acompañado.</li>
+            <li><strong>Prioridad de Acceso:</strong> Serás el primero en enterarte de la apertura del programa completo y ofertas especiales.</li>
+        </ul>
+        <p>Este es el primer paso perfecto, sin compromiso, para empezar a transformar tu bienestar.</p>
+    </section>
+    
+    <div class="cta-main">
+        <a href="[ENLACE_WHATSAPP]" target="_blank" class="cta-button">Sumarme ahora a la comunidad</a>
+        <p class="cta-subtext">Es gratis y solo te tomará 10 segundos.</p>
+    </div>
+
+    <section class="content-section price-section">
+        <h2 class="section-title">¿Listo para ir más profundo?</h2>
+        <p>Para quienes buscan una transformación completa, el <strong>programa de 1 año</strong> ofrece acompañamiento personalizado, herramientas interactivas exclusivas y encuentros grupales.</p>
+        <p><strong>Lanzamiento oficial: 11 de Octubre de 2025.</strong></p>
+        
+        <h3 style="margin-top: 25px;">Precio Preventa Exclusivo</h3>
+        <p>🇦🇷 <strong>$10,000 ARS único por 1 año</strong> (~ $833/mes)<br>
+           🌎 <strong>$50 USD único por 1 año</strong> (~ $4/mes)</p>
+        <p class="price-notice">Menos que un café por semana por un año de cambios reales.</p>
+
+        <div class="cta-buttons">
+            <a href="[ENLACE_PAGO_ARS]" target="_blank">Quiero el acceso completo (ARS)</a>
+            <a href="[ENLACE_PAGO_USD]" target="_blank">Quiero el acceso completo (USD)</a>
+        </div>
+    </section>
+
+</div>
+
+<footer class="footer">
+    <p>Club de Bienestar LATAM | Todos los derechos reservados</p>
+</footer>
+
 </body>
 </html>
-
-
-
-
