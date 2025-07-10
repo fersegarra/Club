@@ -3,192 +3,159 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Generador de Infografía Personal</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
+    <title>Acompaño a tu Mejor Versión: Viaje de Regeneración Sistémica (Preventa)</title>
     <style>
         body {
-            font-family: 'Inter', sans-serif;
+            font-family: 'Arial', sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+            color: #333;
         }
-        /* Animación para la aparición de elementos */
-        .fade-in {
-            animation: fadeIn 0.5s ease-in-out;
+        .container {
+            width: 80%;
+            margin: auto;
+            overflow: hidden;
+            padding: 20px 0;
         }
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(10px); }
-            to { opacity: 1; transform: translateY(0); }
+        header {
+            background: #333;
+            color: #fff;
+            padding-top: 30px;
+            min-height: 70px;
+            border-bottom: #77aaff 3px solid;
+            text-align: center;
         }
-        /* Estilo para las barras de la infografía */
-        .progress-bar {
-            transition: width 0.8s ease-in-out;
+        header h1 {
+            margin: 0;
+            padding-bottom: 10px;
+        }
+        header h2 {
+            margin-top: 0;
+            font-size: 1.2em;
+            font-weight: normal;
+        }
+        .main-content {
+            padding: 20px;
+            background: #fff;
+            margin-top: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        .cta-buttons {
+            text-align: center;
+            margin: 30px 0;
+        }
+        .cta-buttons a {
+            display: inline-block;
+            background: #77aaff;
+            color: #fff;
+            padding: 15px 30px;
+            text-decoration: none;
+            border-radius: 5px;
+            margin: 10px;
+            font-size: 1.1em;
+            transition: background 0.3s ease;
+        }
+        .cta-buttons a:hover {
+            background: #5588dd;
+        }
+        .section-title {
+            color: #77aaff;
+            border-bottom: 2px solid #eee;
+            padding-bottom: 10px;
+            margin-bottom: 20px;
+        }
+        .footer {
+            text-align: center;
+            padding: 20px;
+            margin-top: 20px;
+            color: #777;
+            font-size: 0.9em;
+        }
+        .footer a {
+            color: #777;
+            text-decoration: none;
+        }
+        .footer a:hover {
+            text-decoration: underline;
         }
     </style>
 </head>
-<body class="bg-slate-100 flex items-center justify-center min-h-screen p-4">
-
-    <main class="bg-white rounded-2xl shadow-xl w-full max-w-2xl overflow-hidden">
-        
-        <!-- Contenedor del Cuestionario -->
-        <div id="quiz-container" class="p-8 md:p-12 fade-in">
-            <h1 class="text-2xl md:text-3xl font-bold text-slate-800 mb-2">Descubre tu Perfil de Bienestar</h1>
-            <p class="text-slate-600 mb-8">Responde estas preguntas para generar una infografía sobre tus hábitos.</p>
-            
-            <form id="quiz-form" class="space-y-8">
-                <!-- Pregunta 1 -->
-                <div>
-                    <label class="block text-lg font-semibold text-slate-700 mb-3">1. ¿Cuántas horas sueles dormir por noche?</label>
-                    <div class="space-y-2">
-                        <label class="flex items-center p-3 border rounded-lg hover:bg-slate-50 cursor-pointer">
-                            <input type="radio" name="sleep" value="20" class="h-4 w-4 text-blue-600 border-gray-300 focus:ring-blue-500">
-                            <span class="ml-3 text-slate-700">Menos de 6 horas</span>
-                        </label>
-                        <label class="flex items-center p-3 border rounded-lg hover:bg-slate-50 cursor-pointer">
-                            <input type="radio" name="sleep" value="70" class="h-4 w-4 text-blue-600 border-gray-300 focus:ring-blue-500">
-                            <span class="ml-3 text-slate-700">Entre 6 y 7 horas</span>
-                        </label>
-                        <label class="flex items-center p-3 border rounded-lg hover:bg-slate-50 cursor-pointer">
-                            <input type="radio" name="sleep" value="100" class="h-4 w-4 text-blue-600 border-gray-300 focus:ring-blue-500">
-                            <span class="ml-3 text-slate-700">7 horas o más</span>
-                        </label>
-                    </div>
-                </div>
-
-                <!-- Pregunta 2 -->
-                <div>
-                    <label class="block text-lg font-semibold text-slate-700 mb-3">2. ¿Con qué frecuencia haces ejercicio?</label>
-                    <div class="space-y-2">
-                        <label class="flex items-center p-3 border rounded-lg hover:bg-slate-50 cursor-pointer">
-                            <input type="radio" name="exercise" value="20" class="h-4 w-4 text-blue-600 border-gray-300 focus:ring-blue-500">
-                            <span class="ml-3 text-slate-700">Casi nunca</span>
-                        </label>
-                        <label class="flex items-center p-3 border rounded-lg hover:bg-slate-50 cursor-pointer">
-                            <input type="radio" name="exercise" value="60" class="h-4 w-4 text-blue-600 border-gray-300 focus:ring-blue-500">
-                            <span class="ml-3 text-slate-700">1-2 veces por semana</span>
-                        </label>
-                        <label class="flex items-center p-3 border rounded-lg hover:bg-slate-50 cursor-pointer">
-                            <input type="radio" name="exercise" value="100" class="h-4 w-4 text-blue-600 border-gray-300 focus:ring-blue-500">
-                            <span class="ml-3 text-slate-700">3 o más veces por semana</span>
-                        </label>
-                    </div>
-                </div>
-
-                <!-- Pregunta 3 -->
-                <div>
-                    <label class="block text-lg font-semibold text-slate-700 mb-3">3. ¿Cómo describirías tu alimentación?</label>
-                    <div class="space-y-2">
-                        <label class="flex items-center p-3 border rounded-lg hover:bg-slate-50 cursor-pointer">
-                            <input type="radio" name="food" value="30" class="h-4 w-4 text-blue-600 border-gray-300 focus:ring-blue-500">
-                            <span class="ml-3 text-slate-700">Mucha comida procesada</span>
-                        </label>
-                        <label class="flex items-center p-3 border rounded-lg hover:bg-slate-50 cursor-pointer">
-                            <input type="radio" name="food" value="70" class="h-4 w-4 text-blue-600 border-gray-300 focus:ring-blue-500">
-                            <span class="ml-3 text-slate-700">Balanceada, con algunos caprichos</span>
-                        </label>
-                        <label class="flex items-center p-3 border rounded-lg hover:bg-slate-50 cursor-pointer">
-                            <input type="radio" name="food" value="100" class="h-4 w-4 text-blue-600 border-gray-300 focus:ring-blue-500">
-                            <span class="ml-3 text-slate-700">Muy saludable y natural</span>
-                        </label>
-                    </div>
-                </div>
-
-                <button id="submit-btn" type="button" class="w-full bg-blue-600 text-white font-bold py-3 px-4 rounded-lg hover:bg-blue-700 focus:outline-none focus:ring-4 focus:ring-blue-300 transition-all duration-300 text-lg">
-                    ¡Generar mi Infografía!
-                </button>
-            </form>
+<body>
+    <header>
+        <div class="container">
+            <h1>Acompaño a tu Mejor Versión: Viaje de Regeneración Sistémica</h1>
+            <h2>Descubre la raíz de tu resistencia, navega tus paradojas y co-crea una vida de bienestar auténtico.</h2>
+            <h2>**Inicio: 11 de Octubre de 2025**</h2>
         </div>
+    </header>
 
-        <!-- Contenedor de Resultados (Infografía) -->
-        <div id="results-container" class="p-8 md:p-12 hidden">
-            <h2 class="text-2xl md:text-3xl font-bold text-slate-800 mb-2">Tu Infografía de Bienestar</h2>
-            <p class="text-slate-600 mb-8">Estos son los resultados basados en tus respuestas.</p>
-            
-            <div id="infographic" class="space-y-6">
-                <!-- Las barras se insertarán aquí con JS -->
+    <div class="container main-content">
+        <section>
+            <h3 class="section-title">El Problema: La Resistencia no es un Defecto, es una Señal.</h3>
+            <p>¿Cansado/a de sentirte abrumado/a, desconectado/a y atrapado/a en patrones que no te sirven? En un mundo que te exige ser siempre más, es fácil perder el rumbo y sentir que tu energía se drena sin un propósito claro. La resistencia que sientes no es un defecto; es una señal de que tu sistema está pidiendo una nueva forma de navegar.</p>
+            <p>Las soluciones rápidas y superficiales te dejan con más preguntas que respuestas. Es hora de ir a la raíz, de entender cómo tus acciones, creencias y el entorno se entrelazan para crear tu realidad. Es hora de dejar de luchar contra la corriente y aprender a navegarla.</p>
+        </section>
+
+        <section>
+            <h3 class="section-title">La Solución: Tu Propuesta de Valor Única</h3>
+            <p>Te presento <strong>Acompaño a tu Mejor Versión</strong>, un viaje de regeneración sistémica diseñado para catalizar tu bienestar individual y colectivo. No es un curso más, no es una solución mágica. Es un <strong>acompañamiento profundo y personalizado</strong> para que:</p>
+            <ul>
+                <li><strong>Reconozcas tu Hambre Sistémica:</strong> Identifica la brecha entre tus necesidades reales y los deseos superficiales que te agotan.</li>
+                <li><strong>Mapees tu Resistencia:</strong> Visualiza las interconexiones de tus patrones de resistencia y los bucles que los alimentan.</li>
+                <li><strong>Actives tu Brújula de Acción:</strong> Recibe micro-intervenciones diarias para metabolizar tus paradojas y transformar la resistencia en combustible.</li>
+                <li><strong>Cultives tu Jardín Vivo:</strong> Integra prácticas regenerativas en tu día a día para un bienestar sostenible.</li>
+                <li><strong>Metabolices tus Sombras:</strong> Convierte los 'fracasos' en sabiduría y aprendizaje.</li>
+                <li><strong>Navegues en Comunidad:</strong> Conéctate con otros Navegantes en un espacio seguro de apoyo y co-creación.</li>
+            </ul>
+        </section>
+
+        <section>
+            <h3 class="section-title">¿Por qué la Preventa? Sé un Pionero/a de la Regeneración.</h3>
+            <p>Este es un proyecto vivo, co-creado contigo y para ti. Al unirte a la preventa, no solo aseguras tu lugar en este viaje transformador, sino que te conviertes en un <strong>pionero/a</strong> y <strong>co-creador/a</strong> de un ecosistema regenerativo. Tu apoyo en esta fase inicial nos permite:</p>
+            <ul>
+                <li><strong>Financiar el desarrollo</strong> de las herramientas interactivas (Calculadora de Prioridades, Mapa de Bienestar, Brújula de Acción).</li>
+                <li><strong>Integrar tu feedback</strong> en tiempo real para que el programa sea aún más relevante para tus necesidades.</li>
+                <li><strong>Construir una comunidad</strong> sólida desde el inicio.</li>
+            </ul>
+        </section>
+
+        <section>
+            <h3 class="section-title">Oferta Especial de Preventa</h3>
+            <p><strong>Asegura tu lugar hoy con un precio exclusivo de preventa:</strong></p>
+            <div class="cta-buttons">
+                <a href="[ENLACE_PAGO_USD]" target="_blank">Comprar Preventa ($50 USD)</a>
+                <a href="[ENLACE_PAGO_ARS]" target="_blank">Comprar Preventa ($5000 ARS)</a>
             </div>
-            
-            <button id="reset-btn" type="button" class="mt-10 w-full bg-slate-600 text-white font-bold py-3 px-4 rounded-lg hover:bg-slate-700 focus:outline-none focus:ring-4 focus:ring-slate-300 transition-all duration-300 text-lg">
-                Volver a empezar
-            </button>
-        </div>
+            <p style="text-align: center; font-style: italic;">Este precio es por tiempo limitado y aumentará una vez que el programa esté completamente desarrollado. ¡No pierdas la oportunidad de ser parte de esta primera cohorte!</p>
+        </section>
 
-    </main>
+        <section>
+            <h3 class="section-title">Quién Soy: Tu Compañero de Viaje</h3>
+            <p>Soy [Tu Nombre], especialista en Ingeniería de Impacto y Desarrollo Sistémico. Mi misión es acompañarte a co-crear sistemas vivos que integren bienestar personal, comunitario y ecosistémico. Este marco es el resultado de años de investigación y experiencia, diseñado para catalizar el desarrollo social y sostenible en Latam.</p>
+        </section>
 
-    <script>
-        // --- DOM Elements ---
-        const quizContainer = document.getElementById('quiz-container');
-        const resultsContainer = document.getElementById('results-container');
-        const submitBtn = document.getElementById('submit-btn');
-        const resetBtn = document.getElementById('reset-btn');
-        const form = document.getElementById('quiz-form');
-        const infographicDiv = document.getElementById('infographic');
+        <section>
+            <h3 class="section-title">Únete a la Comunidad: Navegantes de Complejidad</h3>
+            <p>¿Tienes preguntas? ¿Quieres saber más? Únete a nuestra comunidad gratuita en WhatsApp/Telegram y conéctate con otros Navegantes. ¡Te esperamos!</p>
+            <div class="cta-buttons">
+                <a href="[ENLACE_COMUNIDAD]" target="_blank">Unirme a la Comunidad</a>
+            </div>
+        </section>
+    </div>
 
-        // --- Logic ---
-        submitBtn.addEventListener('click', () => {
-            // Check if all questions are answered
-            const sleepValue = form.elements['sleep'].value;
-            const exerciseValue = form.elements['exercise'].value;
-            const foodValue = form.elements['food'].value;
-
-            if (!sleepValue || !exerciseValue || !foodValue) {
-                // In a real app, you'd show a more elegant message.
-                // For this demo, we'll just log to console and stop.
-                // A simple alert is avoided as per instructions.
-                submitBtn.textContent = 'Por favor, responde todas las preguntas';
-                submitBtn.classList.add('bg-red-500');
-                setTimeout(() => {
-                    submitBtn.textContent = '¡Generar mi Infografía!';
-                    submitBtn.classList.remove('bg-red-500');
-                }, 2000);
-                return;
-            }
-
-            // Data for the infographic
-            const resultsData = [
-                { label: '😴 Descanso', value: parseInt(sleepValue), color: 'bg-sky-500' },
-                { label: '🏃‍♂️ Actividad Física', value: parseInt(exerciseValue), color: 'bg-emerald-500' },
-                { label: '🍎 Alimentación', value: parseInt(foodValue), color: 'bg-amber-500' }
-            ];
-
-            // Generate infographic HTML
-            infographicDiv.innerHTML = ''; // Clear previous results
-            resultsData.forEach(item => {
-                const barElement = document.createElement('div');
-                barElement.classList.add('fade-in');
-                barElement.innerHTML = `
-                    <div class="flex justify-between items-center mb-1">
-                        <span class="font-semibold text-slate-700">${item.label}</span>
-                        <span class="text-sm font-bold text-slate-600">${item.value}%</span>
-                    </div>
-                    <div class="w-full bg-slate-200 rounded-full h-4">
-                        <div class="h-4 rounded-full progress-bar ${item.color}" style="width: 0%;"></div>
-                    </div>
-                `;
-                infographicDiv.appendChild(barElement);
-                
-                // Animate the bar width after a short delay
-                setTimeout(() => {
-                    barElement.querySelector('.progress-bar').style.width = `${item.value}%`;
-                }, 100);
-            });
-
-            // Switch views
-            quizContainer.classList.add('hidden');
-            resultsContainer.classList.remove('hidden');
-            resultsContainer.classList.add('fade-in');
-        });
-
-        resetBtn.addEventListener('click', () => {
-            // Reset form
-            form.reset();
-            
-            // Switch views back
-            resultsContainer.classList.add('hidden');
-            quizContainer.classList.remove('hidden');
-            quizContainer.classList.add('fade-in');
-        });
-
-    </script>
+    <footer class="footer">
+        <p>
+            <a href="#">Enlaces a Redes Sociales</a> |
+            <a href="#">Política de Privacidad</a> |
+            <a href="#">Términos y Condiciones</a>
+        </p>
+    </footer>
 </body>
 </html>
+
+
+
+
