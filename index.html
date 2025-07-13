@@ -1,239 +1,563 @@
 <!DOCTYPE html>
+
 <html lang="es">
+
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Club de Bienestar LATAM - Únete a la Comunidad</title>
-<style>
-    /* --- MEJORAS GENERALES --- */
-    body {
-        font-family: 'Helvetica Neue', Arial, sans-serif; /* Fuente más moderna */
-        line-height: 1.7;
-        margin: 0;
-        padding: 0;
-        background: #f7f8fa; /* Fondo ligeramente más cálido */
-        color: #333;
-    }
-    .container {
-        width: 90%;
-        max-width: 650px; /* Un poco más de ancho para mejor lectura */
-        margin: auto;
-        padding: 20px;
-        box-sizing: border-box;
-    }
 
-    /* --- HERO SECTION (LO PRIMERO QUE SE VE) --- */
-    .hero {
-        background: #3498db; /* Un azul más vibrante y amigable */
-        color: #fff;
-        padding: 50px 20px;
-        text-align: center;
-        border-bottom-left-radius: 20px;
-        border-bottom-right-radius: 20px;
-    }
-    .hero h1 {
-        margin: 0;
-        font-size: 2em; /* Título más grande e impactante */
-        font-weight: 700;
-        text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
-    }
-    .hero p {
-        margin: 15px 0 0;
-        font-size: 1.1em;
-        font-weight: 300;
-        max-width: 500px;
-        margin-left: auto;
-        margin-right: auto;
-    }
+    <meta charset="UTF-8">
 
-    /* --- BOTÓN DE ACCIÓN PRINCIPAL (CTA) --- */
-    .cta-main {
-        text-align: center;
-        margin: 30px 0;
-    }
-    .cta-button {
-        display: inline-block;
-        background: #2ecc71; /* Verde WhatsApp, reconocible y llama a la acción */
-        color: #fff;
-        padding: 18px 35px;
-        text-decoration: none;
-        border-radius: 50px; /* Botón más amigable, tipo píldora */
-        font-size: 1.2em;
-        font-weight: bold;
-        transition: transform 0.2s ease, background-color 0.2s ease;
-        box-shadow: 0 4px 15px rgba(46, 204, 113, 0.4);
-    }
-    .cta-button:hover {
-        background: #27ae60; /* Tono más oscuro al pasar el mouse */
-        transform: scale(1.05); /* Efecto sutil para interactividad */
-    }
-    .cta-subtext {
-        font-size: 0.9em;
-        color: #555;
-        margin-top: 8px;
-    }
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    /* --- CONTENIDO PRINCIPAL Y SECCIONES --- */
-    .content-section {
-        background: #fff;
-        border-radius: 12px;
-        padding: 25px 30px;
-        margin-top: 30px;
-        box-shadow: 0 4px 20px rgba(0,0,0,0.07);
-    }
-    .section-title {
-        color: #3498db;
-        font-size: 1.4em;
-        font-weight: 600;
-        border-bottom: 2px solid #f0f0f0;
-        padding-bottom: 10px;
-        margin-bottom: 20px;
-    }
-    ul {
-        list-style: none; /* Quitamos los puntos por defecto */
-        padding-left: 0;
-    }
-    ul li {
-        padding-left: 30px;
-        position: relative;
-        margin-bottom: 10px;
-    }
-    ul li::before {
-        content: '✓'; /* Usamos un checkmark para más impacto visual */
-        color: #2ecc71;
-        font-weight: bold;
-        position: absolute;
-        left: 0;
-        top: 0;
-    }
-    
-    /* --- NUEVA SECCIÓN: SOBRE MÍ --- */
-    .about-me {
-        display: flex;
-        align-items: center;
-        gap: 20px;
-    }
-    .about-me img {
-        width: 100px;
-        height: 100px;
-        border-radius: 50%;
-        object-fit: cover;
-    }
+    <title>Guía de Pausas para la Claridad Mental</title>
 
-    /* --- SECCIÓN DE PRECIOS SECUNDARIA --- */
-    .price-section {
-        text-align: center;
-        background-color: #eaf5ff; /* Fondo sutil para diferenciar */
-    }
-    .price-section .cta-buttons a {
-        background: #8e44ad; /* Color distinto para acción secundaria */
-        padding: 12px 20px;
-        text-decoration: none;
-        border-radius: 5px;
-        color: white;
-        display: inline-block;
-        margin: 5px;
-        transition: background-color 0.2s;
-    }
-    .price-section .cta-buttons a:hover {
-        background: #732d91;
-    }
-    .price-notice {
-        font-style: italic;
-        color: #555;
-        margin-top: 15px;
-    }
+    <!-- Tailwind CSS CDN -->
 
-    /* --- FOOTER --- */
-    .footer {
-        text-align: center;
-        padding: 20px;
-        font-size: 0.9em;
-        color: #777;
-        margin-top: 30px;
-    }
-</style>
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Google Fonts - Montserrat -->
+
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+
+    <style>
+
+        /* Custom CSS variables for brand colors */
+
+        :root {
+
+            --verde-regenerativo: #4A7C59;
+
+            --azul-claridad: #3B5998;
+
+            --gris-neutro: #F2F2F2;
+
+            --negro-profundo: #1A1A1A;
+
+            --blanco: #FFFFFF;
+
+        }
+
+  
+
+        body {
+
+            font-family: 'Montserrat', sans-serif;
+
+            color: var(--negro-profundo);
+
+            background-color: var(--gris-neutro); /* Base background */
+
+            display: flex;
+
+            justify-content: center;
+
+            align-items: center; /* Center content vertically */
+
+            min-height: 100vh;
+
+            padding: 2rem 1rem;
+
+        }
+
+  
+
+        /* Utility classes for brand colors */
+
+        .text-verde-regenerativo { color: var(--verde-regenerativo); }
+
+        .bg-verde-regenerativo { background-color: var(--verde-regenerativo); }
+
+        .text-azul-claridad { color: var(--azul-claridad); }
+
+        .bg-gris-neutro { background-color: var(--gris-neutro); }
+
+        .text-negro-profundo { color: var(--negro-profundo); }
+
+        .bg-blanco { background-color: var(--blanco); }
+
+  
+
+        /* Custom font weights */
+
+        .font-montserrat-bold { font-weight: 700; }
+
+        .font-montserrat-regular { font-weight: 400; }
+
+  
+
+        /* Responsive font sizes */
+
+        h1 {
+
+            font-size: clamp(2rem, 5vw, 3rem); /* Fluid sizing for H1 */
+
+        }
+
+        h3 {
+
+            font-size: clamp(1.25rem, 3vw, 1.5rem); /* Fluid sizing for H3 */
+
+        }
+
+        .text-base { font-size: clamp(0.9rem, 2.5vw, 1rem); }
+
+        .text-lg { font-size: clamp(1rem, 2.7vw, 1.125rem); }
+
+        .text-xl { font-size: clamp(1.1rem, 2.8vw, 1.25rem); }
+
+  
+
+        /* General styling for the main container */
+
+        .card-container {
+
+            background-color: var(--blanco);
+
+            border-radius: 1.5rem; /* Rounded corners for elements */
+
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.08); /* Subtle shadow */
+
+            max-width: 38rem; /* Adjusted max-width for better readability on desktop */
+
+            width: 100%;
+
+            padding: 2.5rem; /* More generous padding */
+
+            border: 1px solid rgba(0, 0, 0, 0.05); /* Very light border */
+
+        }
+
+  
+
+        /* Specific styles for step cards */
+
+        .step-card {
+
+            background-color: var(--gris-neutro);
+
+            border-radius: 1rem; /* Rounded corners for steps */
+
+            padding: 1.5rem;
+
+            display: flex;
+
+            align-items: flex-start;
+
+            gap: 1rem; /* Spacing between icon and text */
+
+            transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+
+        }
+
+        .step-card:hover {
+
+            transform: translateY(-3px);
+
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+
+        }
+
+  
+
+        /* SVG icon styling for organic look */
+
+        .icon-organic {
+
+            stroke: var(--verde-regenerativo);
+
+            stroke-width: 1.8;
+
+            fill: none;
+
+            width: 2.5rem; /* Larger icons */
+
+            height: 2.5rem;
+
+            flex-shrink: 0; /* Prevent icon from shrinking */
+
+        }
+
+        .icon-organic-fill {
+
+            fill: var(--verde-regenerativo);
+
+            width: 2.5rem;
+
+            height: 2.5rem;
+
+            flex-shrink: 0;
+
+        }
+
+  
+
+        /* Header logo specific styling */
+
+        .logo-spiral {
+
+            transform: scale(0.8); /* Slightly scale down the SVG to fit better */
+
+            transform-origin: center center;
+
+            margin-right: 0.5rem;
+
+        }
+
+        .logo-text {
+
+            font-size: clamp(2rem, 4vw, 2.5rem); /* Fluid size for EMIS text */
+
+        }
+
+    </style>
+
 </head>
+
 <body>
 
-<header class="hero">
-    <div class="container">
-        <h1>Dejá de sentirte estancado y creá calma y claridad en tu vida</h1>
-        <p>Te acompaño a salir de los círculos viciosos con micro-retos, herramientas simples y el poder de una comunidad.</p>
-    </div>
-</header>
+    <div class="card-container">
 
-<div class="container">
-    <div class="cta-main">
-        <a href="[ENLACE_WHATSAPP]" target="_blank" class="cta-button">Quiero unirme GRATIS a la Comunidad</a>
-        <p class="cta-subtext">Acceso inmediato a recursos y apoyo mutuo. ¡Sin costo!</p>
-    </div>
+        <!-- Sección 1: Cabecera / Título -->
 
-    <section class="content-section">
-        <h2 class="section-title">¿Quién te va a acompañar?</h2>
-        <div class="about-me">
-            <img src="https://via.placeholder.com/100" alt="Tu foto de perfil">
-            <div>
-                <p><strong>¡Hola! Soy [Tu Nombre].</strong></p>
-                <p>Durante años me sentí [comparte tu historia brevemente, ej: "abrumado y sin rumbo"]. Descubrí que los pequeños cambios sostenidos son la clave del bienestar real. Ahora, mi misión es darte las herramientas y el apoyo que a mí me hubiera gustado tener para que construyas una vida con más calma y propósito.</p>
-            </div>
-        </div>
-    </section>
+        <header class="text-center mb-4 pb-4 border-b border-gray-100">
 
-    <section class="content-section">
-        <h2 class="section-title">¿Qué recibirás en la Comunidad Gratuita?</h2>
-        <p>Al unirte al grupo de WhatsApp, tendrás acceso inmediato a:</p>
-        <ul>
-            <li><strong>Micro-Retos Semanales:</strong> Pequeñas acciones para generar grandes cambios sin agobiarte.</li>
-            <li><strong>Herramientas Prácticas:</strong> Tips y recursos para aplicar en tu día a día y reducir el estrés.</li>
-            <li><strong>Apoyo Grupal:</strong> Un espacio seguro para compartir tus avances, dudas y sentirte acompañado.</li>
-            <li><strong>Prioridad de Acceso:</strong> Serás el primero en enterarte de la apertura del programa completo y ofertas especiales.</li>
-        </ul>
-        <p>Este es el primer paso perfecto, sin compromiso, para empezar a transformar tu bienestar.</p>
-    </section>
-    
-    <div class="cta-main">
-        <a href="[ENLACE_WHATSAPP]" target="_blank" class="cta-button">Sumarme ahora a la comunidad</a>
-        <p class="cta-subtext">Es gratis y solo te tomará 10 segundos.</p>
-    </div>
+            <div class="flex items-center justify-center mb-4">
 
-    <se<section class="content-section price-section">
-    <h2 class="section-title">¿Listo para una transformación completa?</h2>
-    <p>El programa completo de 1 año es para quienes buscan un acompañamiento total. Además de la comunidad, tendrás acceso a todas las herramientas interactivas, encuentros grupales y mi apoyo directo.</p>
-    
-    <h3 style="margin-top: 25px; font-size: 1.5em; color: #333;">Una Oferta Única de Lanzamiento</h3>
-    <p>El Club de Bienestar será una suscripción mensual. Pero por ser parte del lanzamiento, tienes una oportunidad única.</p>
+                <!-- Logotipo: Espiral Evolutiva (símbolo) + Micropractica (tipográfico) -->
 
-    <div style="border: 1px solid #ddd; padding: 15px; border-radius: 8px; margin-bottom: 20px;">
-        <h4 style="margin-top:0;">🌎 Para LATAM y el resto del mundo:</h4>
-        <p style="font-size: 1.1em;">Precio Regular: <s style="color: #e74c3c;">$10 USD por mes ($120 USD al año)</s></p>
-        <p style="font-size: 1.2em; font-weight: bold; color: #27ae60;">
-            PRECIO FUNDADOR: ¡1 solo pago de $50 USD por TODO el año!
-        </p>
-        <p style="font-weight: bold;">¡Ahorrás más del 58%! Pagas menos de 5 meses y accedes por 12.</p>
-        <div class="cta-buttons">
-            <a href="[ENLACE_PAGO_USD]" target="_blank">Quiero mi acceso por $50 USD</a>
-        </div>
-    </div>
+                <svg class="logo-spiral w-12 h-12 text-azul-claridad" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
 
-    <div style="border: 1px solid #ddd; padding: 15px; border-radius: 8px;">
-        <h4 style="margin-top:0;">🇦🇷 Para Argentina:</h4>
-        <p style="font-size: 1.2em; font-weight: bold; color: #27ae60;">
-            PRECIO FUNDADOR: ¡1 solo pago de $10.000 ARS por TODO el año!
-        </p>
-        <p><em>(Equivalente a solo ~$833 ARS por mes, un valor que no se repetirá)</em></p>
-        <p>Podés pagar por transferencia directa con el alias: <strong style="background: #fff3cd; padding: 3px 6px; border-radius: 4px;">ferseclub</strong></p>
-        <div class="cta-buttons">
-            <a href="[ENLACE_PAGO_ARS]" target="_blank">Quiero mi acceso por $10.000 ARS</a>
-        </div>
-    </div>
-    
-    <p class="price-notice" style="margin-top: 20px;"><strong>Importante:</strong> Este precio de preventa es exclusivo para fundadores y no volverá a estar disponible una vez que se lance el club el 11 de Octubre de 2025.</p>
-</section>
+                    <path d="M 50 10 A 40 40 0 0 1 90 50 A 40 40 0 0 1 50 90 A 40 40 0 0 1 10 50 A 40 40 0 0 1 50 10 M 50 25 A 25 25 0 0 1 75 50 A 25 25 0 0 1 50 75 A 25 25 0 0 1 25 50 A 25 25 0 0 1 50 25 M 50 40 A 10 10 0 0 1 60 50 A 10 10 0 0 1 50 60 A 10 10 0 0 1 40 50 A 10 10 0 0 1 50 40" stroke="var(--azul-claridad)" stroke-width="3" fill="none"/>
 
-<footer class="footer">
-    <p>Club de Bienestar LATAM | Todos los derechos reservados</p>
-</footer>
+                </svg>
+
+                <span class="font-montserrat-bold logo-text text-negro-profundo">Pausa Regeneradora</span>
+
+            </div>
+
+            <h1 class="font-montserrat-bold text-negro-profundo leading-tight mt-4">Tu Pausa para la Claridad Mental</h1>
+
+            <p class="font-montserrat-regular text-lg text-azul-claridad mt-2">Calma tu sistema, enfoca tu mente.</p>
+
+        </header>
+
+  
+
+        <!-- Sección 2: ¿Por Qué Hacer una Pausa? -->
+
+        <section class="mb-6 text-center px-2"> <!-- Adjusted mb to make room for new section -->
+
+            <p class="font-montserrat-regular text-base text-negro-profundo leading-relaxed">
+
+                En pocos minutos, esta micropráctica te permite reducir el estrés fisiológico, cultivando la calma necesaria para una mente clara y decisiones alineadas.
+
+            </p>
+
+        </section>
+
+  
+
+        <!-- NUEVA SECCIÓN: Cómo Integrar Tu Pausa Reguladora -->
+
+        <section class="mb-8 p-4 bg-gris-neutro rounded-xl shadow-sm border border-gray-100">
+
+            <h2 class="font-montserrat-bold text-xl text-negro-profundo mb-3 text-center">Guía Rápida</h2>
+
+            <p class="font-montserrat-regular text-base text-negro-profundo mb-4 leading-relaxed">
+
+                Esta micropráctica está diseñada para ser tu aliada diaria, cultivando calma y claridad. La clave es la <span class="font-montserrat-bold">constancia, no la perfección.</span>
+
+            </p>
+
+            <ul class="list-none p-0 space-y-3">
+
+                <li>
+
+                    <h4 class="font-montserrat-bold text-lg text-azul-claridad mb-1">¿Cuándo y Cuánto?</h4>
+
+                    <p class="font-montserrat-regular text-base text-negro-profundo leading-relaxed">
+
+                        Puedes hacerla al despertar, antes de una tarea clave, al mediodía para recargar, o la hora del Club. Empieza con 3 a 5 minutos. Hacerla 2-3 veces al día potenciará sus efectos.
+
+                    </p>
+
+                </li>
+
+                <li>
+
+                    <h4 class="font-montserrat-bold text-lg text-azul-claridad mb-1">Tu Espacio:</h4>
+
+                    <p class="font-montserrat-regular text-base text-negro-profundo leading-relaxed">
+
+                        Busca un lugar tranquilo por unos minutos. Puedes practicarla sentado, de pie o en un movimiento consciente.
+
+                    </p>
+
+                </li>
+
+                <li>
+
+                    <h4 class="font-montserrat-bold text-lg text-azul-claridad mb-1">Actitud Consciente:</h4>
+
+                    <p class="font-montserrat-regular text-base text-negro-profundo leading-relaxed">
+
+                        Acércate con <span class="font-montserrat-bold">curiosidad y gentileza</span>. Tu pausa es un momento para observar, no para juzgar.
+
+                    </p>
+
+                </li>
+
+            </ul>
+
+        </section>
+
+        <!-- FIN NUEVA SECCIÓN -->
+
+  
+
+        <!-- Sección 3: Los Pasos de Tu Pausa Reguladora -->
+
+        <section class="space-y-4 mb-8"> <!-- Added mb-8 to separate from new Adaptations section -->
+
+            <!-- Paso 1: Anclaje Corporal y Postura Consciente -->
+
+            <div class="step-card">
+
+                <svg class="icon-organic" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round">
+
+                    <path d="M12 22s-8-4-8-10c0-4.418 3.582-8 8-8s8 3.582 8 8c0 6-8 10-8 10zM12 14a3 3 0 100-6 3 3 0 000 6z"></path>
+
+                </svg>
+
+                <div>
+
+                    <h3 class="font-montserrat-bold text-negro-profundo mb-1">1. Anclaje Consciente</h3>
+
+                    <p class="font-montserrat-regular text-base text-negro-profundo leading-relaxed">
+
+                        Siéntate o ponte de pie. Columna recta. Siente tus puntos de apoyo. Relaja hombros y mandíbula.
+
+                    </p>
+
+                </div>
+
+            </div>
+
+  
+
+            <!-- Paso 2: Respiración Consciente (4-7-8 o Triangular) -->
+
+            <div class="step-card">
+
+                <svg class="icon-organic" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round">
+
+                    <path d="M12 2C6.477 2 2 6.477 2 12s4.477 10 10 10 10-4.477 10-10S17.523 2 12 2zM12 18a6 6 0 100-12 6 6 0 000 12z"></path>
+
+                </svg>
+
+                <div>
+
+                    <h3 class="font-montserrat-bold text-negro-profundo mb-1">2. Respiración Calmante</h3>
+
+                    <p class="font-montserrat-regular text-base text-negro-profundo leading-relaxed">
+
+                        Inhala suavemente por 4 segundos, Sostén el aire por 7 segundos, Exhala lento por 8 segundos. Repite 3-5 veces por la nariz.
+
+                    </p>
+
+                </div>
+
+            </div>
+
+  
+
+            <!-- Paso 3: Escaneo Corporal Rápido -->
+
+            <div class="step-card">
+
+                <svg class="icon-organic" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round">
+
+                    <path d="M20 10H4a2 2 0 00-2 2v6a2 2 0 002 2h16a2 2 0 002-2v-6a2 2 0 00-2-2zM4 10V6a2 2 0 012-2h12a2 2 0 012 2v4M12 15h.01"></path>
+
+                </svg>
+
+                <div>
+
+                    <h3 class="font-montserrat-bold text-negro-profundo mb-1">3. Escaneo Rápido</h3>
+
+                    <p class="font-montserrat-regular text-base text-negro-profundo leading-relaxed">
+
+                        Recorre tu cuerpo mentalmente, de pies a cabeza. Observa cualquier sensación sin juzgar.
+
+                    </p>
+
+                </div>
+
+            </div>
+
+  
+
+            <!-- Paso 4: Reconexión y Propósito -->
+
+            <div class="step-card">
+
+                <svg class="icon-organic" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round">
+
+                    <circle cx="12" cy="6" r="3" />
+
+                    <circle cx="6" cy="18" r="3" />
+
+                    <circle cx="18" cy="18" r="3" />
+
+                    <line x1="12" y1="9" x2="6.5" y2="16.5" />
+
+                    <line x1="12" y1="9" x2="17.5" y2="16.5" />
+
+                    <line x1="6.5" y1="16.5" x2="17.5" y2="16.5" />
+
+                </svg>
+
+                <div>
+
+                    <h3 class="font-montserrat-bold text-negro-profundo mb-1">4. Reconecta</h3>
+
+                    <p class="font-montserrat-regular text-base text-negro-profundo leading-relaxed">
+
+                        Conecta con tu intención y propósito para el próximo momento. Vuelve a tu actividad con renovado enfoque.
+
+                    </p>
+
+                </div>
+
+            </div>
+
+        </section>
+
+  
+
+        <!-- NUEVA SECCIÓN: Adapta y Evoluciona Tu Práctica -->
+
+        <section class="mt-6 mb-8 p-4 bg-gris-neutro rounded-xl shadow-sm border border-gray-100">
+
+            <h2 class="font-montserrat-bold text-xl text-negro-profundo mb-3 text-center">Adapta y Evoluciona Tu Práctica: Tu Claridad es Viva</h2>
+
+            <p class="font-montserrat-regular text-base text-negro-profundo mb-4 leading-relaxed">
+
+                Tu camino hacia la claridad mental es único. Esta guía es un punto de partida; la verdadera maestría reside en tu capacidad de <span class="font-montserrat-bold">adaptación</span>.
+
+            </p>
+
+            <ul class="list-none p-0 space-y-3">
+
+                <li>
+
+                    <h4 class="font-montserrat-bold text-lg text-azul-claridad mb-1">Personaliza la Duración:</h4>
+
+                    <p class="font-montserrat-regular text-base text-negro-profundo leading-relaxed">
+
+                        <span class="font-montserrat-bold">¿Poco tiempo?</span> Enfócate en 1-2 minutos de respiración y anclaje. <span class="font-montserrat-bold">¿Más tiempo?</span> Permite que cada paso se extienda o añade unos segundos de silencio consciente.
+
+                    </p>
+
+                </li>
+
+                <li>
+
+                    <h4 class="font-montserrat-bold text-lg text-azul-claridad mb-1">Enfoca Según Tu Momento (Las 3 Dimensiones):</h4>
+
+                    <p class="font-montserrat-regular text-base text-negro-profundo leading-relaxed">
+
+                        Si sientes <span class="font-montserrat-bold">estrés físico (Real)</span>: Prioriza la respiración y el escaneo corporal.<br>
+
+                        Si tu <span class="font-montserrat-bold">mente está agitada (Imaginaria)</span>: Concéntrate en la visualización de la calma o en volver al presente.<br>
+
+                        Si buscas <span class="font-montserrat-bold">propósito (Simbólica)</span>: Profundiza en la reconexión con tu intención.
+
+                    </p>
+
+                </li>
+
+                <li>
+
+                    <h4 class="font-montserrat-bold text-lg text-azul-claridad mb-1">Sé Tu Propio Científico:</h4>
+
+                    <p class="font-montserrat-regular text-base text-negro-profundo leading-relaxed">
+
+                        <span class="font-montserrat-bold">Experimenta.</span> Prueba diferentes horarios, lugares o enfatiza un paso en particular. <span class="font-montserrat-bold">Observa.</span> ¿Qué efectos notas en tu claridad y bienestar?, <span class="font-montserrat-bold"> compartelo al Club.</span> Tu capacidad de adaptar y aprender es tu mayor activo para la evolución continua.
+
+                    </p>
+
+                </li>
+
+            </ul>
+
+            <p class="font-montserrat-regular text-base text-center text-negro-profundo mt-6">
+
+                Recuerda: "Cultiva tu claridad, transforma tu entorno. Cada práctica cuenta: pequeños pasos, grandes cambios."
+
+            </p>
+
+        </section>
+
+        <!-- FIN NUEVA SECCIÓN -->
+
+  
+
+        <!-- Sección 4: Consejos Clave / Recordatorio -->
+
+        <section class="mt-4 pt-4 border-t border-gray-100 text-center">
+
+            <h4 class="font-montserrat-bold text-xl text-azul-claridad mb-4">Consejos Clave</h4>
+
+            <ul class="list-none p-0 space-y-2 text-negro-profundo font-montserrat-regular text-base">
+
+                <li><span class="text-verde-regenerativo font-bold">✨</span> Puedes hacerla en 3-5 minutos.</li>
+
+                <li><span class="text-verde-regenerativo font-bold">🎯</span> No busques la perfección, solo la pausa.</li>
+
+                <li><span class="text-verde-regenerativo font-bold">🔄</span> Practica varias veces al día.</li>
+
+            </ul>
+
+            <p class="font-montserrat-bold text-verde-regenerativo text-2xl mt-6 leading-tight">
+
+                ¡Tu claridad mental te espera!
+
+            </p>
+
+        </section>
+
+        <!-- Sección CTA Final: Únete al Club -->
+
+        <section class="mt-8 p-6 bg-verde-regenerativo rounded-xl shadow-lg text-center">
+
+            <h2 class="font-montserrat-bold text-2xl text-blanco mb-4">Únete al Club</h2>
+
+            <p class="font-montserrat-regular text-base text-blanco mb-4">
+
+                Comparte tu evolución, vota el horario colectivo y co-creemos juntos nuevas prácticas regenerativas.
+
+            </p>
+
+            <a href="https://whatsapp.com/channel/0029Vb6jQNs96H4ODepiXy1M"
+
+            class="inline-block bg-blanco text-verde-regenerativo font-montserrat-bold text-lg px-6 py-3 rounded-full shadow hover:bg-gray-100 transition">
+
+            Únete al canal de WhatsApp
+
+            </a>
+
+        </section>
+
+        <!-- Sección 5: Pie de Página -->
+
+        <footer class="mt-8 text-center text-sm text-gray-500 font-montserrat-regular">
+
+            <p>Clubs de Bienestar LATAM | Fase 1</p>
+
+        </footer>
+
+    </div>
 
 </body>
+
 </html>
