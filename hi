@@ -1,0 +1,638 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Guía de Pausas para la Claridad Mental</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts - Montserrat -->
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        /* Custom CSS variables for brand colors */
+        :root {
+            --verde-regenerativo: #4A7C59;
+            --azul-claridad: #3B5998;
+            --gris-neutro: #F2F2F2;
+            --negro-profundo: #1A1A1A;
+            --blanco: #FFFFFF;
+        }
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            color: var(--negro-profundo);
+            background-color: var(--gris-neutro); /* Base background */
+            display: flex;
+            justify-content: center;
+            align-items: center; /* Center content vertically */
+            min-height: 100vh;
+            padding: 2rem 1rem;
+        }
+
+        /* Utility classes for brand colors */
+        .text-verde-regenerativo { color: var(--verde-regenerativo); }
+        .bg-verde-regenerativo { background-color: var(--verde-regenerativo); }
+        .text-azul-claridad { color: var(--azul-claridad); }
+        .bg-gris-neutro { background-color: var(--gris-neutro); }
+        .text-negro-profundo { color: var(--negro-profundo); }
+        .bg-blanco { background-color: var(--blanco); }
+
+        /* Custom font weights */
+        .font-montserrat-bold { font-weight: 700; }
+        .font-montserrat-regular { font-weight: 400; }
+
+        /* Responsive font sizes */
+        h1 {
+            font-size: clamp(2rem, 5vw, 3rem); /* Fluid sizing for H1 */
+        }
+        h3 {
+            font-size: clamp(1.25rem, 3vw, 1.5rem); /* Fluid sizing for H3 */
+        }
+        .text-base { font-size: clamp(0.9rem, 2.5vw, 1rem); }
+        .text-lg { font-size: clamp(1rem, 2.7vw, 1.125rem); }
+        .text-xl { font-size: clamp(1.1rem, 2.8vw, 1.25rem); }
+
+        /* General styling for the main container */
+        .card-container {
+            background-color: var(--blanco);
+            border-radius: 1.5rem; /* Rounded corners for elements */
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.08); /* Subtle shadow */
+            max-width: 38rem; /* Adjusted max-width for better readability on desktop */
+            width: 100%;
+            padding: 2.5rem; /* More generous padding */
+            border: 1px solid rgba(0, 0, 0, 0.05); /* Very light border */
+        }
+
+        /* Specific styles for step cards */
+        .step-card {
+            background-color: var(--gris-neutro);
+            border-radius: 1rem; /* Rounded corners for steps */
+            padding: 1.5rem;
+            display: flex;
+            align-items: flex-start;
+            gap: 1rem; /* Spacing between icon and text */
+            transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+        }
+        .step-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+        }
+
+        /* SVG icon styling for organic look */
+        .icon-organic {
+            stroke: var(--verde-regenerativo);
+            stroke-width: 1.8;
+            fill: none;
+            width: 2.5rem; /* Larger icons */
+            height: 2.5rem;
+            flex-shrink: 0; /* Prevent icon from shrinking */
+        }
+        .icon-organic-fill {
+            fill: var(--verde-regenerativo);
+            width: 2.5rem;
+            height: 2.5rem;
+            flex-shrink: 0;
+        }
+
+        /* Header logo specific styling */
+        .logo-spiral {
+            transform: scale(0.8); /* Slightly scale down the SVG to fit better */
+            transform-origin: center center;
+            margin-right: 0.5rem;
+        }
+        .logo-text {
+            font-size: clamp(2rem, 4vw, 2.5rem); /* Fluid size for EMIS text */
+        }
+
+        /* Styles for LLM interaction sections */
+        .llm-section-container {
+            background-color: var(--gris-neutro);
+            border-radius: 1rem;
+            padding: 1.5rem;
+            margin-top: 2rem;
+            text-align: center;
+            border: 1px solid rgba(0, 0, 0, 0.05);
+            box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+        }
+        .llm-input-area textarea {
+            width: 100%;
+            padding: 0.75rem;
+            border-radius: 0.5rem;
+            border: 1px solid var(--gris-neutro);
+            margin-bottom: 0.75rem;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 400;
+            color: var(--negro-profundo);
+            background-color: var(--blanco);
+        }
+        .llm-button {
+            background-color: var(--verde-regenerativo);
+            color: var(--blanco);
+            padding: 0.75rem 1.25rem;
+            border-radius: 0.75rem;
+            font-weight: 700;
+            cursor: pointer;
+            transition: background-color 0.2s ease-in-out;
+            width: 100%;
+        }
+        .llm-button:hover {
+            background-color: #3C634B; /* Slightly darker green */
+        }
+        .llm-response-area {
+            margin-top: 1rem;
+            padding: 1rem;
+            background-color: var(--blanco);
+            border: 1px solid var(--verde-regenerativo);
+            border-radius: 0.75rem;
+            color: var(--negro-profundo);
+            line-height: 1.6;
+        }
+        .loading-spinner {
+            display: none; /* Hidden by default */
+            border: 4px solid rgba(0, 0, 0, 0.1);
+            border-top: 4px solid var(--azul-claridad);
+            border-radius: 50%;
+            width: 30px;
+            height: 30px;
+            animation: spin 1s linear infinite;
+            margin: 1rem auto;
+        }
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        /* Donation section specific styles */
+        .donation-section {
+            background-color: var(--gris-neutro);
+            border-radius: 1rem;
+            padding: 1.5rem;
+            margin-top: 2rem; /* Spacing from the above section */
+            text-align: center;
+            border: 1px solid rgba(0, 0, 0, 0.05);
+            box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+        }
+        /* New custom style for the DONAR AHORA button */
+        .cta-donate-button {
+            background-color: var(--verde-regenerativo);
+            color: var(--blanco);
+            padding: 0.8rem 2rem; /* More generous padding for visibility */
+            border-radius: 0.75rem;
+            font-weight: 700;
+            text-decoration: none;
+            display: inline-block; /* Changed from inline-flex for simple centering of text */
+            margin-top: 1.25rem; /* More space above the button */
+            font-size: 1.125rem; /* Larger font size */
+            transition: background-color 0.2s ease-in-out, transform 0.2s ease-in-out;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.15); /* Stronger shadow for prominence */
+        }
+        .cta-donate-button:hover {
+            background-color: #3C634B; /* Darker green on hover */
+            transform: translateY(-2px); /* Slight lift effect */
+        }
+        .donation-info-small {
+            font-size: 0.875rem; /* text-sm equivalent */
+            color: #555; /* Slightly muted color for less prominence */
+            margin-top: 1rem; /* Space between button and small text */
+            line-height: 1.4;
+        }
+
+        /* New section for Daily Intention */
+        .intention-display {
+            margin-top: 1rem;
+            padding: 1rem;
+            background-color: var(--blanco);
+            border: 1px solid var(--azul-claridad);
+            border-radius: 0.75rem;
+            color: var(--negro-profundo);
+            font-weight: 700;
+            line-height: 1.6;
+            min-height: 3rem; /* Ensures space even if no text */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.125rem;
+        }
+    </style>
+</head>
+<body>
+    <div class="card-container">
+        <!-- Sección 1: Cabecera / Título -->
+        <header class="text-center mb-4 pb-4 border-b border-gray-100">
+            <div class="flex items-center justify-center mb-4">
+                <!-- Logotipo: Espiral Evolutiva (símbolo) + Micropractica (tipográfico) -->
+                <svg class="logo-spiral w-12 h-12 text-azul-claridad" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M 50 10 A 40 40 0 0 1 90 50 A 40 40 0 0 1 50 90 A 40 40 0 0 1 10 50 A 40 40 0 0 1 50 10 M 50 25 A 25 25 0 0 1 75 50 A 25 25 0 0 1 50 75 A 25 25 0 0 1 25 50 A 25 25 0 0 1 50 25 M 50 40 A 10 10 0 0 1 60 50 A 10 10 0 0 1 50 60 A 10 10 0 0 1 40 50 A 10 10 0 0 1 50 40" stroke="var(--azul-claridad)" stroke-width="3" fill="none"/>
+                </svg>
+                <span class="font-montserrat-bold logo-text text-negro-profundo">Pausa Regeneradora</span>
+            </div>
+            <h1 class="font-montserrat-bold text-negro-profundo leading-tight mt-4">Tu Pausa para la Claridad Mental</h1>
+            <p class="font-montserrat-regular text-lg text-azul-claridad mt-2">Calma tu sistema, enfoca tu mente.</p>
+        </header>
+
+        <!-- Sección 2: ¿Por Qué Hacer una Pausa? -->
+        <section class="mb-6 text-center px-2">
+            <p class="font-montserrat-regular text-base text-negro-profundo leading-relaxed">
+                En pocos minutos, esta micropráctica te permite reducir el estrés fisiológico, cultivando la calma necesaria para una mente clara y decisiones alineadas.
+            </p>
+        </section>
+
+        <!-- NUEVA SECCIÓN: Cómo Integrar Tu Pausa Reguladora -->
+        <section class="mb-8 p-4 bg-gris-neutro rounded-xl shadow-sm border border-gray-100">
+            <h2 class="font-montserrat-bold text-xl text-negro-profundo mb-3 text-center">Guía Rápida</h2>
+            <p class="font-montserrat-regular text-base text-negro-profundo mb-4 leading-relaxed">
+                Esta micropráctica está diseñada para ser tu aliada diaria, cultivando calma y claridad. La clave es la <span class="font-montserrat-bold">constancia, no la perfección.</span>
+            </p>
+            <ul class="list-none p-0 space-y-3">
+                <li>
+                    <h4 class="font-montserrat-bold text-lg text-azul-claridad mb-1">¿Cuándo y Cuánto?</h4>
+                    <p class="font-montserrat-regular text-base text-negro-profundo leading-relaxed">
+                        Puedes hacerla al despertar, antes de una tarea clave, al mediodía para recargar, o la hora del Club. Empieza con 3 a 5 minutos. Hacerla 2-3 veces al día potenciará sus efectos.
+                    </p>
+                </li>
+                <li>
+                    <h4 class="font-montserrat-bold text-lg text-azul-claridad mb-1">Tu Espacio:</h4>
+                    <p class="font-montserrat-regular text-base text-negro-profundo leading-relaxed">
+                        Busca un lugar tranquilo por unos minutos. Puedes practicarla sentado, de pie o en un movimiento consciente.
+                    </p>
+                </li>
+                <li>
+                    <h4 class="font-montserrat-bold text-lg text-azul-claridad mb-1">Actitud Consciente:</h4>
+                    <p class="font-montserrat-regular text-base text-negro-profundo leading-relaxed">
+                        Acércate con <span class="font-montserrat-bold">curiosidad y gentileza</span>. Tu pausa es un momento para observar, no para juzgar.
+                    </p>
+                </li>
+            </ul>
+        </section>
+        <!-- FIN NUEVA SECCIÓN -->
+
+        <!-- Sección 3: Los Pasos de Tu Pausa Reguladora -->
+        <section class="space-y-4 mb-8">
+            <!-- Paso 1: Anclaje Corporal y Postura Consciente -->
+            <div class="step-card">
+                <svg class="icon-organic" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M12 22s-8-4-8-10c0-4.418 3.582-8 8-8s8 3.582 8 8c0 6-8 10-8 10zM12 14a3 3 0 100-6 3 3 0 000 6z"></path>
+                </svg>
+                <div>
+                    <h3 class="font-montserrat-bold text-negro-profundo mb-1">1. Anclaje Consciente</h3>
+                    <p class="font-montserrat-regular text-base text-negro-profundo leading-relaxed">
+                        Siéntate o ponte de pie. Columna recta. Siente tus puntos de apoyo. Relaja hombros y mandíbula.
+                    </p>
+                </div>
+            </div>
+
+            <!-- Paso 2: Respiración Consciente (4-7-8 o Triangular) -->
+            <div class="step-card">
+                <svg class="icon-organic" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M12 2C6.477 2 2 6.477 2 12s4.477 10 10 10 10-4.477 10-10S17.523 2 12 2zM12 18a6 6 0 100-12 6 6 0 000 12z"></path>
+                </svg>
+                <div>
+                    <h3 class="font-montserrat-bold text-negro-profundo mb-1">2. Respiración Calmante</h3>
+                    <p class="font-montserrat-regular text-base text-negro-profundo leading-relaxed">
+                        Inhala suavemente por 4 segundos, Sostén el aire por 7 segundos, Exhala lento por 8 segundos. Repite 3-5 veces por la nariz.
+                    </p>
+                </div>
+            </div>
+
+            <!-- Paso 3: Escaneo Corporal Rápido -->
+            <div class="step-card">
+                <svg class="icon-organic" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M20 10H4a2 2 0 00-2 2v6a2 2 0 002 2h16a2 2 0 002-2v-6a2 2 0 00-2-2zM4 10V6a2 2 0 012-2h12a2 2 0 012 2v4M12 15h.01"></path>
+                </svg>
+                <div>
+                    <h3 class="font-montserrat-bold text-negro-profundo mb-1">3. Escaneo Rápido</h3>
+                    <p class="font-montserrat-regular text-base text-negro-profundo leading-relaxed">
+                        Recorre tu cuerpo mentalmente, de pies a cabeza. Observa cualquier sensación sin juzgar.
+                    </p>
+                </div>
+            </div>
+
+            <!-- Paso 4: Reconexión y Propósito -->
+            <div class="step-card">
+                <svg class="icon-organic" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round">
+                    <circle cx="12" cy="6" r="3" />
+                    <circle cx="6" cy="18" r="3" />
+                    <circle cx="18" cy="18" r="3" />
+                    <line x1="12" y1="9" x2="6.5" y2="16.5" />
+                    <line x1="12" y1="9" x2="17.5" y2="16.5" />
+                    <line x1="6.5" y1="16.5" x2="17.5" y2="16.5" />
+                </svg>
+                <div>
+                    <h3 class="font-montserrat-bold text-negro-profundo mb-1">4. Reconecta</h3>
+                    <p class="font-montserrat-regular text-base text-negro-profundo leading-relaxed">
+                        Conecta con tu intención y propósito para el próximo momento. Vuelve a tu actividad con renovado enfoque.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Sección: Adapta y Evoluciona Tu Práctica -->
+        <section class="mt-6 mb-8 p-4 bg-gris-neutro rounded-xl shadow-sm border border-gray-100">
+            <h2 class="font-montserrat-bold text-xl text-negro-profundo mb-3 text-center">Adapta y Evoluciona Tu Práctica: Tu Claridad es Viva</h2>
+            <p class="font-montserrat-regular text-base text-negro-profundo mb-4 leading-relaxed">
+                Tu camino hacia la claridad mental es único. Esta guía es un punto de partida; la verdadera maestría reside en tu capacidad de <span class="font-montserrat-bold">adaptación</span>.
+            </p>
+            <ul class="list-none p-0 space-y-3">
+                <li>
+                    <h4 class="font-montserrat-bold text-lg text-azul-claridad mb-1">Personaliza la Duración:</h4>
+                    <p class="font-montserrat-regular text-base text-negro-profundo leading-relaxed">
+                        <span class="font-montserrat-bold">¿Poco tiempo?</span> Enfócate en 1-2 minutos de respiración y anclaje. <span class="font-montserrat-bold">¿Más tiempo?</span> Permite que cada paso se extienda o añade unos segundos de silencio consciente.
+                    </p>
+                </li>
+                <li>
+                    <h4 class="font-montserrat-bold text-lg text-azul-claridad mb-1">Enfoca Según Tu Momento (Las 3 Dimensiones):</h4>
+                    <p class="font-montserrat-regular text-base text-negro-profundo leading-relaxed">
+                        Si sientes <span class="font-montserrat-bold">estrés físico (Real)</span>: Prioriza la respiración y el escaneo corporal.<br>
+                        Si tu <span class="font-montserrat-bold">mente está agitada (Imaginaria)</span>: Concéntrate en la visualización de la calma o en volver al presente.<br>
+                        Si buscas <span class="font-montserrat-bold">propósito (Simbólica)</span>: Profundiza en la reconexión con tu intención.
+                    </p>
+                </li>
+                <li>
+                    <h4 class="font-montserrat-bold text-lg text-azul-claridad mb-1">Sé Tu Propio Científico:</h4>
+                    <p class="font-montserrat-regular text-base text-negro-profundo leading-relaxed">
+                        <span class="font-montserrat-bold">Experimenta.</span> Prueba diferentes horarios, lugares o enfatiza un paso en particular. <span class="font-montserrat-bold">Observa.</span> ¿Qué efectos notas en tu claridad y bienestar?, <span class="font-montserrat-bold"> compártelo al Club.</span> Tu capacidad de adaptar y aprender es tu mayor activo para la evolución continua.
+                    </p>
+                </li>
+            </ul>
+
+            <!-- Sección de interacción LLM - Sugerencia de Adaptación -->
+            <div id="llm-section-toggle" class="mt-6 text-center">
+                <button id="show-llm-input-button" class="llm-button flex items-center justify-center space-x-2">
+                    <span class="text-xl">✨</span> <span>Sugerencia de Adaptación Personalizada</span>
+                </button>
+            </div>
+
+            <div id="llm-interaction-area" class="mt-4" style="display: none;">
+                <h4 class="font-montserrat-bold text-lg text-negro-profundo mb-2">Describe tu momento o desafío:</h4>
+                <div class="llm-input-area">
+                    <textarea id="user-input" rows="3" placeholder="Ej: 'Me siento con mucha ansiedad y me cuesta concentrarme hoy.' o 'Necesito ayuda para conectar con el propósito.'"></textarea>
+                    <button id="generate-suggestion-button" class="llm-button">Generar Sugerencia</button>
+                </div>
+                <div id="loading-spinner" class="loading-spinner"></div>
+                <div id="llm-response" class="llm-response-area hidden">
+                    <h4 class="font-montserrat-bold text-verde-regenerativo mb-2">Tu Sugerencia Personalizada:</h4>
+                    <p id="response-text" class="font-montserrat-regular text-base"></p>
+                </div>
+            </div>
+        </section>
+        <!-- FIN NUEVA SECCIÓN: Adapta y Evoluciona Tu Práctica -->
+
+        <!-- Sección 4: Consejos Clave / Recordatorio -->
+        <section class="mt-4 pt-4 border-t border-gray-100 text-center">
+            <h4 class="font-montserrat-bold text-xl text-azul-claridad mb-4">Consejos Clave</h4>
+            <ul class="list-none p-0 space-y-2 text-negro-profundo font-montserrat-regular text-base">
+                <li><span class="text-verde-regenerativo font-bold">✨</span> Puedes hacerla en 3-5 minutos.</li>
+                <li><span class="text-verde-regenerativo font-bold">🎯</span> No busques la perfección, solo la pausa.</li>
+                <li><span class="text-verde-regenerativo font-bold">🔄</span> Practica varias veces al día.</li>
+            </ul>
+            <p class="font-montserrat-bold text-verde-regenerativo text-2xl mt-6 leading-tight">
+                ¡Tu claridad mental te espera!
+            </p>
+        </section>
+
+        <!-- Nueva Sección: Generar Intención Diaria -->
+        <section class="llm-section-container">
+            <h2 class="font-montserrat-bold text-xl text-negro-profundo mb-4">✨ Tu Intención Diaria de Claridad ✨</h2>
+            <p class="font-montserrat-regular text-base text-negro-profundo mb-4 leading-relaxed">
+                Recibe una frase inspiradora para enfocar tu día y potenciar tu práctica.
+            </p>
+            <button id="generate-intention-button" class="llm-button">Generar Intención</button>
+            <div id="intention-loading-spinner" class="loading-spinner"></div>
+            <div id="intention-display-area" class="intention-display hidden">
+                <p id="daily-intention-text" class="font-montserrat-bold text-negro-profundo"></p>
+            </div>
+        </section>
+        <!-- Fin Nueva Sección: Generar Intención Diaria -->
+
+        <!-- Nueva Sección: Generador de Preguntas Disruptivas -->
+        <section class="llm-section-container">
+            <h2 class="font-montserrat-bold text-xl text-negro-profundo mb-4">✨ Preguntas Disruptivas para la Claridad ✨</h2>
+            <p class="font-montserrat-regular text-base text-negro-profundo mb-4 leading-relaxed">
+                Describe un tema o desafío que te ocupe y recibe una pregunta que desafíe tus supuestos y fomente nuevos insights.
+            </p>
+            <div class="llm-input-area">
+                <textarea id="disruptive-question-input" rows="3" placeholder="Ej: 'Me siento estancado en mi trabajo.' o 'No sé cómo abordar un conflicto.'"></textarea>
+                <button id="generate-disruptive-question-button" class="llm-button">Generar Pregunta</button>
+            </div>
+            <div id="disruptive-question-loading-spinner" class="loading-spinner"></div>
+            <div id="disruptive-question-response-area" class="llm-response-area hidden">
+                <h4 class="font-montserrat-bold text-verde-regenerativo mb-2">Tu Pregunta Disruptiva:</h4>
+                <p id="disruptive-question-text" class="font-montserrat-regular text-base"></p>
+            </div>
+        </section>
+        <!-- Fin Nueva Sección: Generador de Preguntas Disruptivas -->
+
+        <!-- Sección de Donaciones (Final) -->
+        <section class="donation-section mt-8">
+            <p class="font-montserrat-regular text-lg text-negro-profundo mb-4">
+                <span class="text-verde-regenerativo font-bold">🌱</span> Sé parte activa de este movimiento vivo.
+            </p>
+            <p class="font-montserrat-bold text-azul-claridad mb-6 leading-relaxed">
+                Cada donación es un paso concreto que impulsa directamente la implementación de las:
+                <br>
+                👥 Comunidad (Fase 1) | 🚀 Expansión (Fase 2) | 🌎 Proyectos que transforman (Fase 3)
+            </p>
+            
+            <a href="https://paypal.me/ferseclub" target="_blank" class="cta-donate-button">
+                [💚 DONAR AHORA]
+            </a>
+
+            <div class="donation-info-small mt-3">
+                <p>🇦🇷 Alias: ferseclub (Galicia)</p>
+                <p>🌍 Latam: <a href="https://paypal.me/ferseclub" target="_blank" class="text-azul-claridad underline">https://paypal.me/ferseclub</a></p>
+            </div>
+        </section>
+        <!-- Fin Sección de Donaciones -->
+
+        <!-- Sección 5: Pie de Página -->
+        <footer class="mt-8 text-center text-sm text-gray-500 font-montserrat-regular">
+            <p>Clubs de Bienestar | Sistemas Regenerativos</p>
+        </footer>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // Elements for Adaptation Suggestion
+            const showLlmInputButton = document.getElementById('show-llm-input-button');
+            const llmInteractionArea = document.getElementById('llm-interaction-area');
+            const generateSuggestionButton = document.getElementById('generate-suggestion-button');
+            const userInput = document.getElementById('user-input');
+            const llmResponseDiv = document.getElementById('llm-response');
+            const loadingSpinner = document.getElementById('loading-spinner');
+            const responseText = document.getElementById('response-text');
+
+
+            // Elements for Daily Intention Generation
+            const generateIntentionButton = document.getElementById('generate-intention-button');
+            const intentionLoadingSpinner = document.getElementById('intention-loading-spinner');
+            const intentionDisplayArea = document.getElementById('intention-display-area');
+            const dailyIntentionText = document.getElementById('daily-intention-text');
+
+            // Elements for Disruptive Question Generation
+            const generateDisruptiveQuestionButton = document.getElementById('generate-disruptive-question-button');
+            const disruptiveQuestionInput = document.getElementById('disruptive-question-input');
+            const disruptiveQuestionLoadingSpinner = document.getElementById('disruptive-question-loading-spinner');
+            const disruptiveQuestionResponseArea = document.getElementById('disruptive-question-response-area');
+            const disruptiveQuestionText = document.getElementById('disruptive-question-text');
+
+
+            // Toggle LLM interaction area visibility for Adaptation Suggestion
+            showLlmInputButton.addEventListener('click', () => {
+                llmInteractionArea.style.display = llmInteractionArea.style.display === 'none' ? 'block' : 'none';
+                if (llmInteractionArea.style.display === 'block') {
+                    userInput.focus(); // Focus on the input when it appears
+                }
+            });
+
+            // Generate Adaptation Suggestion using Gemini API
+            generateSuggestionButton.addEventListener('click', async () => {
+                const prompt = userInput.value.trim();
+                if (!prompt) {
+                    responseText.textContent = "Por favor, describe tu momento o desafío para recibir una sugerencia.";
+                    llmResponseDiv.classList.remove('hidden');
+                    return;
+                }
+
+                // Show loading spinner and hide previous response
+                loadingSpinner.style.display = 'block';
+                llmResponseDiv.classList.add('hidden');
+                responseText.textContent = '';
+                generateSuggestionButton.disabled = true; // Disable button during loading
+
+                try {
+                    let chatHistory = [];
+                    // Contextualize the prompt for adaptation suggestions
+                    chatHistory.push({ role: "user", parts: [{ text: `Eres un experto en bienestar y claridad mental, basado en los principios de adaptación de 'Clubs de Bienestar'. Un usuario ha expresado el siguiente estado o desafío al intentar su pausa reguladora: "${prompt}". Basándote en esto y en los principios de adaptación (personalizar duración, enfocar según dimensión - Real/físico, Imaginaria/mental, Simbólica/propósito - y experimentar), sugiere una adaptación *específica* de la pausa reguladora para ayudarle a cultivar la claridad mental. Mantén la respuesta concisa y actionable, sin mencionar que eres un IA y usando un tono cercano y motivador. Limita la respuesta a un párrafo corto y directo.` }] });
+
+                    const payload = { contents: chatHistory };
+                    const apiKey = ""; // Canvas will automatically provide this at runtime
+                    const apiUrl = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key=${apiKey}`;
+
+                    const response = await fetch(apiUrl, {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify(payload)
+                    });
+
+                    const result = await response.json();
+
+                    if (result.candidates && result.candidates.length > 0 &&
+                        result.candidates[0].content && result.candidates[0].content.parts &&
+                        result.candidates[0].content.parts.length > 0) {
+                        const text = result.candidates[0].content.parts[0].text;
+                        responseText.textContent = text;
+                        llmResponseDiv.classList.remove('hidden');
+                    } else {
+                        responseText.textContent = "Lo siento, no pude generar una sugerencia en este momento. Intenta de nuevo más tarde.";
+                        llmResponseDiv.classList.remove('hidden');
+                    }
+                } catch (error) {
+                    console.error('Error al llamar a la API de Gemini para sugerencia:', error);
+                    responseText.textContent = "Hubo un error al generar la sugerencia. Por favor, revisa tu conexión e intenta de nuevo.";
+                    llmResponseDiv.classList.remove('hidden');
+                } finally {
+                    loadingSpinner.style.display = 'none';
+                    generateSuggestionButton.disabled = false; // Re-enable button
+                }
+            });
+
+            // Generate Daily Intention using Gemini API
+            generateIntentionButton.addEventListener('click', async () => {
+                // Show loading spinner and hide previous intention
+                intentionLoadingSpinner.style.display = 'block';
+                intentionDisplayArea.classList.add('hidden');
+                dailyIntentionText.textContent = '';
+                generateIntentionButton.disabled = true; // Disable button during loading
+
+                try {
+                    let chatHistory = [];
+                    // Contextualize the prompt for daily intention
+                    chatHistory.push({ role: "user", parts: [{ text: `Como experto en bienestar y claridad mental para 'Clubs de Bienestar', genera una intención diaria concisa, inspiradora y que promueva la calma, el enfoque o la interconexión. Debe ser una frase corta que sirva como mantra para una pausa reguladora. Evita mencionar que eres una IA.` }] });
+
+                    const payload = { contents: chatHistory };
+                    const apiKey = ""; // Canvas will automatically provide this at runtime
+                    const apiUrl = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key=${apiKey}`;
+
+                    const response = await fetch(apiUrl, {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify(payload)
+                    });
+
+                    const result = await response.json();
+
+                    if (result.candidates && result.candidates.length > 0 &&
+                        result.candidates[0].content && result.candidates[0].content.parts &&
+                        result.candidates[0].content.parts.length > 0) {
+                        const text = result.candidates[0].content.parts[0].text;
+                        dailyIntentionText.textContent = text;
+                        intentionDisplayArea.classList.remove('hidden');
+                    } else {
+                        dailyIntentionText.textContent = "Lo siento, no pude generar una intención en este momento. Intenta de nuevo más tarde.";
+                        intentionDisplayArea.classList.remove('hidden');
+                    }
+                } catch (error) {
+                    console.error('Error al llamar a la API de Gemini para intención:', error);
+                    dailyIntentionText.textContent = "Hubo un error al generar la intención. Por favor, revisa tu conexión e intenta de nuevo.";
+                    intentionDisplayArea.classList.remove('hidden');
+                } finally {
+                    intentionLoadingSpinner.style.display = 'none';
+                    generateIntentionButton.disabled = false; // Re-enable button
+                }
+            });
+
+            // Generate Disruptive Question using Gemini API
+            generateDisruptiveQuestionButton.addEventListener('click', async () => {
+                const prompt = disruptiveQuestionInput.value.trim();
+                if (!prompt) {
+                    disruptiveQuestionText.textContent = "Por favor, describe un tema o desafío para generar una pregunta.";
+                    disruptiveQuestionResponseArea.classList.remove('hidden');
+                    return;
+                }
+
+                // Show loading spinner and hide previous response
+                disruptiveQuestionLoadingSpinner.style.display = 'block';
+                disruptiveQuestionResponseArea.classList.add('hidden');
+                disruptiveQuestionText.textContent = '';
+                generateDisruptiveQuestionButton.disabled = true; // Disable button during loading
+
+                try {
+                    let chatHistory = [];
+                    // Contextualize the prompt for disruptive questions
+                    chatHistory.push({ role: "user", parts: [{ text: `Eres un experto en claridad mental y pensamiento sistémico para 'Clubs de Bienestar'. Un usuario ha descrito el siguiente tema o desafío: "${prompt}". Genera una pregunta disruptiva y profunda que desafíe sus supuestos, fomente un nuevo insight y promueva la claridad mental. La pregunta debe ser concisa y directa, sin mencionar que eres una IA.` }] });
+
+                    const payload = { contents: chatHistory };
+                    const apiKey = ""; // Canvas will automatically provide this at runtime
+                    const apiUrl = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key=${apiKey}`;
+
+                    const response = await fetch(apiUrl, {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify(payload)
+                    });
+
+                    const result = await response.json();
+
+                    if (result.candidates && result.candidates.length > 0 &&
+                        result.candidates[0].content && result.candidates[0].content.parts &&
+                        result.candidates[0].content.parts.length > 0) {
+                        const text = result.candidates[0].content.parts[0].text;
+                        disruptiveQuestionText.textContent = text;
+                        disruptiveQuestionResponseArea.classList.remove('hidden');
+                    } else {
+                        disruptiveQuestionText.textContent = "Lo siento, no pude generar una pregunta en este momento. Intenta de nuevo más tarde.";
+                        disruptiveQuestionResponseArea.classList.remove('hidden');
+                    }
+                } catch (error) {
+                    console.error('Error al llamar a la API de Gemini para pregunta disruptiva:', error);
+                    disruptiveQuestionText.textContent = "Hubo un error al generar la pregunta. Por favor, revisa tu conexión e intenta de nuevo.";
+                    disruptiveQuestionResponseArea.classList.remove('hidden');
+                } finally {
+                    disruptiveQuestionLoadingSpinner.style.display = 'none';
+                    generateDisruptiveQuestionButton.disabled = false; // Re-enable button
+                }
+            });
+        });
+    </script>
+</body>
+</html>
