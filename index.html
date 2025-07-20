@@ -3,9 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
-    <title>Centro de Entrenamiento de Bienestar para LATAM</title>
-    <meta name="description" content="Centro de Entrenamiento de Bienestar para LATAM. Práctica colectiva de microacciones con base científica para activar bucles virtuosos de bienestar.">
-    <meta name="keywords" content="bienestar, LATAM, microprácticas, comunidad, WhatsApp, Argentina, México, Ecuador">
+    <title>Entrenamiento de Bienestar Colectivo para LATAM</title>
+    <meta name="description" content="Un entrenamiento de bienestar colectivo para LATAM. Práctica comunitaria de microacciones con base científica para activar bucles virtuosos de bienestar.">
+    <meta name="keywords" content="bienestar, LATAM, microprácticas, comunidad, entrenamiento, WhatsApp, Argentina, México, Ecuador">
     
     <!-- Preconnect para optimizar carga de fuentes -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -383,6 +383,48 @@
             margin-bottom: 0;
         }
 
+        /* Benefits Section */
+        .benefits-section {
+            background: var(--gris-neutro);
+        }
+
+        .benefits-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: var(--spacing-md);
+            margin-top: var(--spacing-lg);
+        }
+
+        .benefit-card {
+            background: var(--blanco);
+            padding: var(--spacing-md);
+            border-radius: var(--border-radius);
+            text-align: center;
+            transition: transform 0.3s ease;
+            border-left: 4px solid var(--verde-regenerativo);
+        }
+
+        .benefit-card:hover {
+            transform: translateY(-4px);
+        }
+
+        .benefit-icon {
+            font-size: 2.5rem;
+            margin-bottom: var(--spacing-sm);
+            display: block;
+        }
+
+        .benefit-card h3 {
+            margin-bottom: var(--spacing-sm);
+            font-size: 1.25rem;
+        }
+
+        .benefit-card p {
+            line-height: 1.6;
+            opacity: 0.8;
+            margin-bottom: 0;
+        }
+
         /* Steps Section */
         .steps-section {
             background: var(--verde-regenerativo);
@@ -750,6 +792,10 @@
                 grid-template-columns: repeat(2, 1fr);
             }
 
+            .benefits-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
             .steps-container {
                 grid-template-columns: repeat(3, 1fr);
             }
@@ -805,6 +851,10 @@
 
             .features-grid {
                 grid-template-columns: repeat(4, 1fr);
+            }
+
+            .benefits-grid {
+                grid-template-columns: repeat(3, 1fr);
             }
 
             .pricing-card.featured {
@@ -870,7 +920,7 @@
                     <div class="logo-symbol">
                         <div class="spiral"></div>
                     </div>
-                    <div class="logo-text">Centro de Bienestar LATAM</div>
+                    <div class="logo-text">Bienestar Colectivo LATAM</div>
                 </div>
                 <a href="#unirse" class="cta-header">Únete Gratis</a>
             </div>
@@ -882,14 +932,14 @@
         <div class="container">
             <div class="hero-content loading">
                 <div class="hero-text">
-                    <h1>El bienestar real no es una promesa. Es práctica colectiva.</h1>
-                    <p class="hero-subtitle">Creamos un Centro de Entrenamiento de Bienestar para LATAM</p>
+                    <h1>El bienestar real no es una promesa. Es un entrenamiento colectivo.</h1>
+                    <p class="hero-subtitle">Somos una comunidad que entrena el bienestar colectivo para LATAM.</p>
                     <p class="hero-description">
                         Donde cada día aplicamos microacciones mínimas con base científica para activar bucles virtuosos de bienestar en nuestra vida y en nuestra región.
                         <br><br>
                         No es motivación que se evapora. No es un curso grabado. Es práctica viva, en comunidad, con rigor y sin adornos.
                     </p>
-                    <a href="#unirse" class="cta-primary">🌱 Únete Gratis al Club</a>
+                    <a href="#unirse" class="cta-primary">🌱 Únete Gratis al Entrenamiento</a>
                     <a href="#preventa" class="cta-secondary">🚀 Ver Preventa Especial</a>
                 </div>
                 <div class="hero-image">
@@ -903,7 +953,7 @@
     <section class="what-we-do section">
         <div class="container">
             <h2 class="section-title">¿Qué Hacemos?</h2>
-            <p class="section-subtitle">Entrenamos bienestar real, juntos, desde lo simple y concreto</p>
+            <p class="section-subtitle">Entrenamos bienestar real, juntos, desde lo simple y concreto.</p>
             
             <div class="features-grid">
                 <div class="feature-card loading">
@@ -928,6 +978,58 @@
                     <span class="feature-icon">🌱</span>
                     <h3>Creamos condiciones de cambio sostenible</h3>
                     <p>Desde lo simple y concreto. No grandes transformaciones imposibles, sino pequeños ajustes que se mantienen en el tiempo.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Benefits Section -->
+    <section class="benefits-section section">
+        <div class="container">
+            <h2 class="section-title">¿Para qué sirve este entrenamiento?</h2>
+            <p class="section-subtitle">Un programa que transforma tu vida desde lo simple y real</p>
+            
+            <div class="benefits-grid">
+                <div class="benefit-card loading">
+                    <span class="benefit-icon">😴</span>
+                    <h3>Dejar de estar cansado todo el tiempo</h3>
+                    <p>La mayoría anda con la cabeza hecha un lío, estresados, sin energía ni enfoque. Este entrenamiento te ayuda a bajar revoluciones y recuperar claridad con prácticas simples que caben en días ocupados.</p>
+                </div>
+                
+                <div class="benefit-card loading">
+                    <span class="benefit-icon">🚀</span>
+                    <h3>Dejar de postergar lo que importa</h3>
+                    <p>Sabes qué deberías hacer (comer mejor, moverte, descansar), pero no lo haces. Aquí pasas de "saber" a "hacer" con retos pequeños que pruebas cada semana.</p>
+                </div>
+                
+                <div class="benefit-card loading">
+                    <span class="benefit-icon">🤝</span>
+                    <h3>Sentirte acompañado en el cambio</h3>
+                    <p>Intentar mejorar solo es difícil. Este entrenamiento se vive en comunidad en WhatsApp, donde otros también están cambiando hábitos y se apoyan sin juicio.</p>
+                </div>
+                
+                <div class="benefit-card loading">
+                    <span class="benefit-icon">📈</span>
+                    <h3>Construir hábitos que duran</h3>
+                    <p>Los cursos motivacionales duran 3 días. Aquí entrenas de a poco con microprácticas que aplicas en tu día, sin importar si trabajas o cuidas a tu familia.</p>
+                </div>
+                
+                <div class="benefit-card loading">
+                    <span class="benefit-icon">🧘‍♂️</span>
+                    <h3>Vivir con más coherencia</h3>
+                    <p>Quieres cuidarte pero sientes que no tienes tiempo. Este entrenamiento te enseña a integrar el bienestar a tu rutina sin complicarte.</p>
+                </div>
+                
+                <div class="benefit-card loading">
+                    <span class="benefit-icon">💪</span>
+                    <h3>Fortalecer cuerpo, mente y relaciones</h3>
+                    <p>No tienes que elegir entre estar bien físicamente, mentalmente o mejorar tus vínculos. Este entrenamiento integra todo para más energía y menos estrés.</p>
+                </div>
+                
+                <div class="benefit-card loading">
+                    <span class="benefit-icon">🛡️</span>
+                    <h3>No depender de gurús ni productos caros</h3>
+                    <p>Aprende a cuidarte por ti mismo/a, sin suplementos ni modas, con herramientas prácticas y basadas en ciencia.</p>
                 </div>
             </div>
         </div>
@@ -965,45 +1067,42 @@
     <section class="pricing-section section" id="unirse">
         <div class="container">
             <div class="pricing-intro">
-                <h2>Elige Tu Nivel de Compromiso</h2>
-                <p>Nuestra comunidad siempre será gratuita. Pero para quienes buscan una transformación más profunda, estamos creando una herramienta única.</p>
+                <h2>Entrena tu bienestar ahora</h2>
+                <p>Nuestro club de bienestar es <strong>totalmente gratuito</strong>. Sin embargo, si estás buscando un cambio más profundo y personalizado, también tenemos algo <strong>especial</strong> para ti.</p>
             </div>
             
             <div class="pricing-container">
                 <div class="pricing-card loading">
-                    <h3 class="pricing-title">Comunidad Gratuita</h3>
-                    <div class="price">GRATIS</div>
-                    <p class="price-note">Para siempre</p>
+                    <h3 class="pricing-title">Comunidad Gratis</h3>
+                    <div class="price" style="font-size: 1.5rem; font-weight: 600; min-height: 3.5rem; display: flex; align-items: center; justify-content: center;">¡Todo lo que necesitas, sin costo alguno!</div>
                     
                     <ul class="features-list">
-                        <li><span class="check">✓</span> <span>Acceso a la comunidad de WhatsApp</span></li>
-                        <li><span class="check">✓</span> <span>Microprácticas diarias generales</span></li>
-                        <li><span class="check">✓</span> <span>Reflexión y aprendizaje colectivo</span></li>
-                        <li><span class="cross">✗</span> <span>Diagnóstico Sistémico Personalizado</span></li>
-                        <li><span class="cross">✗</span> <span>Mapa Causal Interactivo de tus ciclos</span></li>
-                        <li><span class="cross">✗</span> <span>Microprácticas ultra-personalizadas</span></li>
-                        <li><span class="cross">✗</span> <span>Seguimiento de tus palancas y bloqueos</span></li>
+                        <li><span class="check">✓</span> <span><strong>Acceso directo</strong> a nuestra comunidad de WhatsApp: ¡une fuerzas con otros profesionales de LATAM!</span></li>
+                        <li><span class="check">✓</span> <span><strong>Entrenamiento en bienestar adaptado a LATAM</strong>: Aprende estrategias prácticas para equilibrar tu vida.</span></li>
+                        <li><span class="check">✓</span> <span><strong>Microprácticas diarias</strong>: Ejercicios sencillos y cotidianos para mejorar tu bienestar poco a poco.</span></li>
+                        <li><span class="check">✓</span> <span><strong>Comparte tu experiencia</strong>: Tu voz importa. Contribuye y aprende de la comunidad.</span></li>
+                        <li><span class="check">✓</span> <span><strong>Celebración de logros</strong>: ¡Reconocemos y festejamos tus avances juntos!</span></li>
                     </ul>
                     
-                    <a href="https://wa.me/1234567890" class="pricing-cta">Unirme Gratis</a>
+                    <a href="https://wa.me/1234567890" class="pricing-cta">Únase Gratis</a>
                 </div>
                 
                 <div class="pricing-card featured loading" id="preventa">
                     <h3 class="pricing-title">Acceso Fundador</h3>
-                    <div class="price">$10 USD</div>
-                    <p class="price-note">Preventa - Lanzamiento 2025</p>
+                    <div class="price">Sólo por $10 USD</div>
+                    <p class="price-note">Oferta especial - Lanzamiento 2025</p>
+                    
+                    <h4 style="font-weight: 600; margin-top: 1rem; margin-bottom: 1rem;">¿Qué incluye tu Acceso Fundador?</h4>
                     
                     <ul class="features-list">
-                        <li><span class="check">✓</span> <span>Todo lo de la Comunidad Gratuita, y además...</span></li>
-                        <li><span class="check">✓</span> <span>Diagnóstico Sistémico Personalizado para entender tu situación actual</span></li>
-                        <li><span class="check">✓</span> <span>Mapa Causal Interactivo para visualizar tus ciclos, bloqueos y palancas</span></li>
-                        <li><span class="check">✓</span> <span>Microprácticas Ultra-Personalizadas generadas para tus necesidades reales</span></li>
-                        <li><span class="check">✓</span> <span>Sistema de Priorización para enfocarte en lo que realmente importa</span></li>
-                        <li><span class="check">✓</span> <span>Seguimiento de tus bucles virtuosos</span></li>
-                        <li><span class="check">✓</span> <span>1 año completo de acceso a la app premium</span></li>
+                        <li><span class="check">✓</span> <span>Un análisis completo de tu bienestar actual para entender dónde estás parado.</span></li>
+                        <li><span class="check">✓</span> <span>Un mapa interactivo que te muestra cómo están conectados tus hábitos y cómo puedes mejorarlos.</span></li>
+                        <li><span class="check">✓</span> <span>Ejercicios personalizados para ti, basados en tus necesidades reales.</span></li>
+                        <li><span class="check">✓</span> <span>Prioriza lo que realmente importa y ve tu progreso de manera sencilla.</span></li>
+                        <li><span class="check">✓</span> <span>Acceso completo a la versión premium de la app durante un año.</span></li>
                     </ul>
                     
-                    <a href="#" class="pricing-cta">Convertirme en Fundador</a>
+                    <a href="#" class="pricing-cta">Conviértase en Fundador Ahora</a>
                 </div>
             </div>
 
