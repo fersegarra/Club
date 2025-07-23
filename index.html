@@ -2,41 +2,67 @@
 <html lang="es">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
-    <title>Lab Flow | Laboratorio de Bienestar para LATAM</title>
-    <meta name="description" content="En Lab Flow | Laboratorio de Bienestar diseñamos y testeamos prácticas de salud integral para transformar tu día a día en comunidad, con técnicas validadas y métricas claras de impacto.">
-    <meta name="keywords" content="bienestar, LATAM, microprácticas, comunidad, entrenamiento, WhatsApp, ciencia, Argentina, México, Ecuador">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Experimento de Bienestar para LATAM | Microprácticas y Hábitos Sostenibles</title>
+    <meta name="description" content="Participa gratis en nuestro experimento de bienestar LATAM. Descubre microprácticas validadas científicamente para claridad mental, energía y hábitos sostenibles. Laboratorio de bienestar en comunidad.">
+    <meta name="keywords" content="bienestar LATAM, experimento, microprácticas, laboratorio de bienestar, hábitos sostenibles, claridad mental, energía, comunidad, neurociencia, WhatsApp, Argentina, México, Colombia">
+    <meta name="author" content="Experimento Bienestar LATAM">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://tu-usuario.github.io/experimento-bienestar-latam/">
     
-    <!-- Preconnect para optimizar carga de fuentes -->
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://tu-usuario.github.io/experimento-bienestar-latam/">
+    <meta property="og:title" content="Experimento de Bienestar para LATAM | Microprácticas Científicas">
+    <meta property="og:description" content="Únete gratis a nuestra comunidad de bienestar LATAM. Microprácticas de 3-5 minutos basadas en neurociencia para claridad mental, energía y hábitos sostenibles.">
+    <meta property="og:image" content="https://tu-usuario.github.io/experimento-bienestar-latam/og-image.jpg">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:locale" content="es_ES">
+    <meta property="og:site_name" content="Experimento Bienestar LATAM">
+    
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://tu-usuario.github.io/experimento-bienestar-latam/">
+    <meta property="twitter:title" content="Experimento de Bienestar para LATAM | Microprácticas Científicas">
+    <meta property="twitter:description" content="Únete gratis a nuestra comunidad de bienestar LATAM. Microprácticas de 3-5 minutos basadas en neurociencia para claridad mental, energía y hábitos sostenibles.">
+    <meta property="twitter:image" content="https://tu-usuario.github.io/experimento-bienestar-latam/og-image.jpg">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🧪</text></svg>">
+    
+    <!-- Performance optimizations -->
+    <link rel="dns-prefetch" href="//fonts.googleapis.com">
+    <link rel="dns-prefetch" href="//wa.me">
+    
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700;800&display=swap" rel="stylesheet">
-    
-    <!-- PWA Meta Tags -->
-    <meta name="theme-color" content="#4A7C59">
-    <meta name="apple-mobile-web-app-capable" content="yes">
-    <meta name="apple-mobile-web-app-status-bar-style" content="default">
-    <meta name="apple-mobile-web-app-title" content="Lab Flow | Laboratorio de Bienestar">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     
     <style>
         :root {
-            --verde-regenerativo: #4A7C59;
-            --azul-claridad: #3B5998;
-            --gris-neutro: #F2F2F2;
-            --negro-profundo: #1A1A1A;
+            --verde-principal: #2D5A3D;
+            --verde-claro: #4A7C59;
+            --verde-suave: rgba(45, 90, 61, 0.1);
+            --amarillo-urgencia: #F59E0B;
+            --amarillo-suave: #FEF3C7;
+            --naranja-acento: #EA580C;
+            --gris-texto: #374151;
+            --gris-claro: #F9FAFB;
+            --gris-medio: #E5E7EB;
             --blanco: #FFFFFF;
-            --verde-claro: rgba(74, 124, 89, 0.1);
-            --verde-medio: rgba(74, 124, 89, 0.3);
-            --amarillo-acento: #F4A261;
-            --sombra-suave: 0 4px 20px rgba(0,0,0,0.1);
-            --sombra-media: 0 8px 30px rgba(0,0,0,0.15);
-            --border-radius: 16px;
-            --border-radius-small: 8px;
+            --negro: #111827;
+            --sombra-suave: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
+            --sombra-media: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+            --sombra-fuerte: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+            --border-radius: 12px;
+            --border-radius-lg: 16px;
             --spacing-xs: 8px;
             --spacing-sm: 16px;
             --spacing-md: 24px;
             --spacing-lg: 32px;
             --spacing-xl: 48px;
+            --spacing-2xl: 64px;
         }
 
         * {
@@ -47,15 +73,13 @@
 
         html {
             scroll-behavior: smooth;
-            -webkit-text-size-adjust: 100%;
         }
 
         body {
-            font-family: 'Montserrat', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
             line-height: 1.6;
-            color: var(--negro-profundo);
-            overflow-x: hidden;
-            font-size: 16px;
+            color: var(--gris-texto);
+            background-color: var(--blanco);
             -webkit-font-smoothing: antialiased;
             -moz-osx-font-smoothing: grayscale;
         }
@@ -66,25 +90,28 @@
             padding: 0 var(--spacing-sm);
         }
 
-        /* Mobile-first Typography */
+        /* Typography */
         h1 {
-            font-size: 2rem;
+            font-size: 2.5rem;
             font-weight: 800;
-            line-height: 1.2;
-            margin-bottom: var(--spacing-sm);
+            line-height: 1.1;
+            color: var(--negro);
+            margin-bottom: var(--spacing-md);
         }
 
         h2 {
-            font-size: 1.75rem;
+            font-size: 2rem;
             font-weight: 700;
-            line-height: 1.3;
+            line-height: 1.2;
+            color: var(--negro);
             margin-bottom: var(--spacing-sm);
         }
 
         h3 {
             font-size: 1.25rem;
             font-weight: 600;
-            line-height: 1.4;
+            line-height: 1.3;
+            color: var(--negro);
             margin-bottom: var(--spacing-xs);
         }
 
@@ -94,7 +121,60 @@
             margin-bottom: var(--spacing-sm);
         }
 
-        /* Header Mobile-First */
+        /* Buttons */
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: var(--spacing-sm) var(--spacing-lg);
+            font-size: 1rem;
+            font-weight: 600;
+            text-decoration: none;
+            border-radius: var(--border-radius);
+            transition: all 0.3s ease;
+            cursor: pointer;
+            border: none;
+            min-height: 48px;
+            gap: var(--spacing-xs);
+        }
+
+        .btn-primary {
+            background: var(--verde-principal);
+            color: var(--blanco);
+            box-shadow: var(--sombra-media);
+        }
+
+        .btn-primary:hover {
+            background: var(--verde-claro);
+            transform: translateY(-2px);
+            box-shadow: var(--sombra-fuerte);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: var(--verde-principal);
+            border: 2px solid var(--verde-principal);
+        }
+
+        .btn-secondary:hover {
+            background: var(--verde-principal);
+            color: var(--blanco);
+        }
+
+        .btn-urgencia {
+            background: var(--amarillo-urgencia);
+            color: var(--blanco);
+            box-shadow: var(--sombra-media);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .btn-urgencia:hover {
+            background: var(--naranja-acento);
+            transform: translateY(-2px);
+        }
+
+        /* Header */
         .header {
             background: var(--blanco);
             padding: var(--spacing-sm) 0;
@@ -110,609 +190,330 @@
             display: flex;
             align-items: center;
             justify-content: space-between;
-            flex-wrap: wrap;
-            gap: var(--spacing-sm);
         }
 
         .logo {
-            display: flex;
-            align-items: center;
-            gap: var(--spacing-xs);
-        }
-
-        .logo-symbol {
-            width: 40px;
-            height: 40px;
-            background: var(--verde-regenerativo);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            position: relative;
-            flex-shrink: 0;
-        }
-
-        .spiral {
-            width: 24px;
-            height: 24px;
-            border: 2px solid var(--blanco);
-            border-radius: 50%;
-            border-top: 2px solid transparent;
-            position: relative;
-            animation: spiralRotate 3s linear infinite;
-        }
-
-        .spiral::before {
-            content: '';
-            position: absolute;
-            top: 4px;
-            left: 4px;
-            width: 12px;
-            height: 12px;
-            border: 1px solid var(--blanco);
-            border-radius: 50%;
-            border-top: 1px solid transparent;
-        }
-
-        @keyframes spiralRotate {
-            from { transform: rotate(0deg); }
-            to { transform: rotate(360deg); }
-        }
-
-        .logo-text {
+            font-size: 1.25rem;
             font-weight: 700;
-            font-size: 1rem;
-            color: var(--negro-profundo);
-        }
-
-        .cta-header {
-            background: var(--verde-regenerativo);
-            color: var(--blanco);
-            padding: var(--spacing-xs) var(--spacing-sm);
-            border-radius: 25px;
+            color: var(--verde-principal);
             text-decoration: none;
-            font-weight: 600;
-            font-size: 0.9rem;
-            transition: all 0.3s ease;
-            white-space: nowrap;
-            min-height: 44px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
         }
 
-        .cta-header:hover {
-            background: var(--azul-claridad);
-            transform: translateY(-2px);
-        }
-
-        /* Hero Section Mobile-First */
+        /* Hero Section */
         .hero {
-            background: linear-gradient(135deg, var(--verde-claro) 0%, var(--gris-neutro) 100%);
-            padding: calc(80px + var(--spacing-lg)) var(--spacing-sm) var(--spacing-xl) var(--spacing-sm);
+            background: linear-gradient(135deg, var(--verde-suave) 0%, var(--gris-claro) 100%);
+            padding: calc(80px + var(--spacing-2xl)) 0 var(--spacing-2xl) 0;
+            text-align: center;
             position: relative;
             overflow: hidden;
-            min-height: 100vh;
-            display: flex;
-            align-items: center;
         }
 
         .hero::before {
             content: '';
             position: absolute;
-            top: -100px;
-            right: -100px;
-            width: 200px;
-            height: 200px;
-            background: var(--verde-medio);
-            border-radius: 50%;
-            opacity: 0.3;
+            top: -50%;
+            right: -50%;
+            width: 100%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(45, 90, 61, 0.05) 0%, transparent 70%);
+            animation: float 6s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px) rotate(0deg); }
+            50% { transform: translateY(-20px) rotate(180deg); }
         }
 
         .hero-content {
-            display: flex;
-            flex-direction: column;
-            gap: var(--spacing-lg);
-            align-items: center;
-            text-align: center;
             position: relative;
             z-index: 10;
-            width: 100%;
         }
 
-        .hero-text {
-            order: 2;
-        }
-
-        .hero-text h1 {
-            font-size: 2.25rem;
+        .hero h1 {
+            font-size: 3rem;
             margin-bottom: var(--spacing-md);
+            background: linear-gradient(135deg, var(--verde-principal), var(--verde-claro));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
         }
 
         .hero-subtitle {
-            font-size: 1.1rem;
-            font-weight: 400;
-            margin-bottom: var(--spacing-md);
-            color: var(--verde-regenerativo);
-        }
-
-        .hero-description {
-            font-size: 1rem;
+            font-size: 1.25rem;
+            color: var(--gris-texto);
             margin-bottom: var(--spacing-lg);
-            line-height: 1.6;
-            opacity: 0.9;
             max-width: 600px;
-        }
-
-        .hero-image {
-            order: 1;
-            position: relative;
-            border-radius: var(--border-radius);
-            overflow: hidden;
-            box-shadow: var(--sombra-media);
-            width: 100%;
-            max-width: 400px;
-        }
-
-        .hero-image img {
-            width: 100%;
-            height: 250px;
-            object-fit: cover;
-            display: block;
-        }
-
-        /* Buttons Mobile-First */
-        .cta-primary, .cta-secondary {
-            display: block;
-            text-align: center;
-            padding: var(--spacing-sm) var(--spacing-lg);
-            font-size: 1rem;
-            font-weight: 600;
-            text-decoration: none;
-            border-radius: 50px;
-            transition: all 0.3s ease;
-            margin-bottom: var(--spacing-sm);
-            min-height: 48px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            position: relative;
-            overflow: hidden;
-            width: 100%;
-            max-width: 300px;
             margin-left: auto;
             margin-right: auto;
         }
 
-        .cta-primary {
-            background: var(--verde-regenerativo);
-            color: var(--blanco);
-            box-shadow: var(--sombra-suave);
+        .hero-ctas {
+            display: flex;
+            flex-direction: column;
+            gap: var(--spacing-sm);
+            align-items: center;
+            margin-bottom: var(--spacing-lg);
         }
 
-        .cta-primary::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
-            transition: left 0.5s;
+        .urgencia-banner {
+            background: var(--amarillo-suave);
+            border: 2px solid var(--amarillo-urgencia);
+            border-radius: var(--border-radius);
+            padding: var(--spacing-sm);
+            margin-top: var(--spacing-sm);
+            font-weight: 600;
+            color: var(--negro);
+            display: inline-block;
+            animation: pulse 2s infinite;
         }
 
-        .cta-primary:hover::before {
-            left: 100%;
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.05); }
         }
 
-        .cta-primary:hover {
-            transform: translateY(-2px);
-            box-shadow: var(--sombra-media);
-        }
-
-        .cta-secondary {
-            background: transparent;
-            color: var(--azul-claridad);
-            border: 2px solid var(--azul-claridad);
-        }
-
-        .cta-secondary:hover {
-            background: var(--azul-claridad);
-            color: var(--blanco);
-        }
-
-        /* Sections Mobile-First */
+        /* Sections */
         .section {
-            padding: var(--spacing-xl) 0;
+            padding: var(--spacing-2xl) 0;
         }
 
         .section-title {
-            font-size: 1.75rem;
-            font-weight: 700;
             text-align: center;
             margin-bottom: var(--spacing-sm);
-            color: var(--negro-profundo);
         }
 
         .section-subtitle {
-            font-size: 1rem;
             text-align: center;
-            color: var(--verde-regenerativo);
-            margin: 0 auto var(--spacing-lg);
+            font-size: 1.125rem;
+            color: var(--gris-texto);
+            margin-bottom: var(--spacing-xl);
             max-width: 600px;
-        }
-
-        /* Why It Works Section */
-        .why-works-section {
-            background: var(--blanco);
-        }
-
-        .why-works-content {
-            text-align: center;
-            max-width: 800px;
-            margin: 0 auto;
-        }
-
-        .why-works-content p {
-            font-size: 1rem;
-            line-height: 1.6;
-            opacity: 0.9;
+            margin-left: auto;
+            margin-right: auto;
         }
 
         /* Benefits Section */
-        .benefits-section {
-            background: var(--gris-neutro);
+        .benefits {
+            background: var(--gris-claro);
         }
 
         .benefits-grid {
             display: grid;
             grid-template-columns: 1fr;
-            gap: var(--spacing-md);
-            margin-top: var(--spacing-lg);
+            gap: var(--spacing-lg);
+            margin-top: var(--spacing-xl);
         }
 
         .benefit-card {
             background: var(--blanco);
-            padding: var(--spacing-md);
-            border-radius: var(--border-radius);
+            padding: var(--spacing-lg);
+            border-radius: var(--border-radius-lg);
             text-align: center;
-            transition: transform 0.3s ease;
-            border-left: 4px solid var(--verde-regenerativo);
+            box-shadow: var(--sombra-suave);
+            transition: all 0.3s ease;
+            border-top: 4px solid var(--verde-principal);
         }
 
         .benefit-card:hover {
             transform: translateY(-4px);
+            box-shadow: var(--sombra-fuerte);
         }
 
         .benefit-icon {
-            font-size: 2.5rem;
-            margin-bottom: var(--spacing-sm);
-            display: block;
-        }
-
-        .benefit-card h3 {
-            margin-bottom: var(--spacing-sm);
-            font-size: 1.25rem;
-        }
-
-        .benefit-card p {
-            line-height: 1.6;
-            opacity: 0.8;
-            margin-bottom: 0;
-        }
-
-        /* About Founder Section */
-        .about-founder-section {
-            background: var(--verde-claro);
-            text-align: center;
-        }
-
-        .about-founder-content {
-            max-width: 600px;
-            margin: 0 auto;
+            width: 64px;
+            height: 64px;
+            background: var(--verde-suave);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto var(--spacing-sm);
+            font-size: 2rem;
         }
 
         /* Steps Section */
-        .steps-section {
-            background: var(--verde-regenerativo);
+        .steps {
+            background: var(--verde-principal);
             color: var(--blanco);
         }
 
-        .steps-section .section-title,
-        .steps-section .section-subtitle {
+        .steps .section-title,
+        .steps .section-subtitle {
             color: var(--blanco);
         }
 
-        .steps-container {
+        .steps-grid {
             display: grid;
             grid-template-columns: 1fr;
             gap: var(--spacing-lg);
-            margin-top: var(--spacing-lg);
+            margin-top: var(--spacing-xl);
         }
 
         .step-card {
+            background: rgba(255, 255, 255, 0.1);
+            padding: var(--spacing-lg);
+            border-radius: var(--border-radius-lg);
             text-align: center;
-            background: rgba(255,255,255,0.1);
-            padding: var(--spacing-lg) var(--spacing-md);
-            border-radius: var(--border-radius);
             backdrop-filter: blur(10px);
-            border: 1px solid rgba(255,255,255,0.2);
+            border: 1px solid rgba(255, 255, 255, 0.2);
         }
 
         .step-number {
             width: 60px;
             height: 60px;
             background: var(--blanco);
-            color: var(--verde-regenerativo);
+            color: var(--verde-principal);
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
             font-size: 1.5rem;
             font-weight: 800;
-            margin: 0 auto var(--spacing-md);
-            box-shadow: var(--sombra-suave);
-        }
-
-        .step-title {
-            font-size: 1.25rem;
-            margin-bottom: var(--spacing-sm);
-        }
-
-        .step-description {
-            line-height: 1.6;
-            opacity: 0.9;
-            margin-bottom: 0;
+            margin: 0 auto var(--spacing-sm);
         }
 
         /* Pricing Section */
-        .pricing-section {
-            background: var(--gris-neutro);
+        .pricing {
+            background: var(--gris-claro);
         }
 
-        .pricing-intro {
-            text-align: center;
-            margin-bottom: var(--spacing-lg);
-        }
-
-        .pricing-container {
+        .pricing-grid {
             display: grid;
             grid-template-columns: 1fr;
             gap: var(--spacing-lg);
-            margin-top: var(--spacing-lg);
+            margin-top: var(--spacing-xl);
         }
 
         .pricing-card {
             background: var(--blanco);
-            padding: var(--spacing-lg) var(--spacing-md);
-            border-radius: var(--border-radius);
+            padding: var(--spacing-lg);
+            border-radius: var(--border-radius-lg);
             box-shadow: var(--sombra-media);
             text-align: center;
             position: relative;
-            transition: transform 0.3s ease;
-            border: 2px solid var(--gris-neutro);
+            transition: all 0.3s ease;
         }
 
         .pricing-card:hover {
             transform: translateY(-4px);
+            box-shadow: var(--sombra-fuerte);
         }
 
-        .pricing-card.featured {
-            background: var(--verde-regenerativo);
-            color: var(--blanco);
-            border: 2px solid var(--verde-regenerativo);
-            order: -1;
+        .pricing-card.destacada {
+            border: 3px solid var(--amarillo-urgencia);
+            transform: scale(1.05);
         }
 
-        .pricing-card.featured::before {
-            content: '💚 Socio';
+        .pricing-card.destacada::before {
+            content: '🤝 Solo 20 plazas';
             position: absolute;
             top: -12px;
             left: 50%;
             transform: translateX(-50%);
-            background: var(--amarillo-acento);
-            color: var(--negro-profundo);
+            background: var(--amarillo-urgencia);
+            color: var(--blanco);
             padding: var(--spacing-xs) var(--spacing-sm);
-            border-radius: 20px;
-            font-size: 0.8rem;
+            border-radius: var(--border-radius);
+            font-size: 0.875rem;
             font-weight: 600;
         }
 
-        .pricing-title {
-            font-size: 1.25rem;
-            margin-bottom: var(--spacing-sm);
-        }
-
-        .price {
-            font-size: 2.5rem;
+        .precio {
+            font-size: 2rem;
             font-weight: 800;
+            color: var(--verde-principal);
             margin: var(--spacing-sm) 0;
         }
 
-        .price-note {
-            font-size: 0.9rem;
-            opacity: 0.8;
+        .precio-nota {
+            font-size: 0.875rem;
+            color: var(--gris-texto);
             margin-bottom: var(--spacing-md);
         }
 
         .features-list {
             list-style: none;
-            margin: var(--spacing-md) 0;
             text-align: left;
+            margin: var(--spacing-md) 0;
         }
 
         .features-list li {
             padding: var(--spacing-xs) 0;
-            font-size: 0.9rem;
             display: flex;
             align-items: flex-start;
             gap: var(--spacing-xs);
         }
 
-        .check, .cross {
+        .check {
+            color: var(--verde-principal);
             font-weight: 600;
             flex-shrink: 0;
-            margin-top: 2px;
         }
 
-        .check {
-            color: var(--verde-regenerativo);
-        }
-
-        .cross {
-            color: #f56565;
-        }
-
-        .featured .check {
-            color: var(--blanco);
-        }
-
-        .pricing-cta {
-            display: block;
-            background: var(--verde-regenerativo);
-            color: var(--blanco);
-            padding: var(--spacing-sm) var(--spacing-md);
-            font-size: 1rem;
-            font-weight: 600;
-            text-decoration: none;
-            border-radius: 50px;
-            transition: all 0.3s ease;
-            margin-top: var(--spacing-md);
-            min-height: 48px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .pricing-cta:hover {
-            background: var(--azul-claridad);
-            transform: translateY(-2px);
-        }
-
-        .featured .pricing-cta {
-            background: var(--blanco);
-            color: var(--verde-regenerativo);
-        }
-
-        .featured .pricing-cta:hover {
-            background: var(--amarillo-acento);
-            color: var(--negro-profundo);
-        }
-
-        /* Payment Options */
-        .payment-options {
-            background: var(--verde-claro);
-            padding: var(--spacing-md);
-            border-radius: var(--border-radius);
-            margin-top: var(--spacing-lg);
+        /* Testimonial Section */
+        .testimonial {
+            background: var(--verde-suave);
             text-align: center;
         }
 
-        .payment-options h3 {
-            font-size: 1.1rem;
-            margin-bottom: var(--spacing-sm);
+        .testimonial-content {
+            max-width: 600px;
+            margin: 0 auto;
         }
 
-        .payment-methods {
-            display: grid;
-            grid-template-columns: 1fr;
-            gap: var(--spacing-sm);
-            margin-top: var(--spacing-sm);
+        .testimonial-quote {
+            font-size: 1.25rem;
+            font-style: italic;
+            color: var(--gris-texto);
+            margin-bottom: var(--spacing-md);
         }
 
-        .payment-method {
-            background: var(--blanco);
-            padding: var(--spacing-sm);
-            border-radius: var(--border-radius-small);
-            border-left: 4px solid var(--verde-regenerativo);
-        }
-
-        .payment-method h4 {
+        .testimonial-author {
             font-weight: 600;
-            margin-bottom: var(--spacing-xs);
-            font-size: 1rem;
-        }
-
-        .payment-method p {
-            font-size: 0.85rem;
-            opacity: 0.8;
-            margin-bottom: 0;
+            color: var(--verde-principal);
         }
 
         /* FAQ Section */
-        .faq-section {
+        .faq {
             background: var(--blanco);
         }
 
         .faq-container {
-            margin-top: var(--spacing-lg);
+            max-width: 800px;
+            margin: 0 auto;
         }
 
         .faq-item {
-            background: var(--gris-neutro);
-            margin: var(--spacing-sm) 0;
+            background: var(--gris-claro);
+            margin-bottom: var(--spacing-sm);
             border-radius: var(--border-radius);
             overflow: hidden;
-            border-left: 4px solid var(--verde-regenerativo);
+            border-left: 4px solid var(--verde-principal);
         }
 
         .faq-question {
-            padding: var(--spacing-md);
-            font-weight: 600;
-            font-size: 1rem;
-            cursor: pointer;
-            background: var(--gris-neutro);
-            border: none;
             width: 100%;
+            padding: var(--spacing-md);
+            background: none;
+            border: none;
             text-align: left;
-            transition: background 0.3s ease;
-            color: var(--negro-profundo);
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            min-height: 48px;
-        }
-
-        .faq-question:hover {
-            background: #e8e8e8;
-        }
-
-        .faq-question span {
-            font-size: 1.2rem;
-            font-weight: 300;
-            flex-shrink: 0;
-            margin-left: var(--spacing-xs);
+            color: var(--negro);
         }
 
         .faq-answer {
             padding: 0 var(--spacing-md) var(--spacing-md);
-            color: var(--negro-profundo);
-            line-height: 1.6;
             display: none;
-            font-size: 0.9rem;
+            color: var(--gris-texto);
         }
 
         .faq-answer.active {
             display: block;
-        }
-
-        /* Footer CTA */
-        .footer-cta {
-            background: var(--negro-profundo);
-            color: var(--blanco);
-            text-align: center;
-            padding: var(--spacing-xl) var(--spacing-sm);
-        }
-
-        .footer-cta h2 {
-            font-size: 1.75rem;
-            margin-bottom: var(--spacing-sm);
-        }
-
-        .footer-cta p {
-            font-size: 1rem;
-            margin-bottom: var(--spacing-lg);
-            opacity: 0.9;
         }
 
         /* WhatsApp Button */
@@ -720,17 +521,17 @@
             position: fixed;
             bottom: var(--spacing-md);
             right: var(--spacing-md);
-            background: #25d366;
+            background: #25D366;
             color: var(--blanco);
-            width: 56px;
-            height: 56px;
+            width: 60px;
+            height: 60px;
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
             font-size: 1.5rem;
             text-decoration: none;
-            box-shadow: var(--sombra-media);
+            box-shadow: var(--sombra-fuerte);
             transition: all 0.3s ease;
             z-index: 1000;
         }
@@ -740,153 +541,68 @@
             box-shadow: 0 8px 25px rgba(37, 211, 102, 0.4);
         }
 
-        /* Tablet Styles */
+        /* Footer CTA */
+        .footer-cta {
+            background: var(--negro);
+            color: var(--blanco);
+            text-align: center;
+            padding: var(--spacing-2xl) 0;
+        }
+
+        .footer-cta h2 {
+            color: var(--blanco);
+            margin-bottom: var(--spacing-sm);
+        }
+
+        .footer-cta p {
+            margin-bottom: var(--spacing-lg);
+        }
+
+        /* Responsive Design */
         @media (min-width: 768px) {
             .container {
                 padding: 0 var(--spacing-lg);
             }
 
-            h1 {
-                font-size: 2.5rem;
+            .hero h1 {
+                font-size: 3.5rem;
             }
 
-            h2 {
-                font-size: 2rem;
-            }
-
-            .hero-content {
+            .hero-ctas {
                 flex-direction: row;
-                text-align: left;
-                align-items: center;
-            }
-
-            .hero-text {
-                order: 1;
-                flex: 1;
-            }
-
-            .hero-image {
-                order: 2;
-                flex: 1;
-                max-width: none;
-            }
-
-            .hero-image img {
-                height: 350px;
+                justify-content: center;
             }
 
             .benefits-grid {
-                grid-template-columns: repeat(2, 1fr);
-            }
-
-            .steps-container {
                 grid-template-columns: repeat(3, 1fr);
             }
 
-            .pricing-container {
-                grid-template-columns: repeat(2, 1fr);
+            .steps-grid {
+                grid-template-columns: repeat(3, 1fr);
             }
 
-            .payment-methods {
+            .pricing-grid {
                 grid-template-columns: repeat(2, 1fr);
-            }
-
-            .cta-primary, .cta-secondary {
-                display: inline-flex;
-                width: auto;
-                margin-right: var(--spacing-sm);
+                align-items: stretch;
             }
         }
 
-        /* Desktop Styles */
         @media (min-width: 1024px) {
-            h1 {
-                font-size: 3rem;
-            }
-
-            h2 {
-                font-size: 2.25rem;
-            }
-
-            .section-title {
-                font-size: 2rem;
-            }
-
-            .hero {
-                padding: calc(100px + var(--spacing-xl)) 0 var(--spacing-xl);
-            }
-
-            .hero-text h1 {
-                font-size: 3.2rem;
-            }
-
-            .hero-subtitle {
-                font-size: 1.3rem;
-            }
-
-            .hero-description {
-                font-size: 1.1rem;
-            }
-
-            .hero-image img {
-                height: 400px;
-            }
-
-            .benefits-grid {
-                grid-template-columns: repeat(3, 1fr);
-            }
-
-            .pricing-card.featured {
-                order: 0;
-                transform: scale(1.05);
-            }
-
-            .pricing-card.featured:hover {
-                transform: scale(1.05) translateY(-4px);
+            .hero h1 {
+                font-size: 4rem;
             }
         }
 
-        /* Accessibility */
-        @media (prefers-reduced-motion: reduce) {
-            * {
-                animation-duration: 0.01ms !important;
-                animation-iteration-count: 1 !important;
-                transition-duration: 0.01ms !important;
-            }
-        }
-
-        /* Focus styles for accessibility */
-        .cta-primary:focus,
-        .cta-secondary:focus,
-        .cta-header:focus,
-        .pricing-cta:focus,
-        .faq-question:focus {
-            outline: 2px solid var(--azul-claridad);
-            outline-offset: 2px;
-        }
-
-        /* Loading state */
-        .loading {
+        /* Loading Animation */
+        .fade-in {
             opacity: 0;
             transform: translateY(20px);
             transition: all 0.6s ease;
         }
 
-        .loaded {
+        .fade-in.visible {
             opacity: 1;
             transform: translateY(0);
-        }
-
-        /* Print styles */
-        @media print {
-            .header,
-            .whatsapp-btn {
-                display: none;
-            }
-            
-            .hero {
-                padding-top: var(--spacing-lg);
-            }
         }
     </style>
 </head>
@@ -895,13 +611,8 @@
     <header class="header">
         <div class="container">
             <div class="header-content">
-                <div class="logo">
-                    <div class="logo-symbol">
-                        <div class="spiral"></div>
-                    </div>
-                    <div class="logo-text">Lab Flow | Laboratorio de Bienestar</div>
-                </div>
-                <a href="#unirse" class="cta-header">Únete Ahora</a>
+                <a href="#" class="logo">🧪 Experimento Bienestar LATAM</a>
+                <a href="#participar" class="btn btn-primary">Participar Gratis</a>
             </div>
         </div>
     </header>
@@ -909,207 +620,209 @@
     <!-- Hero Section -->
     <section class="hero">
         <div class="container">
-            <div class="hero-content loading">
-                <div class="hero-text">
-                    <h1>Donde el bienestar se pone a prueba</h1>
-                    <p class="hero-subtitle">¿Sientes que las promesas de bienestar se desvanecen como el humo, dejándote con más preguntas que respuestas?</p>
-                    <p class="hero-description">
-                        En Lab Flow, entendemos esa frustración. Por eso, cultivamos un espacio donde el bienestar no es una teoría, sino una práctica viva que fluye y se mide, cada día. Aquí, la ciencia se convierte en microhábitos que puedes entrenar en comunidad, para que cultives coherencia en tu vida y contagies esa transformación.
-                    </p>
-                    <a href="https://wa.me/1234567890" class="cta-primary">Únete Gratis al Laboratorio</a>
-                    <a href="#preventa" class="cta-secondary">🚀 Conviértete en Co-creador</a>
+            <div class="hero-content">
+                <h1>Participa en un Experimento de Bienestar para LATAM</h1>
+                <p class="hero-subtitle">
+                    Únete gratis a nuestra comunidad y descubre microprácticas validadas científicamente 
+                    que transforman tu claridad mental, energía y hábitos diarios. Sin promesas vacías, 
+                    solo resultados medibles en comunidad.
+                </p>
+                
+                <div class="hero-ctas">
+                    <a href="#participar" class="btn btn-primary">🚀 Participa Gratis en el Experimento</a>
+                    <a href="#socio" class="btn btn-secondary">🤝 Conviértete en Socio (solo 20 plazas)</a>
+                </div>              
+                              
                 </div>
-                <div class="hero-image">
-                    <img src="https://images.unsplash.com/photo-1544027993-37dbfe43562a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80" alt="Comunidad de bienestar LATAM" loading="lazy">
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Why It Works Section -->
-    <section class="why-works-section section">
-        <div class="container">
-            <h2 class="section-title">Por qué Funciona</h2>
-            <p class="section-subtitle">Entrenamos hábitos que se sostienen, no motivación que se evapora.</p>
-            <div class="why-works-content loading">
-                <p>Usamos ciencia real (investigación causal, neurociencia y sistemas complejos) para transformar esos ciclos que te drenan en rutinas simples que te recargan de verdad. Todo se prueba en comunidad, de forma práctica, medible y sin adornos, cultivando tu claridad y contagiandola</p>
-                <a href="#unirse" class="cta-primary">🌀 Entrena tu bienestar ahora</a>
             </div>
         </div>
     </section>
 
     <!-- Benefits Section -->
-    <section class="benefits-section section">
+    <section class="benefits section">
         <div class="container">
-            <h2 class="section-title">¿Qué Ganas con Lab Flow?</h2>
-            <p class="section-subtitle">Entrenamiento real, en comunidad, con ciencia y sin adornos</p>
+            <h2 class="section-title">¿Qué Ganas con Nuestro Experimento?</h2>
+            <p class="section-subtitle">
+                Microprácticas validadas científicamente que transforman tu día a día
+            </p>
             
             <div class="benefits-grid">
-                <div class="benefit-card loading">
-                    <span class="benefit-icon">😴</span>
-                    <h3>Recupera tu energía</h3>
-                    <p>Siente un impulso natural con microhábitos que reducen el estrés y te devuelven la vitalidad, incluso en días caóticos.</p>
+                <div class="benefit-card fade-in">
+                    <div class="benefit-icon">🧠</div>
+                    <h3>Claridad Mental</h3>
+                    <p>Desarrolla enfoque y toma mejores decisiones con técnicas de neurociencia aplicada que reducen el ruido mental y aumentan tu capacidad de concentración.</p>
                 </div>
                 
-                <div class="benefit-card loading">
-                    <span class="benefit-icon">🎯</span>
-                    <h3>Mejora tu enfoque</h3>
-                    <p>Gana claridad mental con prácticas simples que te ayudan a priorizar lo que realmente importa.</p>
+                <div class="benefit-card fade-in">
+                    <div class="benefit-icon">⚡</div>
+                    <h3>Energía Sostenible</h3>
+                    <p>Recupera tu vitalidad natural con microhábitos que optimizan tu energía física y mental, diseñados para funcionar incluso en días caóticos.</p>
                 </div>
                 
-                <div class="benefit-card loading">
-                    <span class="benefit-icon">📈</span>
-                    <h3>Construye hábitos duraderos</h3>
-                    <p>Pequeños pasos que transforman tu rutina sin esfuerzo, diseñados para que se queden contigo a largo plazo.</p>
+                <div class="benefit-card fade-in">
+                    <div class="benefit-icon">🌱</div>
+                    <h3>Hábitos Sostenibles</h3>
+                    <p>Construye rutinas que realmente se mantienen en el tiempo, basadas en ciencia del comportamiento y adaptadas al contexto latinoamericano.</p>
                 </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- About Founder Section -->
-    <section class="about-founder-section section">
-        <div class="container">
-            <h2 class="section-title">Sobre mi</h2>
-            <div class="about-founder-content loading">
-                <p>Soy Fer. Investigo, diseño y promuevo bienestar real en LATAM. Creo que el bienestar no se enseña, se entrena, y por eso creé Lab Flow: un laboratorio vivo donde transformamos ciencia en microhábitos simples pero efectivos, entrenados en comunidad, cada día.<br><br>Usamos WhatsApp para compartir avances, fracasos y aprendizajes de forma cercana. Y pronto, un asistente virtual de bienestar nos ayudará a personalizar y sostener esos microhábitos según lo que realmente necesitás, ajustándose a tu día a día en tiempo real.</p>
-                <a href="#unirse" class="cta-primary">Únete ahora y empieza a entrenar tu bienestar juntos</a>
             </div>
         </div>
     </section>
 
     <!-- Steps Section -->
-    <section class="steps-section section">
+    <section class="steps section">
         <div class="container">
-            <h2 class="section-title">Empieza Hoy en 3 Pasos Simples</h2>
-            <p class="section-subtitle">Sin complicaciones, sin promesas vacías</p>
+            <h2 class="section-title">Cómo Participar en 3 Pasos Simples</h2>
+            <p class="section-subtitle">
+                Sin complicaciones, sin compromisos largos, solo resultados
+            </p>
             
-            <div class="steps-container">
-                <div class="step-card loading">
+            <div class="steps-grid">
+                <div class="step-card fade-in">
                     <div class="step-number">1</div>
-                    <h3 class="step-title">Únete a Nuestra Comunidad</h3>
-                    <p class="step-description">Ingresa a nuestro canal de WhatsApp, explora el historial de microhábitos y selecciona los que quieras probar. Crece junto a una comunidad que te apoya.</p>
+                    <h3>Únete a la Comunidad</h3>
+                    <p>Accede gratis a nuestro grupo de WhatsApp donde compartimos microprácticas diarias y apoyo mutuo entre participantes de toda LATAM.</p>
                 </div>
                 
-                <div class="step-card loading">
+                <div class="step-card fade-in">
                     <div class="step-number">2</div>
-                    <h3 class="step-title">Adopta un Microhábito</h3>
-                    <p class="step-description">Incorpora uno de nuestros 5 microhábitos diseñados para darte claridad, alinear tus decisiones y encontrar calma en el día a día.</p>
+                    <h3>Prueba las Microprácticas</h3>
+                    <p>Implementa técnicas de 3-5 minutos diarios basadas en neurociencia, diseñadas específicamente para nuestro contexto cultural y social.</p>
                 </div>
                 
-                <div class="step-card loading">
+                <div class="step-card fade-in">
                     <div class="step-number">3</div>
-                    <h3 class="step-title">Comparte y Crece en Comunidad</h3>
-                    <p class="step-description">Cuéntanos tu experiencia por WhatsApp, inspiras a otros, fortaleces tu compromiso y descubrimos juntos lo que realmente funciona.</p>
+                    <h3>Comparte y Evoluciona</h3>
+                    <p>Reporta tus resultados, aprende de otros participantes y ayúdanos a validar qué funciona mejor para nuestra comunidad LATAM.</p>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- Pricing Section -->
-    <section class="pricing-section section" id="unirse">
+    <section class="pricing section" id="participar">
         <div class="container">
-            <div class="pricing-intro">
-                <h2> Dos formas de sumarte a Lab Flow</h2>
-                <p class="section-subtitle">Explora el bienestar gratis o impulsa proyectos transformadores en LATAM como Socio de Proyectos de Bienestar.</p>
-            </div>
+            <h2 class="section-title">Únete al Experimento</h2>
+            <p class="section-subtitle">
+                Empieza gratis o impulsa el proyecto como socio fundador
+            </p>
             
-            <div class="pricing-container">
-                <div class="pricing-card loading">
-                    <h3 class="pricing-title">Participante del Experimento</h3>
-                    <div class="price">GRATIS</div>
-                    <p class="price-note">Para siempre</p>
+            <div class="pricing-grid">
+                <div class="pricing-card fade-in">
+                    <h3>Participante</h3>
+                    <div class="precio">GRATIS</div>
+                    <p class="precio-nota">Para siempre</p>
                     
                     <ul class="features-list">
-                        <li><span class="check">✓</span> <span><strong>Accede al "Primer Experimento"</strong>: 5 microhábitos para activar tu claridad mental.</span></li>
-                        <li><span class="check">✓</span> <span>Únete al canal de WhatsApp con microhábitos, investigaciones y avances que puedes explorar a tu ritmo.</span></li>
-                        <li><span class="check">✓</span> <span>Selecciona microhábitos y comparte tu progreso en la comunidad, entrenando bienestar de forma simple y medible.</span></li>
-                        <li><span class="cross">✗</span> <span>Financias proyectos de bienestar en LATAM</span></li>
-                        <li><span class="cross">✗</span> <span>Asistente de Bienestar en WhatsApp</span></li>
-                        <li><span class="cross">✗</span> <span>Votas en qué proyectos y herramientas se integran al Asistente de Bienestar en WhatsApp.</span></li>
+                        <li><span class="check">✓</span> Acceso al grupo de WhatsApp</li>
+                        <li><span class="check">✓</span> Microprácticas diarias validadas</li>
+                        <li><span class="check">✓</span> Apoyo de la comunidad LATAM</li>
+                        <li><span class="check">✓</span> Recursos y guías descargables</li>
+                        <li><span class="check">✓</span> Seguimiento de progreso básico</li>
                     </ul>
                     
-                    <a href="https://wa.me/1234567890" class="pricing-cta">Unirme al Experimento</a>
+                    <a href="https://wa.me/5491234567890?text=Hola%2C%20quiero%20participar%20gratis%20en%20el%20experimento%20de%20bienestar%20LATAM" class="btn btn-primary">Participar Gratis Ahora</a>
                 </div>
                 
-                <div class="pricing-card featured loading" id="preventa">
-                    <h3 class="pricing-title">🚀 Socio de Proyectos de Bienestar</h3>
-                    <p class="price-note">Aporte sugerido: $10 USD (o equivalente)</p>
-                    <p style="margin-bottom: 1rem;">Con tu apoyo:</p>
+                <div class="pricing-card destacada fade-in" id="socio">
+                    <h3>Socio Fundador</h3>
+                    <div class="precio">$10 USD</div>
+                    <p class="precio-nota">Aporte sugerido (pago único)</p>
+                    
                     <ul class="features-list">
-                        <li><span class="check">✓</span> Financias proyectos de bienestar en LATAM, desde microhábitos hasta proyectos comunitarios.</li>
-                        <li><span class="check">✓</span> Votas en qué proyectos y herramientas se integran al Asistente de Bienestar en WhatsApp.</li>
-                        <li><span class="check">✓</span> Obtienes acceso prioritario al Asistente de Bienestar, con lanzamiento el 11 de octubre.</li>
-                        <li><span class="check">✓</span> Accedes a un grupo privado de WhatsApp para socios, donde compartimos prototipos, avances y sesiones directas conmigo.</li>
-                        <li><span class="check">✓</span> Recibes un reporte mensual de aprendizajes prácticos para mejorar tu bienestar.</li>
-                        <li><span class="check">✓</span> Recibes de inmediato el prototipo de la Calculadora de Bienestar, para medir y optimizar tu progreso personal.</li>
+                        <li><span class="check">✓</span> Todo lo del plan gratuito</li>
+                        <li><span class="check">✓</span> Acceso al grupo privado de socios</li>
+                        <li><span class="check">✓</span> Voto en decisiones del proyecto</li>
+                        <li><span class="check">✓</span> Transparencia total de fondos</li>
+                        <li><span class="check">✓</span> Herramientas exclusivas de medición</li>
+                        <li><span class="check">✓</span> Acceso anticipado a nuevas funciones</li>
                     </ul>
-                    <p style="color: #f56565; font-weight: bold; margin-bottom: 1rem;">⚠️ Solo disponible para las primeras 20 personas. Después, la Calculadora de Bienestar se retira hasta el lanzamiento oficial.</p>
-                    <a href="#" class="pricing-cta">Conviértete en Socio de Proyectos de Bienestar</a>
+                    
+                    <a href="https://wa.me/5491234567890?text=Hola%2C%20quiero%20convertirme%20en%20socio%20fundador%20del%20experimento%20de%20bienestar%20LATAM" class="btn btn-urgencia">Hazte Socio Hoy (solo 20 plazas)</a>
                 </div>
             </div>
+        </div>
+    </section>
 
-            <div class="payment-options">
-                <h3>Opciones para convertirte en Socio</h3>
-                <div class="payment-methods">
-                    <div class="payment-method">
-                        <h4>🌎 LATAM General</h4>
-                        <p><strong>$10 USD</strong><br>Vía PayPal</p>
-                    </div>
-                    <div class="payment-method">
-                        <h4>🇦🇷 Argentina</h4>
-                        <p><strong>$10,000 ARS</strong><br>Vía alias</p>
-                    </div>
-                </div>
-                <p style="margin-top: 20px; font-size: 0.85rem; opacity: 0.8;">
-                    Tu contribución de $10 USD no es una compra, es el capital semilla que nos permite construir esta herramienta para LATAM.
+    <!-- Testimonial Section -->
+    <section class="testimonial section">
+        <div class="container">
+            <div class="testimonial-content fade-in">
+                <p class="testimonial-quote">
+                    "En solo 2 semanas noté cambios reales en mi energía y enfoque. 
+                    Las microprácticas son tan simples que se volvieron automáticas, 
+                    y la comunidad me mantiene motivada cada día."
                 </p>
+                <p class="testimonial-author">— María Elena, Participante desde México</p>
             </div>
         </div>
     </section>
 
     <!-- FAQ Section -->
-    <section class="faq-section section">
+    <section class="faq section">
         <div class="container">
-            <h2 class="section-title">Preguntas Frecuentes Rápidas</h2>
+            <h2 class="section-title">Preguntas Frecuentes</h2>
+            <p class="section-subtitle">
+                Resolvemos tus dudas sobre el experimento
+            </p>
             
             <div class="faq-container">
-                <div class="faq-item loading">
-                    <button class="faq-question" aria-expanded="false">
-                        <span>¿Qué es el "Círculo de Co-creación"?</span>
+                <div class="faq-item fade-in">
+                    <button class="faq-question">
+                        <span>¿Cuánto tiempo debo dedicar diariamente?</span>
                         <span>+</span>
                     </button>
                     <div class="faq-answer">
-                        Es un grupo privado y exclusivo para los Co-creadores (Fundadores). Allí tendrás acceso anticipado a las herramientas de la app, podrás dar tu opinión directa sobre su desarrollo y participar en sesiones especiales. Es tu oportunidad de ser parte del equipo fundador.
+                        Solo 3-5 minutos por micropráctica. Están diseñadas para integrarse fácilmente en tu rutina diaria, sin requerir tiempo adicional significativo.
                     </div>
                 </div>
                 
-                <div class="faq-item loading">
-                    <button class="faq-question" aria-expanded="false">
-                        <span>¿Qué recibo inmediatamente si me hago Co-creador?</span>
+                <div class="faq-item fade-in">
+                    <button class="faq-question">
+                        <span>¿Qué pasa si no veo resultados?</span>
                         <span>+</span>
                     </button>
                     <div class="faq-answer">
-                        Recibes acceso inmediato a la comunidad general de WhatsApp y, además, una invitación exclusiva para unirte al "Círculo de Co-creación". A medida que las primeras herramientas (como la "Calculadora de Bienestar") estén listas para testear en versión beta, serás el primero en recibirlas.
+                        Es parte del experimento. Tu feedback nos ayuda a mejorar las técnicas. No hay fracasos, solo datos valiosos para toda la comunidad.
                     </div>
                 </div>
                 
-                <div class="faq-item loading">
-                    <button class="faq-question" aria-expanded="false">
-                        <span>¿Esto es terapia?</span>
+                <div class="faq-item fade-in">
+                    <button class="faq-question">
+                        <span>¿Cómo funciona la transparencia de fondos?</span>
                         <span>+</span>
                     </button>
                     <div class="faq-answer">
-                        No. Es un laboratorio de entrenamiento de bienestar colectivo con base científica. La app es una herramienta de autoconocimiento y acción sistémica para potenciar tu práctica. No reemplaza terapia profesional.
+                        Los socios reciben reportes semanales detallados sobre ingresos, gastos e inversiones del proyecto, con total transparencia y derecho a voto en decisiones importantes.
                     </div>
                 </div>
                 
-                <div class="faq-item loading">
-                    <button class="faq-question" aria-expanded="false">
-                        <span>¿Cuándo estará lista la app?</span>
+                <div class="faq-item fade-in">
+                    <button class="faq-question">
+                        <span>¿Puedo cancelar mi participación cuando quiera?</span>
                         <span>+</span>
                     </button>
                     <div class="faq-answer">
-                        El lanzamiento de la versión 1.0 está programado para 2025. Sin embargo, como Co-creador, no tendrás que esperar. Tendrás acceso a las funcionalidades clave en fase beta mucho antes, a lo largo de este año.
+                        Por supuesto. Puedes dejar el experimento en cualquier momento. Para participantes gratuitos es inmediato, los socios pueden transferir su plaza a otra persona.
+                    </div>
+                </div>
+                
+                <div class="faq-item fade-in">
+                    <button class="faq-question">
+                        <span>¿Qué respaldo científico tienen las prácticas?</span>
+                        <span>+</span>
+                    </button>
+                    <div class="faq-answer">
+                        Todas nuestras microprácticas están basadas en investigación peer-reviewed de neurociencia, psicología positiva y ciencias del comportamiento, adaptadas al contexto latinoamericano.
+                    </div>
+                </div>
+                
+                <div class="faq-item fade-in">
+                    <button class="faq-question">
+                        <span>¿Por qué solo 20 plazas de socio?</span>
+                        <span>+</span>
+                    </button>
+                    <div class="faq-answer">
+                        Queremos mantener un grupo íntimo donde cada socio tenga voz real en las decisiones y podamos garantizar atención personalizada y participación significativa.
                     </div>
                 </div>
             </div>
@@ -1119,199 +832,79 @@
     <!-- Footer CTA -->
     <section class="footer-cta">
         <div class="container">
-            <h2>🌀 Este es el momento de entrenar bienestar real</h2>
-            <p>En comunidad. Con ciencia. Para LATAM.</p>
-            <a href="#unirse" class="cta-primary">Únete Gratis Ahora</a>
+            <h2>Transforma Tu Bienestar Hoy</h2>
+            <p>Únete a cientos de personas en LATAM que ya están experimentando cambios reales</p>
+            <p>Empieza gratis y descubre el poder de las microprácticas en comunidad</p>
+            <a href="#participar" class="btn btn-primary">🚀 Participa Gratis en el Experimento</a>
         </div>
     </section>
 
-    <!-- WhatsApp Floating Button -->
-    <a href="https://wa.me/1234567890" class="whatsapp-btn" title="Únete por WhatsApp" aria-label="Contactar por WhatsApp">
-        💬
-    </a>
+    <!-- WhatsApp Button -->
+    <a href="https://wa.me/5491234567890?text=Hola%2C%20tengo%20una%20consulta%20sobre%20el%20experimento%20de%20bienestar%20LATAM" class="whatsapp-btn" title="Únete por WhatsApp">💬</a>
 
     <script>
-        // Optimized JavaScript for mobile performance
-        (function() {
-            'use strict';
-            
-            // Debounce function for performance
-            function debounce(func, wait) {
-                let timeout;
-                return function executedFunction(...args) {
-                    const later = () => {
-                        clearTimeout(timeout);
-                        func(...args);
-                    };
-                    clearTimeout(timeout);
-                    timeout = setTimeout(later, wait);
-                };
-            }
-
-            // FAQ Toggle with accessibility
-            function initFAQ() {
-                const faqQuestions = document.querySelectorAll('.faq-question');
+        // FAQ Functionality
+        document.querySelectorAll('.faq-question').forEach(button => {
+            button.addEventListener('click', () => {
+                const answer = button.nextElementSibling;
+                const isOpen = answer.classList.contains('active');
                 
-                faqQuestions.forEach(button => {
-                    button.addEventListener('click', function() {
-                        const answer = this.nextElementSibling;
-                        const isOpen = answer.classList.contains('active');
-                        const icon = this.querySelector('span:last-child');
-                        
-                        // Close all other answers
-                        document.querySelectorAll('.faq-answer').forEach(a => a.classList.remove('active'));
-                        document.querySelectorAll('.faq-question').forEach(q => {
-                            q.setAttribute('aria-expanded', 'false');
-                            q.querySelector('span:last-child').textContent = '+';
-                        });
-                        
-                        // Toggle current answer
-                        if (!isOpen) {
-                            answer.classList.add('active');
-                            this.setAttribute('aria-expanded', 'true');
-                            icon.textContent = '-';
-                        }
-                    });
-                });
-            }
-
-            // Smooth scrolling for anchor links
-            function initSmoothScroll() {
-                document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-                    anchor.addEventListener('click', function (e) {
-                        e.preventDefault();
-                        const target = document.querySelector(this.getAttribute('href'));
-                        if (target) {
-                            const headerHeight = document.querySelector('.header').offsetHeight;
-                            const targetPosition = target.offsetTop - headerHeight - 20;
-                            
-                            window.scrollTo({
-                                top: targetPosition,
-                                behavior: 'smooth'
-                            });
-                        }
-                    });
-                });
-            }
-
-            // Intersection Observer for animations
-            function initAnimations() {
-                const observerOptions = {
-                    threshold: 0.1,
-                    rootMargin: '0px 0px -50px 0px'
-                };
-
-                const observer = new IntersectionObserver((entries) => {
-                    entries.forEach(entry => {
-                        if (entry.isIntersecting) {
-                            entry.target.classList.add('loaded');
-                            observer.unobserve(entry.target);
-                        }
-                    });
-                }, observerOptions);
-
-                // Observe elements with loading class
-                document.querySelectorAll('.loading').forEach(el => {
-                    observer.observe(el);
-                });
-            }
-
-            // Header scroll effect
-            function initHeaderScroll() {
-                const header = document.querySelector('.header');
-                let ticking = false;
+                // Close all answers
+                document.querySelectorAll('.faq-answer').forEach(a => a.classList.remove('active'));
+                document.querySelectorAll('.faq-question span:last-child').forEach(s => s.textContent = '+');
                 
-                const updateHeader = () => {
-                    if (window.scrollY > 100) {
-                        header.style.background = 'rgba(255, 255, 255, 0.95)';
-                        header.style.backdropFilter = 'blur(10px)';
-                    } else {
-                        header.style.background = 'var(--blanco)';
-                        header.style.backdropFilter = 'none';
-                    }
-                    ticking = false;
-                };
-                
-                const requestTick = () => {
-                    if (!ticking) {
-                        requestAnimationFrame(updateHeader);
-                        ticking = true;
-                    }
-                };
-                
-                window.addEventListener('scroll', requestTick, { passive: true });
-            }
-
-            // Lazy loading for images
-            function initLazyLoading() {
-                if ('loading' in HTMLImageElement.prototype) {
-                    // Native lazy loading supported
-                    return;
+                // Open clicked answer if it wasn't open
+                if (!isOpen) {
+                    answer.classList.add('active');
+                    button.querySelector('span:last-child').textContent = '-';
                 }
-                
-                // Fallback for browsers without native lazy loading
-                const images = document.querySelectorAll('img[loading="lazy"]');
-                const imageObserver = new IntersectionObserver((entries) => {
-                    entries.forEach(entry => {
-                        if (entry.isIntersecting) {
-                            const img = entry.target;
-                            img.src = img.dataset.src || img.src;
-                            img.classList.remove('loading');
-                            imageObserver.unobserve(img);
-                        }
+            });
+        });
+
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    const headerHeight = document.querySelector('.header').offsetHeight;
+                    const targetPosition = target.offsetTop - headerHeight - 20;
+                    window.scrollTo({
+                        top: targetPosition,
+                        behavior: 'smooth'
                     });
-                });
-                
-                images.forEach(img => imageObserver.observe(img));
-            }
-
-            // Touch optimization for mobile
-            function initTouchOptimization() {
-                // Add touch class for CSS optimizations
-                if ('ontouchstart' in window) {
-                    document.body.classList.add('touch-device');
                 }
-                
-                // Prevent zoom on double tap for buttons
-                const buttons = document.querySelectorAll('button, .cta-primary, .cta-secondary, .pricing-cta');
-                buttons.forEach(button => {
-                    button.addEventListener('touchend', function(e) {
-                        e.preventDefault();
-                        this.click();
-                    }, { passive: false });
-                });
-            }
+            });
+        });
 
-            // Initialize all functions when DOM is ready
-            function init() {
-                initFAQ();
-                initSmoothScroll();
-                initAnimations();
-                initHeaderScroll();
-                initLazyLoading();
-                initTouchOptimization();
-                
-                // Add loaded class to hero content after a short delay
-                setTimeout(() => {
-                    document.querySelector('.hero-content').classList.add('loaded');
-                }, 100);
-            }
+        // Fade in animation on scroll
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
 
-            // Wait for DOM to be ready
-            if (document.readyState === 'loading') {
-                document.addEventListener('DOMContentLoaded', init);
-            } else {
-                init();
-            }
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, observerOptions);
 
-            // Service Worker registration for PWA capabilities (optional)
-            if ('serviceWorker' in navigator) {
-                window.addEventListener('load', () => {
-                    // Uncomment if you want to add a service worker
-                    // navigator.serviceWorker.register('/sw.js');
-                });
-            }
-        })();
+        document.querySelectorAll('.fade-in').forEach(el => {
+            observer.observe(el);
+        });
+
+        // WhatsApp button pulse animation
+        setInterval(() => {
+            const whatsappBtn = document.querySelector('.whatsapp-btn');
+            whatsappBtn.style.animation = 'none';
+            setTimeout(() => {
+                whatsappBtn.style.animation = 'pulse 0.5s ease-in-out';
+            }, 10);
+        }, 5000);
     </script>
 </body>
 </html>
+
