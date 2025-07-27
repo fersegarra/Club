@@ -2,35 +2,31 @@
 <html lang="es">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
-    <title>LABTAM | Ecología de Campo para tu Bienestar en LATAM</title>
-    <meta name="description" content="Deja el ruido digital y cultiva tu claridad mental. LABTAM es un laboratorio de campo que diseña y testea micro-prácticas basadas en ciencia para regenerar tu bienestar. Únete a nuestra expedición.">
-    <meta name="keywords" content="bienestar LATAM, claridad mental, micro-prácticas, neurociencia, ecología humana, manejo del estrés, comunidad, regeneración">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Práctica Diaria para la Claridad Mental | LABTAM</title>
+    <meta name="description" content="Sistema integrado de 5 micro-prácticas para cultivar la claridad mental, activando ciclos virtuosos entre las dimensiones Real, Imaginaria y Simbólica.">
     
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700;800&display=swap" rel="stylesheet">
     
-    <meta name="theme-color" content="#4A7C59">
-    <meta name="apple-mobile-web-app-capable" content="yes">
-    <meta name="apple-mobile-web-app-status-bar-style" content="default">
-    <meta name="apple-mobile-web-app-title" content="LABTAM | Ecología de Campo">
-    
     <style>
         :root {
+            /* Paleta de colores del manual de identidad */
             --verde-regenerativo: #4A7C59;
             --azul-claridad: #3B5998;
             --gris-neutro: #F2F2F2;
             --negro-profundo: #1A1A1A;
             --blanco: #FFFFFF;
-            --verde-claro: rgba(74, 124, 89, 0.1);
-            --verde-medio: rgba(74, 124, 89, 0.3);
             --amarillo-acento: #F4A261;
+            
+            /* Sombras y efectos */
             --sombra-suave: 0 2px 12px rgba(0,0,0,0.08);
             --sombra-media: 0 4px 20px rgba(0,0,0,0.12);
             --sombra-fuerte: 0 8px 32px rgba(0,0,0,0.16);
+            
+            /* Espaciado y bordes */
             --border-radius: 16px;
-            --border-radius-small: 8px;
             --spacing-xs: 8px;
             --spacing-sm: 16px;
             --spacing-md: 24px;
@@ -39,1147 +35,785 @@
             --spacing-xxl: 64px;
         }
         
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
-        body { 
-            font-family: 'Montserrat', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; 
-            line-height: 1.6; 
-            color: var(--negro-profundo); 
-            overflow-x: hidden; 
-            font-size: 16px; 
-            -webkit-font-smoothing: antialiased; 
-            -moz-osx-font-smoothing: grayscale; 
+        * { 
+            margin: 0; 
+            padding: 0; 
+            box-sizing: border-box; 
         }
         
-        .container { 
-            max-width: 1200px; 
-            margin: 0 auto; 
-            padding: 0 var(--spacing-md); 
+        html { 
+            scroll-behavior: smooth; 
         }
         
-        h1 { 
-            font-size: 2rem; 
-            font-weight: 800; 
-            line-height: 1.2; 
-            margin-bottom: var(--spacing-md); 
-        }
-        h2 { 
-            font-size: 1.75rem; 
-            font-weight: 700; 
-            line-height: 1.3; 
-            margin-bottom: var(--spacing-md); 
-        }
-        h3 { 
-            font-size: 1.25rem; 
-            font-weight: 600; 
-            line-height: 1.4; 
-            margin-bottom: var(--spacing-sm); 
-        }
-        p { 
-            font-size: 1rem; 
-            line-height: 1.7; 
-            margin-bottom: var(--spacing-md); 
-        }
-        
-        /* Header Optimizado */
-        .header { 
-            background: rgba(255, 255, 255, 0.95); 
-            padding: var(--spacing-sm) 0; 
-            box-shadow: var(--sombra-suave); 
-            position: fixed; 
-            width: 100%; 
-            top: 0; 
-            z-index: 1000; 
-            backdrop-filter: blur(20px); 
-            transition: all 0.3s ease-in-out;
-        }
-        
-        .header-content { 
-            display: flex; 
-            align-items: center; 
-            justify-content: space-between; 
-            flex-wrap: wrap; 
-            gap: var(--spacing-sm); 
-        }
-        
-        .logo { 
-            display: flex; 
-            align-items: center; 
-            gap: var(--spacing-sm); 
-            transition: transform 0.3s ease-in-out;
-        }
-        
-        .logo:hover {
-            transform: scale(1.02);
-        }
-        
-        .logo-symbol { 
-            width: 40px; 
-            height: 40px; 
-            background: var(--verde-regenerativo); 
-            border-radius: 50%; 
-            display: flex; 
-            align-items: center; 
-            justify-content: center; 
-            position: relative; 
-            flex-shrink: 0; 
-            transition: all 0.3s ease-in-out;
-        }
-        
-        .logo-symbol:hover {
-            box-shadow: var(--sombra-media);
-            transform: rotate(5deg);
-        }
-        
-        /* SVG Espiral Evolutiva */
-        .eco-symbol { 
-            width: 24px; 
-            height: 24px; 
-        }
-        
-        .logo-text { 
-            font-weight: 700; 
-            font-size: 1rem; 
-            color: var(--negro-profundo); 
-        }
-        
-        .cta-header { 
-            background: var(--verde-regenerativo); 
-            color: var(--blanco); 
-            padding: var(--spacing-xs) var(--spacing-md); 
-            border-radius: 25px; 
-            text-decoration: none; 
-            font-weight: 600; 
-            font-size: 0.9rem; 
-            transition: all 0.3s ease-in-out; 
-            white-space: nowrap; 
-            min-height: 44px; 
-            display: flex; 
-            align-items: center; 
-            justify-content: center; 
-            box-shadow: var(--sombra-suave);
-        }
-        
-        .cta-header:hover { 
-            background: var(--azul-claridad); 
-            transform: translateY(-2px); 
-            box-shadow: var(--sombra-media);
-        }
-        
-        /* Hero Section Optimizado */
-        .hero { 
-            background: linear-gradient(135deg, var(--verde-claro) 0%, var(--gris-neutro) 100%); 
-            padding: calc(80px + var(--spacing-xxl)) var(--spacing-md) var(--spacing-xxl) var(--spacing-md); 
-            position: relative; 
-            overflow: hidden; 
-            min-height: 100vh; 
-            display: flex; 
-            align-items: center; 
-        }
-        
-        /* Efecto parallax sutil */
-        .hero::before { 
-            content: ''; 
-            position: absolute; 
-            top: -100px; 
-            right: -100px; 
-            width: 300px; 
-            height: 300px; 
-            background: radial-gradient(circle, var(--verde-medio) 0%, transparent 70%); 
-            border-radius: 50%; 
-            opacity: 0.4; 
-            animation: floatGentle 8s ease-in-out infinite;
-        }
-        
-        .hero::after { 
-            content: ''; 
-            position: absolute; 
-            bottom: -150px; 
-            left: -150px; 
-            width: 250px; 
-            height: 250px; 
-            background: radial-gradient(circle, var(--verde-claro) 0%, transparent 70%); 
-            border-radius: 50%; 
-            opacity: 0.3; 
-            animation: floatGentle 10s ease-in-out infinite reverse;
-        }
-        
-        @keyframes floatGentle {
-            0%, 100% { transform: translateY(0px) scale(1); }
-            50% { transform: translateY(-20px) scale(1.05); }
-        }
-        
-        .hero-content { 
-            display: flex; 
-            flex-direction: column; 
-            gap: var(--spacing-xxl); 
-            align-items: center; 
-            text-align: center; 
-            position: relative; 
-            z-index: 10; 
-            width: 100%; 
-        }
-        
-        .hero-text { 
-            order: 2; 
-        }
-        
-        .hero-text h1 { 
-            font-size: 2.5rem; 
-            margin-bottom: var(--spacing-lg); 
-            color: var(--verde-regenerativo); 
-            text-shadow: 0 2px 4px rgba(0,0,0,0.1);
-        }
-        
-        .hero-subtitle { 
-            font-size: 1.2rem; 
-            font-weight: 400; 
-            margin-bottom: var(--spacing-lg); 
-            max-width: 650px; 
-            margin-left: auto; 
-            margin-right: auto; 
-            opacity: 0.9;
-        }
-        
-        .hero-description { 
-            font-size: 1rem; 
-            margin-bottom: var(--spacing-xxl); 
-            line-height: 1.7; 
-            opacity: 0.8; 
-            max-width: 600px; 
-        }
-        
-        .hero-image { 
-            order: 1; 
-            position: relative; 
-            border-radius: var(--border-radius); 
-            overflow: hidden; 
-            box-shadow: var(--sombra-fuerte); 
-            width: 100%; 
-            max-width: 450px; 
-            transition: transform 0.3s ease-in-out;
-        }
-        
-        .hero-image:hover {
-            transform: scale(1.02);
-        }
-        
-        .hero-image img { 
-            width: 100%; 
-            height: 280px; 
-            object-fit: cover; 
-            display: block; 
-        }
-        
-        /* CTAs Optimizados */
-        .cta-primary, .cta-secondary { 
-            display: block; 
-            text-align: center; 
-            padding: var(--spacing-md) var(--spacing-lg); 
-            font-size: 1.1rem; 
-            font-weight: 600; 
-            text-decoration: none; 
-            border-radius: 50px; 
-            transition: all 0.3s ease-in-out; 
-            margin-bottom: var(--spacing-md); 
-            min-height: 56px; 
-            display: flex; 
-            align-items: center; 
-            justify-content: center; 
-            position: relative; 
-            overflow: hidden; 
-            width: 100%; 
-            max-width: 320px; 
-            margin-left: auto; 
-            margin-right: auto; 
-        }
-        
-        .cta-primary { 
-            background: var(--verde-regenerativo); 
-            color: var(--blanco); 
-            box-shadow: var(--sombra-media); 
-            border: 3px solid var(--verde-regenerativo);
-        }
-        
-        .cta-primary:hover { 
-            transform: translateY(-3px) scale(1.02); 
-            box-shadow: var(--sombra-fuerte); 
-            background: #3d6b4a;
-        }
-        
-        .cta-secondary { 
-            background: transparent; 
-            color: var(--azul-claridad); 
-            border: 2px solid var(--azul-claridad); 
-            opacity: 0.9;
-        }
-        
-        .cta-secondary:hover { 
-            background: var(--azul-claridad); 
-            color: var(--blanco); 
-            transform: translateY(-2px);
-            box-shadow: var(--sombra-media);
-        }
-        
-        .section { 
-            padding: var(--spacing-xxl) 0; 
-        }
-        
-        .section-title { 
-            font-size: 2rem; 
-            font-weight: 700; 
-            text-align: center; 
-            margin-bottom: var(--spacing-md); 
-            color: var(--negro-profundo); 
-        }
-        
-        .section-subtitle { 
-            font-size: 1.1rem; 
-            text-align: center; 
-            color: var(--verde-regenerativo); 
-            margin: 0 auto var(--spacing-xxl); 
-            max-width: 650px; 
+        body {
+            font-family: 'Montserrat', sans-serif;
             line-height: 1.6;
-        }
-        
-        .why-works-section { 
-            background: var(--blanco); 
-        }
-        
-        .why-works-content { 
-            text-align: center; 
-            max-width: 850px; 
-            margin: 0 auto; 
-        }
-        
-        .why-works-content p { 
-            font-size: 1.1rem; 
-            line-height: 1.7; 
-            opacity: 0.9; 
-        }
-        
-        /* Sección de Beneficios Optimizada */
-        .benefits-section { 
-            background: var(--gris-neutro); 
-        }
-        
-        .benefits-grid { 
-            display: grid; 
-            grid-template-columns: 1fr; 
-            gap: var(--spacing-lg); 
-            margin-top: var(--spacing-xxl); 
-        }
-        
-        .benefit-card { 
-            background: var(--blanco); 
-            padding: var(--spacing-lg); 
-            border-radius: var(--border-radius); 
-            text-align: center; 
-            transition: all 0.3s ease-in-out; 
-            border-left: 4px solid var(--verde-regenerativo); 
-            box-shadow: var(--sombra-suave);
-        }
-        
-        .benefit-card:hover { 
-            transform: translateY(-8px) scale(1.02); 
-            box-shadow: var(--sombra-fuerte);
-            background: rgba(255, 255, 255, 0.98);
-        }
-        
-        .benefit-icon { 
-            color: var(--verde-regenerativo); 
-            margin-bottom: var(--spacing-md); 
-            width: 56px; 
-            height: 56px; 
-            transition: all 0.3s ease-in-out;
-        }
-        
-        .benefit-card:hover .benefit-icon {
-            transform: scale(1.1);
-            filter: drop-shadow(0 4px 8px rgba(74, 124, 89, 0.3));
-        }
-        
-        .benefit-card h3 { 
-            margin-bottom: var(--spacing-md); 
-            font-size: 1.3rem; 
             color: var(--negro-profundo);
+            background: linear-gradient(135deg, var(--gris-neutro) 0%, #e8e8e8 100%);
+            -webkit-font-smoothing: antialiased;
+            font-size: 16px;
         }
         
-        .benefit-card p { 
-            line-height: 1.7; 
-            opacity: 0.8; 
-            margin-bottom: 0; 
-            font-size: 1rem;
-        }
-        
-        .about-founder-section { 
-            background: var(--verde-claro); 
-            text-align: center; 
-        }
-        
-        .about-founder-content { 
-            max-width: 750px; 
-            margin: 0 auto; 
-        }
-        
-        .about-founder-content p { 
-            font-style: italic; 
-            font-size: 1.1rem;
-            line-height: 1.7;
-        }
-        
-        /* Steps Section Optimizada */
-        .steps-section { 
-            background: var(--verde-regenerativo); 
-            color: var(--blanco); 
-        }
-        
-        .steps-section .section-title, .steps-section .section-subtitle { 
-            color: var(--blanco); 
-        }
-        
-        .steps-container { 
-            display: grid; 
-            grid-template-columns: 1fr; 
-            gap: var(--spacing-xxl); 
-            margin-top: var(--spacing-xxl); 
-        }
-        
-        .step-card { 
-            text-align: center; 
-            background: rgba(255,255,255,0.1); 
-            padding: var(--spacing-xxl) var(--spacing-lg); 
-            border-radius: var(--border-radius); 
-            backdrop-filter: blur(10px); 
-            border: 1px solid rgba(255,255,255,0.2); 
-            transition: all 0.3s ease-in-out;
-        }
-        
-        .step-card:hover {
-            transform: translateY(-4px);
-            background: rgba(255,255,255,0.15);
-            box-shadow: var(--sombra-media);
-        }
-        
-        .step-number { 
-            width: 70px; 
-            height: 70px; 
-            background: var(--blanco); 
-            color: var(--verde-regenerativo); 
-            border-radius: 50%; 
-            display: flex; 
-            align-items: center; 
-            justify-content: center; 
-            font-size: 1.8rem; 
-            font-weight: 800; 
-            margin: 0 auto var(--spacing-lg); 
-            box-shadow: var(--sombra-media); 
-            transition: all 0.3s ease-in-out;
-        }
-        
-        .step-card:hover .step-number {
-            transform: scale(1.1);
-            box-shadow: var(--sombra-fuerte);
-        }
-        
-        /* Pricing Section Optimizada */
-        .pricing-section { 
-            background: var(--gris-neutro); 
-        }
-        
-        .pricing-intro { 
-            text-align: center; 
-            margin-bottom: var(--spacing-xxl); 
-        }
-        
-        .pricing-container { 
-            display: grid; 
-            grid-template-columns: 1fr; 
-            gap: var(--spacing-xxl); 
-            margin-top: var(--spacing-xxl); 
-        }
-        
-        .pricing-card { 
-            background: var(--blanco); 
-            padding: var(--spacing-xxl) var(--spacing-lg); 
-            border-radius: var(--border-radius); 
-            box-shadow: var(--sombra-media); 
-            text-align: center; 
-            position: relative; 
-            transition: all 0.3s ease-in-out; 
-            border: 3px solid transparent; 
-            display: flex; 
-            flex-direction: column; 
-        }
-        
-        /* Prioridad visual para Participante */
-        .pricing-card:first-child {
-            border: 3px solid var(--verde-regenerativo);
-            transform: scale(1.02);
-        }
-        
-        .pricing-card:first-child:hover { 
-            transform: scale(1.05) translateY(-8px); 
-            box-shadow: var(--sombra-fuerte);
-            border-color: #3d6b4a;
-        }
-        
-        .pricing-card:hover { 
-            transform: translateY(-6px); 
-            box-shadow: var(--sombra-fuerte);
-        }
-        
-        .pricing-card .features-list { 
-            flex-grow: 1; 
-        }
-        
-        .pricing-card.featured { 
-            background: var(--verde-regenerativo); 
-            color: var(--blanco); 
-            border: 3px solid var(--amarillo-acento); 
-            order: 0; 
-            transform: scale(1.0); 
-            box-shadow: var(--sombra-media); 
-        }
-        
-        .pricing-card.featured:hover { 
-            transform: scale(1.02) translateY(-6px); 
-            box-shadow: var(--sombra-fuerte);
-        }
-        
-        .pricing-card.featured::before { 
-            content: '🤝'; 
-            position: absolute; 
-            top: -15px; 
-            left: 50%; 
-            transform: translateX(-50%); 
-            background: var(--amarillo-acento); 
-            color: var(--negro-profundo); 
-            padding: var(--spacing-sm) var(--spacing-md); 
-            border-radius: 25px; 
-            font-size: 0.9rem; 
-            font-weight: 700; 
-            box-shadow: var(--sombra-media);
-        }
-        
-        .price { 
-            font-size: 2.8rem; 
-            font-weight: 800; 
-            margin: var(--spacing-md) 0; 
-        }
-        
-        .features-list { 
-            list-style: none; 
-            margin: var(--spacing-lg) 0; 
-            text-align: left; 
-        }
-        
-        .features-list li { 
-            padding: var(--spacing-sm) 0; 
-            font-size: 1rem; 
-            display: flex; 
-            align-items: flex-start; 
-            gap: var(--spacing-sm); 
-            line-height: 1.6;
-        }
-        
-        .check { 
-            color: var(--verde-regenerativo); 
-            font-weight: 700; 
-            flex-shrink: 0; 
-            margin-top: 2px; 
-            font-size: 1.1rem;
-        }
-        
-        .featured .check { 
-            color: var(--blanco); 
-        }
-        
-        .pricing-cta { 
-            margin-top: auto; 
-            padding: var(--spacing-md) var(--spacing-lg);
-            font-size: 1.1rem;
-            font-weight: 600;
-            border-radius: 50px;
-            transition: all 0.3s ease-in-out;
-            text-decoration: none;
-            display: block;
+        /* Header principal */
+        .main-header {
+            background: linear-gradient(135deg, var(--verde-regenerativo), #3d6b4a);
+            color: var(--blanco);
+            padding: var(--spacing-xl) var(--spacing-md);
             text-align: center;
+            position: relative;
+            overflow: hidden;
         }
         
-        /* CTA del participante más prominente */
-        .pricing-card:first-child .pricing-cta {
+        .main-header::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%);
+            animation: float 8s ease-in-out infinite;
+        }
+        
+        @keyframes float {
+            0%, 100% { transform: rotate(0deg) scale(1); }
+            50% { transform: rotate(180deg) scale(1.1); }
+        }
+        
+        .logo-main {
+            display: inline-flex;
+            align-items: center;
+            gap: var(--spacing-sm);
+            margin-bottom: var(--spacing-md);
+            position: relative;
+            z-index: 10;
+        }
+        
+        .logo-symbol-main {
+            width: 60px;
+            height: 60px;
+            background: var(--blanco);
+            color: var(--verde-regenerativo);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 800;
+            font-size: 1.8rem;
+            box-shadow: var(--sombra-media);
+        }
+        
+        .logo-text-main {
+            font-size: 1.5rem;
+            font-weight: 700;
+        }
+        
+        .main-title {
+            font-size: 2.5rem;
+            font-weight: 800;
+            margin-bottom: var(--spacing-sm);
+            position: relative;
+            z-index: 10;
+        }
+        
+        .main-subtitle {
+            font-size: 1.2rem;
+            font-weight: 400;
+            opacity: 0.9;
+            max-width: 800px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 10;
+        }
+        
+        /* Navegación de prácticas */
+        .practices-nav {
+            background: var(--blanco);
+            padding: var(--spacing-md);
+            box-shadow: var(--sombra-suave);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            gap: var(--spacing-sm);
+            overflow-x: auto;
+            padding-bottom: var(--spacing-xs);
+        }
+        
+        .nav-item {
+            background: var(--gris-neutro);
+            color: var(--negro-profundo);
+            padding: var(--spacing-sm) var(--spacing-md);
+            border-radius: 25px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.9rem;
+            white-space: nowrap;
+            transition: all 0.3s ease-in-out;
+            border: 2px solid transparent;
+        }
+        
+        .nav-item:hover, .nav-item.active {
             background: var(--verde-regenerativo);
             color: var(--blanco);
+            transform: translateY(-2px);
             box-shadow: var(--sombra-media);
-            transform: scale(1.05);
         }
         
-        .pricing-card:first-child .pricing-cta:hover {
-            transform: scale(1.08) translateY(-2px);
-            box-shadow: var(--sombra-fuerte);
-            background: #3d6b4a;
-        }
-        
-        /* Incentivo de Calculadora Optimizado */
-        .alert-escasez {
-            font-size: 1.2rem;
-            font-weight: 800;
-            color: var(--negro-profundo);
-            background: var(--amarillo-acento);
+        /* Container principal */
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
             padding: var(--spacing-md);
-            border-radius: var(--border-radius-small);
-            margin: var(--spacing-lg) 0 var(--spacing-md) 0;
+        }
+        
+        /* Tarjetas de práctica */
+        .practice-card {
+            background: var(--blanco);
+            border-radius: var(--border-radius);
+            box-shadow: var(--sombra-media);
+            margin-bottom: var(--spacing-xl);
+            overflow: hidden;
+            transition: all 0.3s ease-in-out;
+            border-top: 4px solid var(--verde-regenerativo);
+        }
+        
+        .practice-card:hover {
+            transform: translateY(-4px);
+            box-shadow: var(--sombra-fuerte);
+        }
+        
+        .practice-header {
+            background: linear-gradient(135deg, var(--verde-regenerativo), #3d6b4a);
+            color: var(--blanco);
+            padding: var(--spacing-lg);
             text-align: center;
-            box-shadow: var(--sombra-media);
-            animation: pulseGlow 3s ease-in-out infinite;
+            position: relative;
         }
         
-        @keyframes pulseGlow {
-            0%, 100% { box-shadow: var(--sombra-media); }
-            50% { box-shadow: 0 0 20px rgba(244, 162, 97, 0.6); }
+        .practice-number {
+            position: absolute;
+            top: var(--spacing-sm);
+            left: var(--spacing-sm);
+            width: 40px;
+            height: 40px;
+            background: rgba(255,255,255,0.2);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 800;
+            font-size: 1.2rem;
         }
         
-        .payment-options { 
-            background: var(--verde-claro); 
-            padding: var(--spacing-lg); 
-            border-radius: var(--border-radius); 
-            margin-top: var(--spacing-xxl); 
-            text-align: center; 
+        .practice-icon {
+            width: 80px;
+            height: 80px;
+            color: var(--blanco);
+            margin: 0 auto var(--spacing-md);
+            filter: drop-shadow(0 4px 8px rgba(0,0,0,0.2));
         }
         
-        .payment-methods { 
-            display: grid; 
-            grid-template-columns: 1fr; 
-            gap: var(--spacing-md); 
-            margin-top: var(--spacing-md); 
+        .practice-title {
+            font-size: 1.8rem;
+            font-weight: 700;
+            margin-bottom: var(--spacing-xs);
         }
         
-        .payment-method { 
-            background: var(--blanco); 
-            padding: var(--spacing-md); 
-            border-radius: var(--border-radius-small); 
-            border-left: 4px solid var(--verde-regenerativo); 
+        .practice-meta {
+            font-size: 1rem;
+            opacity: 0.9;
+            font-weight: 400;
+        }
+        
+        .practice-content {
+            padding: var(--spacing-lg);
+        }
+        
+        .practice-foundation {
+            background: rgba(74, 124, 89, 0.1);
+            padding: var(--spacing-md);
+            border-radius: var(--border-radius);
+            margin-bottom: var(--spacing-lg);
+            border-left: 4px solid var(--verde-regenerativo);
+        }
+        
+        .practice-foundation strong {
+            color: var(--verde-regenerativo);
+        }
+        
+        .practice-steps {
+            margin-bottom: var(--spacing-lg);
+        }
+        
+        .step-item {
+            background: var(--gris-neutro);
+            padding: var(--spacing-md);
+            border-radius: var(--border-radius);
+            margin-bottom: var(--spacing-sm);
             transition: all 0.3s ease-in-out;
+            border-left: 4px solid var(--azul-claridad);
         }
         
-        .payment-method:hover {
-            transform: translateY(-2px);
-            box-shadow: var(--sombra-media);
+        .step-item:hover {
+            background: rgba(59, 89, 152, 0.1);
+            transform: translateX(4px);
         }
         
-        /* FAQ Section Optimizada */
-        .faq-section { 
-            background: var(--blanco); 
-        }
-        
-        .faq-container { 
-            margin-top: var(--spacing-xxl); 
-            max-width: 850px; 
-            margin-left: auto; 
-            margin-right: auto; 
-        }
-        
-        .faq-item { 
-            background: var(--gris-neutro); 
-            margin: var(--spacing-md) 0; 
-            border-radius: var(--border-radius); 
-            overflow: hidden; 
-            border-left: 4px solid var(--verde-regenerativo); 
-            transition: all 0.3s ease-in-out;
-        }
-        
-        .faq-item:hover {
-            box-shadow: var(--sombra-media);
-            transform: translateY(-2px);
-        }
-        
-        .faq-question { 
-            padding: var(--spacing-lg); 
-            font-weight: 600; 
-            font-size: 1.1rem; 
-            cursor: pointer; 
-            background: var(--gris-neutro); 
-            border: none; 
-            width: 100%; 
-            text-align: left; 
-            transition: all 0.3s ease-in-out; 
-            color: var(--negro-profundo); 
-            display: flex; 
-            justify-content: space-between; 
-            align-items: center; 
-            min-height: 60px; 
-        }
-        
-        .faq-question:hover {
-            background: rgba(242, 242, 242, 0.8);
-        }
-        
-        .faq-answer { 
-            padding: 0 var(--spacing-lg) var(--spacing-lg); 
-            line-height: 1.7; 
-            display: none; 
-            font-size: 1rem; 
-        }
-        
-        .faq-answer.active { 
-            display: block; 
-        }
-        
-        /* Footer Optimizado */
-        .footer-cta { 
-            background: var(--negro-profundo); 
-            color: var(--blanco); 
-            text-align: center; 
-            padding: var(--spacing-xxl) var(--spacing-md); 
-        }
-        
-        .footer-cta h2 {
-            margin-bottom: var(--spacing-md);
-            font-size: 2rem;
-        }
-        
-        .footer-cta p {
+        .step-item h4 {
+            color: var(--azul-claridad);
+            font-weight: 700;
+            margin-bottom: var(--spacing-xs);
             font-size: 1.1rem;
+        }
+        
+        .step-item p, .step-item ul {
+            font-size: 0.95rem;
+            line-height: 1.5;
+        }
+        
+        .step-item ul {
+            list-style: none;
+            padding-left: 0;
+        }
+        
+        .step-item li {
+            margin-bottom: var(--spacing-xs);
+            padding-left: var(--spacing-md);
+            position: relative;
+        }
+        
+        .step-item li::before {
+            content: "•";
+            color: var(--verde-regenerativo);
+            font-weight: bold;
+            position: absolute;
+            left: 0;
+        }
+        
+        .adaptation-section {
+            background: linear-gradient(135deg, var(--amarillo-acento), #e09850);
+            color: var(--negro-profundo);
+            padding: var(--spacing-md);
+            border-radius: var(--border-radius);
+            margin-top: var(--spacing-lg);
+        }
+        
+        .adaptation-section h3 {
+            font-weight: 700;
+            margin-bottom: var(--spacing-sm);
+            display: flex;
+            align-items: center;
+            gap: var(--spacing-xs);
+        }
+        
+        /* Sección de implementación */
+        .implementation-section {
+            background: var(--blanco);
+            border-radius: var(--border-radius);
+            box-shadow: var(--sombra-media);
+            padding: var(--spacing-xl);
+            margin: var(--spacing-xl) 0;
+            text-align: center;
+            border: 3px solid var(--verde-regenerativo);
+        }
+        
+        .implementation-title {
+            color: var(--verde-regenerativo);
+            font-size: 1.5rem;
+            font-weight: 700;
             margin-bottom: var(--spacing-md);
         }
         
-        /* WhatsApp Button Optimizado */
-        .whatsapp-btn { 
-            position: fixed; 
-            bottom: var(--spacing-lg); 
-            right: var(--spacing-lg); 
-            background: #25d366; 
-            color: var(--blanco); 
-            width: 64px; 
-            height: 64px; 
-            border-radius: 50%; 
-            display: flex; 
-            align-items: center; 
-            justify-content: center; 
-            font-size: 1.8rem; 
-            text-decoration: none; 
-            box-shadow: var(--sombra-fuerte); 
-            transition: all 0.3s ease-in-out; 
-            z-index: 1000; 
-            animation: bounceGentle 4s ease-in-out infinite;
+        .implementation-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: var(--spacing-md);
+            margin-top: var(--spacing-lg);
         }
         
-        .whatsapp-btn:hover {
-            transform: scale(1.1);
-            box-shadow: 0 8px 32px rgba(37, 211, 102, 0.4);
+        .implementation-card {
+            background: var(--gris-neutro);
+            padding: var(--spacing-md);
+            border-radius: var(--border-radius);
+            transition: all 0.3s ease-in-out;
         }
         
-        @keyframes bounceGentle {
-            0%, 100% { transform: translateY(0); }
-            50% { transform: translateY(-5px); }
+        .implementation-card:hover {
+            background: rgba(74, 124, 89, 0.1);
+            transform: translateY(-2px);
         }
         
-        /* Responsive Design Optimizado */
-        @media (min-width: 768px) {
-            .container { 
-                padding: 0 var(--spacing-xxl); 
+        .implementation-card h4 {
+            color: var(--azul-claridad);
+            font-weight: 700;
+            margin-bottom: var(--spacing-xs);
+        }
+        
+        /* Footer */
+        .footer {
+            background: var(--negro-profundo);
+            color: var(--blanco);
+            text-align: center;
+            padding: var(--spacing-xl) var(--spacing-md);
+            margin-top: var(--spacing-xxl);
+        }
+        
+        .footer-logo {
+            margin-bottom: var(--spacing-md);
+        }
+        
+        .footer-text {
+            font-size: 0.9rem;
+            opacity: 0.8;
+        }
+        
+        /* Responsive */
+        @media (max-width: 768px) {
+            .main-title {
+                font-size: 2rem;
             }
             
-            h1 { 
-                font-size: 2.8rem; 
+            .main-subtitle {
+                font-size: 1rem;
             }
             
-            .hero-content { 
-                flex-direction: row; 
-                text-align: left; 
-                align-items: center; 
+            .practice-title {
+                font-size: 1.5rem;
             }
             
-            .hero-text { 
-                order: 1; 
-                flex: 1; 
+            .container {
+                padding: var(--spacing-sm);
             }
             
-            .hero-text h1 { 
-                font-size: 3.2rem; 
+            .nav-container {
+                padding: 0 var(--spacing-sm);
             }
             
-            .hero-image { 
-                order: 2; 
-                flex: 1; 
-                max-width: none; 
-            }
-            
-            .hero-image img { 
-                height: 400px; 
-            }
-            
-            .benefits-grid { 
-                grid-template-columns: repeat(3, 1fr); 
-            }
-            
-            .steps-container { 
-                grid-template-columns: repeat(3, 1fr); 
-            }
-            
-            .pricing-container { 
-                grid-template-columns: 1fr 1fr; 
-                align-items: stretch; 
-            }
-            
-            .payment-methods { 
-                grid-template-columns: repeat(2, 1fr); 
-            }
-            
-            .cta-primary, .cta-secondary { 
-                display: inline-flex; 
-                width: auto; 
-                margin-right: var(--spacing-md); 
+            .practice-icon {
+                width: 60px;
+                height: 60px;
             }
         }
         
-        @media (min-width: 1024px) {
-            h1 { 
-                font-size: 3.2rem; 
-            }
-            
-            .hero-text h1 { 
-                font-size: 3.6rem; 
-            }
-            
-            .pricing-card.featured { 
-                order: 0; 
-                transform: scale(1.0); 
-            }
-            
-            .pricing-card.featured:hover { 
-                transform: scale(1.02) translateY(-6px); 
-            }
-        }
-        
-        /* Animaciones de carga optimizadas */
-        .loading {
+        /* Animaciones adicionales */
+        .practice-card {
             opacity: 0;
             transform: translateY(30px);
-            transition: all 0.8s ease-out;
+            animation: fadeInUp 0.6s ease-out forwards;
         }
         
-        .loading.visible {
-            opacity: 1;
-            transform: translateY(0);
+        .practice-card:nth-child(1) { animation-delay: 0.1s; }
+        .practice-card:nth-child(2) { animation-delay: 0.2s; }
+        .practice-card:nth-child(3) { animation-delay: 0.3s; }
+        .practice-card:nth-child(4) { animation-delay: 0.4s; }
+        .practice-card:nth-child(5) { animation-delay: 0.5s; }
+        
+        @keyframes fadeInUp {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
     </style>
 </head>
 <body>
-    <header class="header">
-        <div class="container header-content">
-            <a href="#" class="logo" style="text-decoration:none;">
-                <div class="logo-symbol">
-                    <svg class="eco-symbol" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M12 12C12 12 16 8 16 4C16 2 14 2 12 4C10 6 10 8 12 8C14 8 16 6 16 4" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
-                        <path d="M12 12C12 12 8 16 8 20C8 22 10 22 12 20C14 18 14 16 12 16C10 16 8 18 8 20" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
-                        <circle cx="12" cy="12" r="1.5" fill="white" opacity="0.9"/>
-                        <path d="M12 12C12 12 6 10 4 6C2 4 2 6 4 8C6 10 8 10 8 8C8 6 6 4 4 6" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" fill="none" opacity="0.6"/>
-                        <path d="M12 12C12 12 18 14 20 18C22 20 20 20 18 18C16 16 16 14 16 16C16 18 18 20 20 18" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" fill="none" opacity="0.6"/>
-                    </svg>
-                </div>
-                <div class="logo-text">LABTAM | Laboratorio de Campo</div>
-            </a>
-            <a href="#unirse" class="cta-header">Iniciar Entrenamiento</a>
+    <!-- Header Principal -->
+    <header class="main-header">
+        <div class="logo-main">
+            <div class="logo-symbol-main">L</div>
+            <div class="logo-text-main">LABTAM</div>
         </div>
+        <h1 class="main-title">Práctica Diaria para la Claridad Mental</h1>
+        <p class="main-subtitle">Sistema integrado para cultivar la claridad mental, activando ciclos virtuosos entre las dimensiones Real, Imaginaria y Simbólica</p>
     </header>
 
-    <section class="hero">
-        <div class="container">
-            <div class="hero-content loading">
-                <div class="hero-text">
-                    <h1>De la fragmentación a la claridad. Cultiva tu ecosistema interior.</h1>
-                    <p class="hero-subtitle">Para curiosos como tú, que buscan navegar la complejidad del mundo moderno con gracia y propósito. Esto no es una solución rápida, es una expedición hacia adentro.</p>
-                    <p class="hero-description">
-                       En LABTAM, unimos el rigor de un laboratorio científico con la sabiduría de la ecología de campo. No observamos el bienestar bajo un microscopio, lo cultivamos en su hábitat natural: tu día a día.
-                    </p>
-                    <a href="https://wa.me/1234567890" class="cta-primary">🚀 Iniciar mi Entrenamiento Gratuito</a>
-                    <a href="#preventa" class="cta-secondary">🤝 Convertirme en Socio Fundador</a>
-                </div>
-                <div class="hero-image">
-                    <img src="https://images.unsplash.com/photo-1441974231531-c6227db76b6e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80" alt="Ecólogo de campo trabajando en la naturaleza" loading="lazy">
-                </div>
-            </div>
+    <!-- Navegación de Prácticas -->
+    <nav class="practices-nav">
+        <div class="nav-container">
+            <a href="#practica-1" class="nav-item">1. Anclaje Corporal</a>
+            <a href="#practica-2" class="nav-item">2. Cartografía de la Duda</a>
+            <a href="#practica-3" class="nav-item">3. Simulación Creativa</a>
+            <a href="#practica-4" class="nav-item">4. Reencuadre Simbólico</a>
+            <a href="#practica-5" class="nav-item">5. Integración y Cierre</a>
         </div>
-    </section>
+    </nav>
 
-    <section class="why-works-section section">
-        <div class="container">
-            <h2 class="section-title">Nuestro Laboratorio es el Mundo Real</h2>
-            <p class="section-subtitle">No estamos en una torre de marfil. Nuestro laboratorio es la vida cotidiana.</p>
-            <div class="why-works-content loading">
-                <p>Cada micro-práctica es una 'semilla' diseñada con precisión científica (neurociencia, razonamiento causal, sistemas complejos) y probada en comunidad. Nos enfocamos en regular tu sistema nervioso para que el bienestar crezca de forma natural, no forzada. Toda 'semilla' se planta en nuestro 'invernadero digital' (WhatsApp), donde aprendemos y crecemos juntos.</p>
-            </div>
-        </div>
-    </section>
-
-    <section class="benefits-section section">
-        <div class="container">
-            <h2 class="section-title">¿Qué Cultivarás en este Entrenamiento?</h2>
-            <p class="section-subtitle">Nuestro método integra mente, cuerpo y significado para un bienestar resiliente.</p>
-            
-            <div class="benefits-grid">
-                <div class="benefit-card loading">
-                    <svg class="benefit-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M12 22C12 22 20 18 20 12V5L12 2L4 5V12C4 18 12 22 12 22Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                        <path d="M9 12L11 14L15 10" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                        <circle cx="12" cy="12" r="2" fill="currentColor" opacity="0.3"/>
-                    </svg>
-                    <h3>Ancla tu Cuerpo (Plano Real)</h3>
-                    <p>Aprende a regular tu sistema nervioso con micro-prácticas de respiración y anclaje corporal para crear una base de calma y presencia.</p>
-                </div>
-                
-                <div class="benefit-card loading">
-                    <svg class="benefit-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M14.828 14.828L21 21M16.5 10.5C16.5 14.6421 13.1421 18 9 18C4.85786 18 1.5 14.6421 1.5 10.5C1.5 6.35786 4.85786 3 9 3C13.1421 3 16.5 6.35786 16.5 10.5Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                        <path d="M9 7V10.5L11.5 13" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                        <circle cx="9" cy="10.5" r="1.5" fill="currentColor" opacity="0.3"/>
-                    </svg>
-                    <h3>Mapea tus Dudas (Plano Imaginario)</h3>
-                    <p>Transforma la confusión en claridad. Te enseñaremos a deconstruir tus dudas, desafiar supuestos y visualizar nuevos caminos.</p>
-                </div>
-                
-                <div class="benefit-card loading">
-                    <svg class="benefit-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M12 2L15.09 8.26L22 9L17 14L18.18 21L12 17.77L5.82 21L7 14L2 9L8.91 8.26L12 2Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                        <circle cx="12" cy="12" r="3" stroke="currentColor" stroke-width="1.5" fill="none" opacity="0.5"/>
-                        <circle cx="12" cy="12" r="1" fill="currentColor" opacity="0.7"/>
-                    </svg>
-                    <h3>Activa tu Sabiduría (Plano Simbólico)</h3>
-                    <p>Conecta con arquetipos y metáforas para reencuadrar tus desafíos y acceder a una comprensión más profunda de tu propio sistema.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section class="about-founder-section section">
-        <div class="container">
-            <h2 class="section-title">Sobre el Ecólogo de este Campo</h2>
-            <div class="about-founder-content loading">
-                <p>En LABTAM, somos ecólogos de campo del bienestar, como tú. Creamos este laboratorio desde nuestra propia frustración con las soluciones superficiales en LATAM.</p>
-                <p>Nuestro método es usar la ciencia y la curiosidad para testear micro-prácticas en nuestra comunidad de WhatsApp, descubriendo juntos lo que de verdad nos transforma. Esto no es una clase; es una expedición compartida hacia ecosistemas internos más regenerativos.</p>
-                <a href="#unirse" class="cta-primary" style="margin-top:24px;">Únete a la Expedición</a>
-            </div>
-        </div>
-    </section>
-
-    <section class="steps-section section">
-        <div class="container">
-            <h2 class="section-title">Empieza tu Expedición en 3 Pasos Simples</h2>
-            <p class="section-subtitle">Sin complicaciones, sin promesas vacías</p>
-            <div class="steps-container">
-                <div class="step-card loading"><div class="step-number">1</div><h3 class="step-title">Únete al Invernadero Digital</h3><p class="step-description">Ingresa a nuestro canal de WhatsApp, explora el historial de micro-prácticas y selecciona las que quieras cultivar. Crece junto a una comunidad que te apoya.</p></div>
-                <div class="step-card loading"><div class="step-number">2</div><h3 class="step-title">Planta tu Primera Semilla</h3><p class="step-description">Incorpora una de nuestras 5 prácticas integradas diseñadas para darte claridad mental, alinear tus decisiones y encontrar calma en el día a día.</p></div>
-                <div class="step-card loading"><div class="step-number">3</div><h3 class="step-title">Comparte y Crece en Comunidad</h3><p class="step-description">Cuéntanos tu experiencia por WhatsApp, inspiras a otros, fortaleces tu compromiso y descubrimos juntos lo que realmente funciona en nuestro ecosistema.</p></div>
-            </div>
-        </div>
-    </section>
-
-    <section class="pricing-section section" id="unirse">
-        <div class="container">
-            <div class="pricing-intro">
-                <h2>Elige tu Rol en la Expedición</h2>
-                <p class="section-subtitle">Empieza gratis con el Entrenamiento e impulsa el Bienestar en LATAM como Socio Fundador.</p>
+    <div class="container">
+        <!-- Práctica 1: Ritual de Anclaje Corporal -->
+        <article id="practica-1" class="practice-card">
+            <div class="practice-header">
+                <div class="practice-number">1</div>
+                <svg class="practice-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M12 22C12 22 20 18 20 12V5L12 2L4 5V12C4 18 12 22 12 22Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M9 12L11 14L15 10" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    <circle cx="12" cy="12" r="2" fill="currentColor" opacity="0.3"/>
+                </svg>
+                <h2 class="practice-title">Ritual de Anclaje Corporal</h2>
+                <p class="practice-meta">Dimensión Real • 5 minutos</p>
             </div>
             
-            <div class="pricing-container">
-                <div class="pricing-card loading">
-                    <h3 class="pricing-title">Participante del Entrenamiento</h3>
-                    <div class="price">GRATIS</div><p class="price-note">Para siempre</p>
-                    <ul class="features-list">
-                        <li><span class="check">✓</span> <span>Recibe nuestro <strong>kit de campo con 5 prácticas integradas</strong> para cultivar tu claridad mental.</span></li>
-                        <li><span class="check">✓</span> <span>Únete al <strong>invernadero digital en WhatsApp</strong> para compartir tu proceso con la comunidad.</span></li>
-                        <li><span class="check">✓</span> <span>Acceso a micro-prácticas, investigaciones y avances que exploramos a tu ritmo, <strong>sin presión ni juicios</strong>.</span></li>
-                    </ul>
-                    <a href="https://wa.me/1234567890" class="pricing-cta">Iniciar Entrenamiento Gratuito</a>
+            <div class="practice-content">
+                <div class="practice-foundation">
+                    <p><strong>Fundamento:</strong> El cuerpo es el punto de integración donde convergen las tres dimensiones. Este ritual establece una base fisiológica óptima para la claridad mental.</p>
                 </div>
                 
-                <div class="pricing-card featured loading" id="preventa">
-                    <h3 class="pricing-title">Socio Fundador</h3>
-                    <div class="price">Aporte Fundacional</div><p class="price-note">Aporte sugerido: $10 USD (pago único)</p>
-                    <ul class="features-list">
-                        <li><span class="check">✓</span> Todo lo del Participante, y además te conviertes en co-líder de LABTAM.</li>
-                        <li><span class="check">✓</span> <span><strong>Co-Estratega:</strong> Participa en la toma de decisiones sobre las futuras investigaciones y herramientas que crearemos.</span></li>
-                        <li><span class="check">✓</span> <span><strong>Pionero de Campo:</strong> Obtén acceso prioritario y exclusivo a todos nuestros prototipos, como el Asistente de Bienestar y la Calculadora.</span></li>
-                        <li><span class="check">✓</span> <span><strong>Guardián del Impacto:</strong> Accede con total transparencia a cómo se invierten los fondos para regenerar el bienestar en LATAM.</span></li>
-                    </ul>
-                    <div class="alert-escasez">⚡ ¡Calculadora de Bienestar GRATIS para los primeros 20 Socios Fundadores!</div>
-                    <a href="#" class="pricing-cta">Convertirme en Socio Fundador</a>
-                </div>
-            </div>
-
-            <section id="why-socio" class="section benefits-section" style="padding-top: var(--spacing-xl); padding-bottom: 0;">
-                <div class="container">
-                    <h2 class="section-title">💡 ¿Por qué ser Socio Fundador?</h2>
-                    <p class="section-subtitle">Co-lidera la regeneración del bienestar en LATAM, accede a herramientas exclusivas.</p>
-                    <ul class="features-list" style="max-width:700px; margin:0 auto;">
-                        <li><span class="check">✓</span> Proyectos validados por investigación y diseño comunitario.</li>
-                        <li><span class="check">✓</span> Acceso anticipado y prioritario al Asistente de Bienestar en WhatsApp.</li>
-                        <li><span class="check">✓</span> Transparencia total: fondos y avances en tiempo real.</li>
-                        <li><span class="check">✓</span> Participación activa en la toma de decisiones estratégicas.</li>
-                    </ul>
-                    <a href="#preventa" class="cta-primary" style="margin-top:var(--spacing-md); display: table; margin-left: auto; margin-right: auto;">Convertirme en Socio Fundador</a>
-                </div>
-            </section>
-
-            <div class="payment-options">
-                <h3>Opciones para convertirte en Socio Fundador</h3>
-                <div class="payment-methods">
-                    <div class="payment-method"><h4>🌎 LATAM</h4><p><strong>$10 USD</strong>(sugerido)<br>Vía PayPal</p></div>
-                    <div class="payment-method"><h4>🇦🇷 Argentina</h4><p><strong>$10,000 ARS</strong>(sugerido)<br>Vía Alias</p>
-                        <button id="copy-alias-btn" style="margin-top:8px; padding:6px 16px; border-radius:8px; border:none; background:#4A7C59; color:#fff; font-weight:600; cursor:pointer;">Alias: Ferlab</button>
+                <div class="practice-steps">
+                    <div class="step-item">
+                        <h4>1. Postura Consciente</h4>
+                        <p>Siéntate o ponte de pie con la columna alineada. Imagina un hilo que te eleva desde la coronilla.</p>
+                    </div>
+                    
+                    <div class="step-item">
+                        <h4>2. Respiración Triangular</h4>
+                        <p>Inhala contando hasta 4, mantén contando hasta 4, exhala contando hasta 4. Repite 5 veces.</p>
+                    </div>
+                    
+                    <div class="step-item">
+                        <h4>3. Escaneo Corporal Rápido</h4>
+                        <p>Recorre mentalmente tu cuerpo de pies a cabeza, notando sensaciones sin juzgarlas.</p>
+                    </div>
+                    
+                    <div class="step-item">
+                        <h4>4. Microestiramiento</h4>
+                        <p>Realiza tres estiramientos intuitivos que tu cuerpo pida en este momento.</p>
+                    </div>
+                    
+                    <div class="step-item">
+                        <h4>5. Hidratación Consciente</h4>
+                        <p>Bebe un vaso de agua lentamente, sintiendo su recorrido y efecto refrescante.</p>
                     </div>
                 </div>
-                <p style="margin-top: 20px; font-size: 0.85rem; opacity: 0.8;">Al convertirte en Socio Fundador, no solo apoyas una causa: participas activamente en co-liderar la regeneración del bienestar en LATAM, mientras accedes a herramientas y experiencias que transforman tu ecosistema interior desde hoy.</p>
+                
+                <div class="adaptation-section">
+                    <h3>🔄 Adaptación</h3>
+                    <p>Si detectas tensión o malestar significativo, dedica más tiempo a esa área. Si te sientes con energía baja, incluye 10 saltos o 5 respiraciones energizantes.</p>
+                </div>
             </div>
-        </div>
-    </section>
+        </article>
 
-    <section class="faq-section section">
-      <div class="container">
-        <h2 class="section-title">Preguntas Frecuentes</h2>
-        <p class="section-subtitle">Todo lo que necesitas saber para empezar tu expedición</p>
-        <div class="faq-container loading">
-          <div class="faq-item"><button class="faq-question" aria-expanded="false"><span>¿Cuánto tiempo necesito dedicar diariamente?</span><span>+</span></button><div class="faq-answer">Las prácticas están diseñadas para durar entre 3 a 7 minutos máximo cada una. Puedes integrarlas fácilmente en tu rutina diaria: mientras esperas el transporte, antes de revisar el teléfono o durante una pausa en el trabajo. La clave está en la consistencia, no en la duración.</div></div>
-          <div class="faq-item"><button class="faq-question" aria-expanded="false"><span>¿Qué pasa si no logro mantener una práctica?</span><span>+</span></button><div class="faq-answer">No hay penalizaciones ni juicios. LABTAM es un laboratorio vivo donde experimentamos juntos. Si una práctica no funciona para ti, compartes tu experiencia en la comunidad, recibimos feedback valioso y ajustamos el enfoque. Tu "fracaso" es información valiosa para todo el ecosistema.</div></div>
-          <div class="faq-item"><button class="faq-question" aria-expanded="false"><span>¿Cómo funciona la transparencia de los aportes como Socio Fundador?</span><span>+</span></button><div class="faq-answer">Cada peso que aportas se reporta diariamente en el grupo privado de WhatsApp. Verás exactamente cuánto dinero hay disponible, en qué proyectos se invierte, los avances de cada iniciativa y podrás votar sobre futuras inversiones. Transparencia total, sin letra pequeña.</div></div>
-          <div class="faq-item"><button class="faq-question" aria-expanded="false"><span>¿Qué diferencia hay entre ser Participante y Socio Fundador?</span><span>+</span></button><div class="faq-answer">Como Participante accedes gratis a las prácticas y la comunidad general. Como Socio Fundador, además participas en las decisiones de inversión, accedes al grupo privado, recibes herramientas exclusivas como la Calculadora de Bienestar y tienes acceso anticipado al Asistente de WhatsApp.</div></div>
-          <div class="faq-item"><button class="faq-question" aria-expanded="false"><span>¿Qué respaldo científico tienen las prácticas?</span><span>+</span></button><div class="faq-answer">Cada práctica se basa en investigación causal, neurociencia y sistemas complejos. No usamos pseudociencia ni tendencias pasajeras. Antes de implementar cualquier práctica, revisamos estudios peer-reviewed y la adaptamos al contexto latinoamericano específico.</div></div>
-          <div class="faq-item"><button class="faq-question" aria-expanded="false"><span>¿Por qué solo 20 plazas de Socio Fundador?</span><span>+</span></button><div class="faq-answer">Queremos mantener un grupo íntimo donde cada Socio Fundador tenga voz real en las decisiones. Con 20 personas podemos garantizar atención personalizada, discusiones profundas y que cada opinión cuente en la dirección de LABTAM.</div></div>
-        </div>
-      </div>
-    </section>
+        <!-- Práctica 2: Cartografía de la Duda -->
+        <article id="practica-2" class="practice-card">
+            <div class="practice-header">
+                <div class="practice-number">2</div>
+                <svg class="practice-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M14.828 14.828L21 21M16.5 10.5C16.5 14.6421 13.1421 18 9 18C4.85786 18 1.5 14.6421 1.5 10.5C1.5 6.35786 4.85786 3 9 3C13.1421 3 16.5 6.35786 16.5 10.5Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M9 7V10.5L11.5 13" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    <circle cx="9" cy="10.5" r="1.5" fill="currentColor" opacity="0.3"/>
+                </svg>
+                <h2 class="practice-title">Cartografía de la Duda</h2>
+                <p class="practice-meta">Integración Real-Imaginario-Simbólico • 7 minutos</p>
+            </div>
+            
+            <div class="practice-content">
+                <div class="practice-foundation">
+                    <p><strong>Fundamento:</strong> Esta práctica aplica el proceso por fases para navegar la duda, transformándola de obstáculo a herramienta para el crecimiento.</p>
+                </div>
+                
+                <div class="practice-steps">
+                    <div class="step-item">
+                        <h4>1. Reconocimiento (Real)</h4>
+                        <p>En una hoja, escribe una duda o confusión específica que estés experimentando. Nota las sensaciones corporales asociadas.</p>
+                    </div>
+                    
+                    <div class="step-item">
+                        <h4>2. Deconstrucción (Primeros Principios)</h4>
+                        <ul>
+                            <li>Divide la duda en sus componentes más básicos</li>
+                            <li>Identifica al menos una suposición heredada que pueda estar limitándote</li>
+                            <li>Formula una hipótesis alternativa que desafíe esa suposición</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="step-item">
+                        <h4>3. Exploración Multidimensional</h4>
+                        <ul>
+                            <li><strong>Dimensión Real:</strong> ¿Qué factores físicos o psicológicos podrían estar influyendo?</li>
+                            <li><strong>Dimensión Imaginaria:</strong> ¿Qué imágenes o escenarios anticipas?</li>
+                            <li><strong>Dimensión Simbólica:</strong> ¿Qué significados o interpretaciones estás asignando?</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="step-item">
+                        <h4>4. Acción Catalítica</h4>
+                        <p>Define una acción pequeña y concreta que puedas realizar hoy para avanzar a pesar de la duda.</p>
+                    </div>
+                </div>
+                
+                <div class="adaptation-section">
+                    <h3>🔄 Adaptación</h3>
+                    <p>Si no identificas una duda específica, aplica este proceso a una decisión pendiente o área de incertidumbre. Si la duda es abrumadora, comienza con una versión simplificada: solo nombrarla y definir una micro-acción.</p>
+                </div>
+            </div>
+        </article>
 
-    <section class="footer-cta">
-        <div class="container">
-            <h2>El ecosistema más importante que puedes regenerar es el tuyo</h2>
-            <p>En comunidad. Con ciencia. Para LATAM.</p>
-            <p>Empieza hoy tu expedición hacia un ecosistema interior más regenerativo.</p>
-            <a href="#unirse" class="cta-primary">Iniciar mi Entrenamiento Gratuito</a>
-        </div>
-    </section>
+        <!-- Práctica 3: Simulación Creativa -->
+        <article id="practica-3" class="practice-card">
+            <div class="practice-header">
+                <div class="practice-number">3</div>
+                <svg class="practice-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M9 11H15L13 13.5L15 16H9L11 13.5L9 11Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M21 12C21 16.9706 16.9706 21 12 21C7.02944 21 3 16.9706 3 12C3 7.02944 7.02944 3 12 3C16.9706 3 21 7.02944 21 12Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    <circle cx="12" cy="12" r="2" fill="currentColor" opacity="0.3"/>
+                </svg>
+                <h2 class="practice-title">Simulación Creativa</h2>
+                <p class="practice-meta">Dimensión Imaginaria • 5 minutos</p>
+            </div>
+            
+            <div class="practice-content">
+                <div class="practice-foundation">
+                    <p><strong>Fundamento:</strong> Esta práctica activa la imaginación intencional para superar limitaciones perceptuales y generar nuevas posibilidades.</p>
+                </div>
+                
+                <div class="practice-steps">
+                    <div class="step-item">
+                        <h4>1. Preparación</h4>
+                        <p>Cierra los ojos y realiza tres respiraciones profundas.</p>
+                    </div>
+                    
+                    <div class="step-item">
+                        <h4>2. Visualización Multisensorial</h4>
+                        <p>Imagina vívidamente un escenario donde:</p>
+                        <ul>
+                            <li>Has superado la duda identificada en el ejercicio anterior</li>
+                            <li>Estás experimentando claridad mental completa</li>
+                            <li>Observa los detalles: ¿Qué ves? ¿Qué escuchas? ¿Qué sientes?</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="step-item">
+                        <h4>3. Perspectiva Alternativa</h4>
+                        <p>Ahora visualiza la misma situación desde otro ángulo:</p>
+                        <ul>
+                            <li>Como si fueras un observador externo</li>
+                            <li>Como si estuvieras 5 años en el futuro mirando hacia atrás</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="step-item">
+                        <h4>4. Puente Imaginario</h4>
+                        <p>Visualiza un puente que conecta tu estado actual con ese estado de claridad. ¿Cómo es ese puente? ¿De qué está hecho? ¿Qué encuentras al cruzarlo?</p>
+                    </div>
+                </div>
+                
+                <div class="adaptation-section">
+                    <h3>🔄 Adaptación</h3>
+                    <p>Si te resulta difícil visualizar, enfócate en las sensaciones corporales o emociones asociadas. Si tu mente divaga, ancla la atención en la respiración y regresa suavemente a la visualización.</p>
+                </div>
+            </div>
+        </article>
 
-    <a href="https://wa.me/1234567890" class="whatsapp-btn" title="¿Preguntas sobre la expedición?" aria-label="Contactar por WhatsApp">💬</a>
+        <!-- Práctica 4: Reencuadre Simbólico -->
+        <article id="practica-4" class="practice-card">
+            <div class="practice-header">
+                <div class="practice-number">4</div>
+                <svg class="practice-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M12 2L15.09 8.26L22 9L17 14L18.18 21L12 17.77L5.82 21L7 14L2 9L8.91 8.26L12 2Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    <circle cx="12" cy="12" r="3" stroke="currentColor" stroke-width="1.5" fill="none" opacity="0.5"/>
+                    <circle cx="12" cy="12" r="1" fill="currentColor" opacity="0.7"/>
+                </svg>
+                <h2 class="practice-title">Reencuadre Simbólico</h2>
+                <p class="practice-meta">Dimensión Simbólica • 5 minutos</p>
+            </div>
+            
+            <div class="practice-content">
+                <div class="practice-foundation">
+                    <p><strong>Fundamento:</strong> Esta práctica utiliza sistemas simbólicos para transformar la interpretación de la experiencia y acceder a nuevos niveles de significado.</p>
+                </div>
+                
+                <div class="practice-steps">
+                    <div class="step-item">
+                        <h4>1. Selección de Símbolo</h4>
+                        <p>Elige intuitivamente uno de estos arquetipos para trabajar hoy:</p>
+                        <ul>
+                            <li>🧭 <strong>El Explorador</strong> (descubrimiento, aventura, nuevos territorios)</li>
+                            <li>⚗️ <strong>El Alquimista</strong> (transformación, integración de opuestos)</li>
+                            <li>🦉 <strong>El Sabio</strong> (discernimiento, perspectiva, conocimiento)</li>
+                            <li>🔨 <strong>El Artesano</strong> (creación, habilidad, manifestación)</li>
+                            <li>🌊 <strong>La Fuente</strong> (origen, nutrición, abundancia)</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="step-item">
+                        <h4>2. Diálogo Simbólico</h4>
+                        <p>Pregúntate: "Si fuera este arquetipo, ¿cómo abordaría mi situación actual?"</p>
+                    </div>
+                    
+                    <div class="step-item">
+                        <h4>3. Extracción de Sabiduría</h4>
+                        <p>Escribe una frase o principio que emerja de este diálogo.</p>
+                    </div>
+                    
+                    <div class="step-item">
+                        <h4>4. Anclaje Físico</h4>
+                        <p>Realiza un gesto simple que represente esta sabiduría y que puedas repetir durante el día.</p>
+                    </div>
+                </div>
+                
+                <div class="adaptation-section">
+                    <h3>🔄 Adaptación</h3>
+                    <p>Si ningún arquetipo resuena, puedes elegir un elemento natural (agua, fuego, tierra, aire) o crear tu propio símbolo. Si te sientes bloqueado, dibuja el símbolo en lugar de escribir sobre él.</p>
+                </div>
+            </div>
+        </article>
+
+        <!-- Práctica 5: Integración y Cierre -->
+        <article id="practica-5" class="practice-card">
+            <div class="practice-header">
+                <div class="practice-number">5</div>
+                <svg class="practice-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M12 12C12 12 16 8 16 4C16 2 14 2 12 4C10 6 10 8 12 8C14 8 16 6 16 4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+                    <path d="M12 12C12 12 8 16 8 20C8 22 10 22 12 20C14 18 14 16 12 16C10 16 8 18 8 20" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+                    <circle cx="12" cy="12" r="1.5" fill="currentColor" opacity="0.9"/>
+                    <path d="M12 12C12 12 6 10 4 6C2 4 2 6 4 8C6 10 8 10 8 8C8 6 6 4 4 6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" fill="none" opacity="0.6"/>
+                    <path d="M12 12C12 12 18 14 20 18C22 20 20 20 18 18C16 16 16 14 16 16C16 18 18 20 20 18" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" fill="none" opacity="0.6"/>
+                </svg>
+                <h2 class="practice-title">Integración y Cierre</h2>
+                <p class="practice-meta">Síntesis R/I/S • 3 minutos</p>
+            </div>
+            
+            <div class="practice-content">
+                <div class="practice-foundation">
+                    <p><strong>Fundamento:</strong> Este cierre consolida los insights de los ejercicios anteriores y establece un puente hacia la acción en el mundo real.</p>
+                </div>
+                
+                <div class="practice-steps">
+                    <div class="step-item">
+                        <h4>1. Síntesis</h4>
+                        <p>En 2-3 frases, resume lo más valioso que has descubierto en la práctica de hoy.</p>
+                    </div>
+                    
+                    <div class="step-item">
+                        <h4>2. Intención</h4>
+                        <p>Formula una intención clara para el resto del día que incorpore este descubrimiento.</p>
+                    </div>
+                    
+                    <div class="step-item">
+                        <h4>3. Encarnación</h4>
+                        <p>Realiza una respiración profunda mientras visualizas esta intención integrándose en tu cuerpo.</p>
+                    </div>
+                    
+                    <div class="step-item">
+                        <h4>4. Transición</h4>
+                        <p>Realiza un gesto deliberado (como juntar las manos o dar una palmada suave) para marcar el fin de la práctica y la transición a tus actividades.</p>
+                    </div>
+                </div>
+                
+                <div class="adaptation-section">
+                    <h3>🔄 Adaptación</h3>
+                    <p>Si te sientes inspirado, puedes extender este momento escribiendo más extensamente o creando un recordatorio visual para tu espacio de trabajo.</p>
+                </div>
+            </div>
+        </article>
+
+        <!-- Sección de Implementación -->
+        <section class="implementation-section">
+            <h2 class="implementation-title">🌱 Recomendaciones para la Implementación</h2>
+            <p>Cultiva tu ecosistema interior con consistencia adaptativa y registro evolutivo.</p>
+            
+            <div class="implementation-grid">
+                <div class="implementation-card">
+                    <h4>Consistencia Adaptativa</h4>
+                    <p>Realiza la práctica diariamente, preferiblemente a la misma hora, pero adapta la duración según tu disponibilidad. En días con poco tiempo, enfócate solo en los componentes 1 y 5.</p>
+                </div>
+                
+                <div class="implementation-card">
+                    <h4>Registro Evolutivo</h4>
+                    <p>Mantén un cuaderno dedicado a esta práctica donde puedas observar patrones, evolución y descubrimientos a lo largo del tiempo.</p>
+                </div>
+                
+                <div class="implementation-card">
+                    <h4>Integración Gradual</h4>
+                    <p>Comienza con una práctica por semana hasta dominarla, luego integra gradualmente las demás. La calidad supera a la cantidad.</p>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-logo">
+            <svg width="40" height="40" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M12 12C12 12 16 8 16 4C16 2 14 2 12 4C10 6 10 8 12 8C14 8 16 6 16 4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+                <path d="M12 12C12 12 8 16 8 20C8 22 10 22 12 20C14 18 14 16 12 16C10 16 8 18 8 20" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+                <circle cx="12" cy="12" r="1.5" fill="currentColor" opacity="0.9"/>
+                <path d="M12 12C12 12 6 10 4 6C2 4 2 6 4 8C6 10 8 10 8 8C8 6 6 4 4 6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" fill="none" opacity="0.6"/>
+                <path d="M12 12C12 12 18 14 20 18C22 20 20 20 18 18C16 16 16 14 16 16C16 18 18 20 20 18" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" fill="none" opacity="0.6"/>
+            </svg>
+        </div>
+        <p class="footer-text">LABTAM | Laboratorio de Campo del Bienestar<br>
+        <em>"De la fragmentación a la claridad. Cultiva tu ecosistema interior."</em></p>
+    </footer>
 
     <script>
-        (function() {
-            'use strict';
-            
-            function initFAQ() {
-                const faqQuestions = document.querySelectorAll('.faq-question');
-                faqQuestions.forEach(button => {
-                    button.addEventListener('click', function() {
-                        const answer = this.nextElementSibling;
-                        const isOpen = answer.style.display === 'block';
-                        
-                        // Cerrar todas las respuestas
-                        document.querySelectorAll('.faq-answer').forEach(a => a.style.display = 'none');
-                        document.querySelectorAll('.faq-question').forEach(q => {
-                            q.setAttribute('aria-expanded', 'false');
-                            q.querySelector('span:last-child').textContent = '+';
-                        });
-                        
-                        // Abrir la respuesta actual si no estaba abierta
-                        if (!isOpen) {
-                            answer.style.display = 'block';
-                            this.setAttribute('aria-expanded', 'true');
-                            this.querySelector('span:last-child').textContent = '-';
-                        }
-                    });
-                });
-            }
-            
-            function initSmoothScroll() {
-                document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-                    anchor.addEventListener('click', function (e) {
-                        e.preventDefault();
-                        const target = document.querySelector(this.getAttribute('href'));
-                        if (target) {
-                            const headerHeight = document.querySelector('.header').offsetHeight;
-                            const targetPosition = target.offsetTop - headerHeight - 20;
-                            window.scrollTo({ 
-                                top: targetPosition, 
-                                behavior: 'smooth' 
-                            });
-                        }
-                    });
-                });
-            }
-            
-            function initAnimations() {
-                const observer = new IntersectionObserver((entries) => {
-                    entries.forEach(entry => {
-                        if (entry.isIntersecting) {
-                            entry.target.classList.add('visible');
-                            observer.unobserve(entry.target);
-                        }
-                    });
-                }, { 
-                    threshold: 0.1, 
-                    rootMargin: '0px 0px -50px 0px' 
-                });
+        // Navegación suave
+        document.querySelectorAll('.nav-item').forEach(item => {
+            item.addEventListener('click', function(e) {
+                e.preventDefault();
                 
-                document.querySelectorAll('.loading').forEach(el => {
-                    observer.observe(el);
-                });
-            }
-            
-            function initCopyButton() {
-                const copyBtn = document.getElementById('copy-alias-btn');
-                if (copyBtn) {
-                    copyBtn.addEventListener('click', function() {
-                        navigator.clipboard.writeText('Ferlab').then(() => {
-                            this.textContent = '¡Copiado!';
-                            setTimeout(() => { 
-                                this.textContent = 'Alias: Ferlab'; 
-                            }, 1500);
-                        }).catch(() => {
-                            // Fallback para navegadores que no soportan clipboard API
-                            this.textContent = 'Ferlab';
-                            setTimeout(() => { 
-                                this.textContent = 'Alias: Ferlab'; 
-                            }, 1500);
-                        });
+                // Remover clase active de todos los items
+                document.querySelectorAll('.nav-item').forEach(nav => nav.classList.remove('active'));
+                
+                // Agregar clase active al item clickeado
+                this.classList.add('active');
+                
+                // Scroll suave al elemento
+                const targetId = this.getAttribute('href');
+                const targetElement = document.querySelector(targetId);
+                
+                if (targetElement) {
+                    const offsetTop = targetElement.offsetTop - 100; // Ajuste para la navegación fija
+                    window.scrollTo({
+                        top: offsetTop,
+                        behavior: 'smooth'
                     });
                 }
-            }
+            });
+        });
+
+        // Activar navegación según scroll
+        window.addEventListener('scroll', function() {
+            const practices = document.querySelectorAll('.practice-card');
+            const navItems = document.querySelectorAll('.nav-item');
             
-            function initHeaderScroll() {
-                const header = document.querySelector('.header');
-                let lastScrollY = window.scrollY;
-                
-                window.addEventListener('scroll', () => {
-                    const currentScrollY = window.scrollY;
-                    
-                    if (currentScrollY > 100) {
-                        header.style.background = 'rgba(255, 255, 255, 0.98)';
-                        header.style.boxShadow = '0 4px 20px rgba(0,0,0,0.15)';
-                    } else {
-                        header.style.background = 'rgba(255, 255, 255, 0.95)';
-                        header.style.boxShadow = '0 2px 12px rgba(0,0,0,0.08)';
-                    }
-                    
-                    lastScrollY = currentScrollY;
-                });
-            }
+            let current = '';
+            practices.forEach(practice => {
+                const rect = practice.getBoundingClientRect();
+                if (rect.top <= 150 && rect.bottom >= 150) {
+                    current = practice.id;
+                }
+            });
             
-            function init() {
-                initFAQ();
-                initSmoothScroll();
-                initAnimations();
-                initCopyButton();
-                initHeaderScroll();
-            }
-            
-            // Inicializar cuando el DOM esté listo
-            if (document.readyState === 'loading') {
-                document.addEventListener('DOMContentLoaded', init);
-            } else {
-                init();
-            }
-        })();
+            navItems.forEach(item => {
+                item.classList.remove('active');
+                if (item.getAttribute('href') === '#' + current) {
+                    item.classList.add('active');
+                }
+            });
+        });
+
+        // Animación de entrada para las tarjetas
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.animationPlayState = 'running';
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.practice-card').forEach(card => {
+            observer.observe(card);
+        });
     </script>
 </body>
 </html>
-
